@@ -1,5 +1,5 @@
 //
-//  CreateCropViewController.swift
+//  CropSetupViewController.swift
 //  CropBook
 //
 //  Created by Jason Wu on 2018-07-02.
@@ -8,35 +8,40 @@
 
 import UIKit
 
-class CreateCropViewController: UIViewController {
+class CropSetupViewController: UIViewController {
 
-    @IBOutlet weak var ByNameButton: UIButton!
     var gardenIndex:Int?
+    
+    @IBOutlet weak var CropTypeTF: UITextField!
+    @IBOutlet weak var CropNameTF: UITextField!
+    
+    @IBAction func CreateButton(_ sender: Any) {
+        if let cropType=CropTypeTF.text,
+            let cropName=CropNameTF.text{
+         // hardcoding crop id and watering variable, function in iteration 2 and 3.
+            let newCrop=CropProfile(cropid: 0, cropName: cropName, cropType: cropType, wateringVariable: 0.0)
+            GardenList[gardenIndex!]?.cropProfile.append(newCrop)
+            
+        }
+    }
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+ 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="Category"{
-            var nextController=segue.destination as!CropCategoryViewController
-            nextController.gardenIndex=gardenIndex
-        }
+        var nextController=segue.destination as!GardenCropList
         
-        else if segue.identifier=="CropSetup"{
-            var nextController=segue.destination as!CropSetupViewController
         nextController.gardenIndex=gardenIndex
-        }
     }
+    
+
     /*
     // MARK: - Navigation
 

@@ -1,5 +1,5 @@
 //
-//  CreateCropViewController.swift
+//  CropCategoryViewController.swift
 //  CropBook
 //
 //  Created by Jason Wu on 2018-07-02.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-class CreateCropViewController: UIViewController {
+class CropCategoryViewController: UIViewController {
 
-    @IBOutlet weak var ByNameButton: UIButton!
     var gardenIndex:Int?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,19 +22,7 @@ class CreateCropViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="Category"{
-            var nextController=segue.destination as!CropCategoryViewController
-            nextController.gardenIndex=gardenIndex
-        }
-        
-        else if segue.identifier=="CropSetup"{
-            var nextController=segue.destination as!CropSetupViewController
-        nextController.gardenIndex=gardenIndex
-        }
-    }
+
     /*
     // MARK: - Navigation
 

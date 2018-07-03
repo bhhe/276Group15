@@ -13,7 +13,13 @@ class CropProfile
     
     
 //object seperation step
-
+    init (){
+        self.cropid = 0
+        self.cropName = ""
+        self.cropType = ""
+        self.wateringVariable = 0.0
+    }
+    
     init (cropid: Int,cropName: String, cropType: String, wateringVariable: Float)
     {
         self.cropid = cropid

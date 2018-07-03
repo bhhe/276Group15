@@ -8,11 +8,11 @@
 
 import UIKit
 
-var myIndex=0
+
 
 class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
+    var myIndex=0
     var gardenIndex:Int?
     
     
@@ -26,14 +26,14 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text=GardenList[gardenIndex!]?.cropProfile[indexPath.row]
+        cell.textLabel?.text=GardenList[gardenIndex!]?.cropProfile[indexPath.row].cropName
         
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex=indexPath.row
-        performSegue(withIdentifier: "", sender: self)
+        performSegue(withIdentifier: "CropProfileSegue", sender: self)
         
     }
     
@@ -41,9 +41,15 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Pass gardenIndex to the next viewcontroller
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var nextController=segue.destination as!CreateCropViewController
+        if segue.identifier=="CreateCrop"{
+        let nextController=segue.destination as!CreateCropViewController
         nextController.gardenIndex=gardenIndex
-        
+        }
+        else if segue.identifier=="CropProfileSegue"{
+            let nextController=segue.destination as!CropProfileViewController
+            nextController.gardenIndex=gardenIndex
+            nextController.myIndex=myIndex
+        }
     }
     
     
