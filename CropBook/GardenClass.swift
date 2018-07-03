@@ -14,7 +14,7 @@ class MyGarden{
     
     
     var gardenID:UInt32
-    var cropProfile=[CropProfile]()
+    var cropProfile=[Int]()
     var gardenName:String
     var owner:Int?
     var gardenUserID:String?
@@ -30,7 +30,7 @@ class MyGarden{
     
     
     
-    func AddCrop(New Crop:CropProfile)->Int{       //return position in array
+    func AddCrop(New Crop:Int)->Int{       //return position in array
         cropProfile.append(Crop)
         return cropProfile.count-1
     }

@@ -56,8 +56,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Garden1switch:" destination="LNc-op-tDw" eventType="touchUpInside" id="bYB-Me-xZU"/>
-                                    <segue destination="TDo-cM-XrG" kind="show" id="6qx-lp-V8y"/>
+                                    <segue destination="TDo-cM-XrG" kind="show" id="u7h-0K-4gq"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4Z-dE-3zb">
@@ -98,7 +97,7 @@
                         <outlet property="delete1" destination="RJo-rw-RS0" id="UBr-XZ-XeI"/>
                         <outlet property="delete2" destination="v4Z-dE-3zb" id="cuT-0f-aso"/>
                         <outlet property="delete3" destination="3Ih-6Y-ZFQ" id="cMF-TM-Q2B"/>
-                        <outlet property="emptyGardenLabel" destination="iK8-mp-IJE" id="puD-Z0-QYT"/>
+                        <outlet property="emptyGardenLabel" destination="iK8-mp-IJE" id="eaS-ET-ZG3"/>
                         <outlet property="garden1Button" destination="GvU-v2-tnV" id="OM2-sc-mEf"/>
                         <outlet property="garden2Button" destination="IwX-Tj-pDh" id="NaN-u2-yq8"/>
                         <outlet property="garden3Button" destination="G0s-TI-9Wb" id="cfr-JQ-wEM"/>
@@ -106,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOo-J8-TZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="-1485"/>
+            <point key="canvasLocation" x="1937" y="-1616"/>
         </scene>
         <!--Gardens-->
         <scene sceneID="hNz-n2-bh7">
@@ -190,7 +189,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="By Name"/>
                                 <connections>
-                                    <segue destination="nd9-Ox-Tte" kind="show" id="iLA-g9-I1f"/>
+                                    <segue destination="Rcu-Ot-D9H" kind="show" id="RXc-9t-4NW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,55 +200,173 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="-58"/>
+            <point key="canvasLocation" x="2192.8000000000002" y="-0.44977511244377816"/>
         </scene>
         <!--Categories-->
         <scene sceneID="rcD-Oc-ZVe">
             <objects>
-                <viewController title="Categories" id="ur7-My-xsH" sceneMemberID="viewController">
+                <viewController title="Categories" id="ur7-My-xsH" customClass="CtgyViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6El-Ic-wKp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGq-fS-nvn">
+                                <rect key="frame" x="70" y="213" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Fruit">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectCategoryWithSender:" destination="ur7-My-xsH" eventType="touchUpInside" id="JKp-iO-5Vw"/>
+                                    <segue destination="Fsp-re-QyY" kind="show" id="0E5-9x-tS0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-4l-dEQ">
+                                <rect key="frame" x="241" y="212" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Vegetable"/>
+                                <connections>
+                                    <action selector="selectCategoryWithSender:" destination="ur7-My-xsH" eventType="touchUpInside" id="IZE-oO-uDh"/>
+                                    <segue destination="Fsp-re-QyY" kind="show" id="Wo8-eq-Hrg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9T-Mt-H2h">
+                                <rect key="frame" x="260" y="382" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="All"/>
+                                <connections>
+                                    <action selector="selectCategoryWithSender:" destination="ur7-My-xsH" eventType="touchUpInside" id="5ZH-ft-GdQ"/>
+                                    <segue destination="Fsp-re-QyY" kind="show" id="4Jz-qd-ApN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaX-FE-WEP">
+                                <rect key="frame" x="60" y="382" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Wheats"/>
+                                <connections>
+                                    <action selector="selectCategoryWithSender:" destination="ur7-My-xsH" eventType="touchUpInside" id="g4u-ig-Ocb"/>
+                                    <segue destination="Fsp-re-QyY" kind="show" id="6gi-Ae-cdB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rwl-lX-ncZ"/>
                     </view>
+                    <connections>
+                        <outlet property="allButton" destination="g9T-Mt-H2h" id="d5g-qL-kYA"/>
+                        <outlet property="fruitButton" destination="bGq-fS-nvn" id="HWM-pP-dXS"/>
+                        <outlet property="veggieButton" destination="gzY-4l-dEQ" id="VSt-Ed-uXJ"/>
+                        <outlet property="wheatButton" destination="LaX-FE-WEP" id="kGt-My-3Bg"/>
+                        <segue destination="Fsp-re-QyY" kind="show" identifier="sltdCtgySegue" id="r7f-7V-dC0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjH-mD-Sae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3060" y="-53"/>
+            <point key="canvasLocation" x="3354" y="0.0"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="fKM-ms-av6">
+        <!--Ctgy Table View Controller-->
+        <scene sceneID="wCe-rk-qB7">
             <objects>
-                <viewController title="Search" id="nd9-Ox-Tte" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QL8-Mp-Ecm">
+                <tableViewController id="Fsp-re-QyY" customClass="CtgyTableViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pk7-qS-QNb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="TJ9-w6-v5B">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TJ9-w6-v5B" id="Xak-1A-q0q">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fsp-re-QyY" id="T2e-ZF-gQf"/>
+                            <outlet property="delegate" destination="Fsp-re-QyY" id="Zl4-Yl-PsF"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="MQB-u5-OiR" kind="show" identifier="ctgySegue" id="WTw-Ad-1Yx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5X-4T-9ap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4246" y="0.0"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="40Z-7Y-l5a">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olk-24-DEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Rcu-Ot-D9H" customClass="SearchViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LuF-3E-wNc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-2E-IV5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e98-Bb-xzs">
+                                <rect key="frame" x="57" y="114" width="260" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1O-eK-b59">
+                                <rect key="frame" x="127" y="203" width="121" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchLib:" destination="Rcu-Ot-D9H" eventType="touchUpInside" id="WlE-2V-ihi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWD-68-JFY">
+                                <rect key="frame" x="16" y="328" width="343" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="KrW-Lx-fj4"/>
+                        <viewLayoutGuide key="safeArea" id="krX-1X-w5P"/>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="q0B-k3-NaN" id="7S8-KY-mSa"/>
+                        <outlet property="searchBar" destination="e98-Bb-xzs" id="HbV-I1-2iD"/>
+                        <outlet property="searchBtn" destination="J1O-eK-b59" id="ryU-rD-9w7"/>
+                        <outlet property="searchLabel" destination="iWD-68-JFY" id="YCQ-j6-YVC"/>
+                        <segue destination="MQB-u5-OiR" kind="show" identifier="searched" id="Zfq-xd-YFR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ruW-h9-xnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="q0B-k3-NaN">
-                    <connections>
-                        <outlet property="delegate" destination="nd9-Ox-Tte" id="oSE-tW-Ni0"/>
-                        <outlet property="searchContentsController" destination="nd9-Ox-Tte" id="VYO-SZ-uwf"/>
-                        <outlet property="searchResultsDataSource" destination="nd9-Ox-Tte" id="vpX-c1-PyA"/>
-                        <outlet property="searchResultsDelegate" destination="nd9-Ox-Tte" id="CGH-Oj-shv"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3060" y="699"/>
+            <point key="canvasLocation" x="4680.8000000000002" y="884.70764617691157"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="esC-2K-yRd">
+            <objects>
+                <viewController id="MQB-u5-OiR" customClass="CInfoViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GqQ-qC-ssI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-GB-6EF">
+                                <rect key="frame" x="16" y="112" width="322" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vfd-G2-Lf7"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="vMf-GB-6EF" id="CJl-f6-IVI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vsa-32-aWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5423" y="0.0"/>
         </scene>
         <!--Share-->
         <scene sceneID="LSP-9C-Fcj">
@@ -265,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqn-xz-3Zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="699"/>
+            <point key="canvasLocation" x="826" y="1039"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -371,253 +488,20 @@
             </objects>
             <point key="canvasLocation" x="997.60000000000002" y="-737.18140929535241"/>
         </scene>
-        <!--Garden Crop List-->
+        <!--View Controller-->
         <scene sceneID="Icb-1v-Ph8">
             <objects>
-                <viewController id="TDo-cM-XrG" customClass="GardenCropList" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TDo-cM-XrG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adQ-bI-Jbm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looks like you don't have any crop in your garden yet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zI0-FM-aXG">
-                                <rect key="frame" x="73" y="440" width="257" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Garden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4p-8P-b9s">
-                                <rect key="frame" x="0.0" y="64" width="375" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.65098039215686276" green="0.85098039215686272" blue="0.42745098039215684" alpha="0.60500110035211263" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOg-es-w1V">
-                                <rect key="frame" x="144" y="542" width="86" height="76"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="7Do-gC-iyu"/>
-                                    <constraint firstAttribute="width" constant="86" id="wIA-dK-THa"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="AddCrop Button"/>
-                                <connections>
-                                    <segue destination="47d-Y6-sgc" kind="show" identifier="CreateCrop" id="5Vr-wv-xSj"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ySx-nM-r22">
-                                <rect key="frame" x="0.0" y="20" width="375" height="522"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="L2P-pf-tAg">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L2P-pf-tAg" id="TvR-eU-lkR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="TDo-cM-XrG" id="r1c-PP-a9H"/>
-                                    <outlet property="delegate" destination="TDo-cM-XrG" id="5Rn-jj-pR9"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="TOg-es-w1V" firstAttribute="top" secondItem="ySx-nM-r22" secondAttribute="bottom" id="3hy-yW-BZe"/>
-                            <constraint firstItem="ySx-nM-r22" firstAttribute="top" secondItem="YyO-vn-5G0" secondAttribute="top" id="7lw-gN-vlP"/>
-                            <constraint firstItem="YyO-vn-5G0" firstAttribute="trailing" secondItem="TOg-es-w1V" secondAttribute="trailing" constant="145" id="BtI-8m-N4L"/>
-                            <constraint firstItem="ySx-nM-r22" firstAttribute="leading" secondItem="YyO-vn-5G0" secondAttribute="leading" id="E0D-gg-4GU"/>
-                            <constraint firstAttribute="trailing" secondItem="ySx-nM-r22" secondAttribute="trailing" id="U7T-Te-qUt"/>
-                            <constraint firstItem="ySx-nM-r22" firstAttribute="trailing" secondItem="YyO-vn-5G0" secondAttribute="trailing" id="Vzu-Po-TYc"/>
-                            <constraint firstItem="TOg-es-w1V" firstAttribute="leading" secondItem="YyO-vn-5G0" secondAttribute="leading" constant="144" id="ch7-eB-Qgg"/>
-                            <constraint firstItem="TOg-es-w1V" firstAttribute="top" secondItem="ySx-nM-r22" secondAttribute="bottom" id="egF-p3-K3n"/>
-                            <constraint firstItem="YyO-vn-5G0" firstAttribute="bottom" secondItem="TOg-es-w1V" secondAttribute="bottom" constant="49" id="fQT-Xc-X11"/>
-                            <constraint firstItem="ySx-nM-r22" firstAttribute="top" secondItem="YyO-vn-5G0" secondAttribute="top" id="qLW-Xe-663"/>
-                            <constraint firstItem="TOg-es-w1V" firstAttribute="top" secondItem="ySx-nM-r22" secondAttribute="bottom" id="qfG-6P-OYW"/>
-                            <constraint firstItem="ySx-nM-r22" firstAttribute="leading" secondItem="YyO-vn-5G0" secondAttribute="leading" id="xb8-CR-k85"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YyO-vn-5G0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bOi-Y1-eHK"/>
-                    <connections>
-                        <segue destination="VNE-lz-LJY" kind="show" identifier="CropProfileSegue" id="fmY-fV-clb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dal-bY-561" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="-1578.2608695652175"/>
-        </scene>
-        <!--Crop Profile View Controller-->
-        <scene sceneID="8Dv-a8-07l">
-            <objects>
-                <viewController id="VNE-lz-LJY" customClass="CropProfileViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kld-b2-g3R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppleImage" translatesAutoresizingMaskIntoConstraints="NO" id="01J-qB-IRM">
-                                <rect key="frame" x="29" y="66" width="214" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9b-aY-pFt">
-                                <rect key="frame" x="29" y="297" width="103" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7L-k1-hNA">
-                                <rect key="frame" x="140" y="306" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbf-2s-oeu">
-                                <rect key="frame" x="29" y="355" width="88" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-we-Cqr">
-                                <rect key="frame" x="140" y="355" width="103" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun exposure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1l8-Oh-bgF">
-                                <rect key="frame" x="29" y="406" width="123" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Soil pH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahK-fC-9OM">
-                                <rect key="frame" x="29" y="461" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="More information on How to take good care of your crops coming soon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLV-TB-0iB">
-                                <rect key="frame" x="29" y="503" width="234" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5cu-7Z-Xpv"/>
-                    </view>
-                    <connections>
-                        <outlet property="cropNameLabel" destination="F7L-k1-hNA" id="Xy7-hE-iGT"/>
-                        <outlet property="cropTypeLabel" destination="MuH-we-Cqr" id="acO-W1-gJG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="igL-LK-9ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2740" y="-2448"/>
-        </scene>
-        <!--Crop Setup View Controller-->
-        <scene sceneID="lgu-hn-M7t">
-            <objects>
-                <viewController id="hqN-u2-rgz" customClass="CropSetupViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hbi-Et-vFE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLN-G7-4je">
-                                <rect key="frame" x="46" y="118" width="86" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-WM-wkA">
-                                <rect key="frame" x="46" y="157" width="223" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMZ-G0-Emj">
-                                <rect key="frame" x="46" y="229" width="223" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rx-sl-CsD">
-                                <rect key="frame" x="46" y="195" width="93" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKt-WY-8C3">
-                                <rect key="frame" x="125" y="343" width="108" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                </state>
-                                <connections>
-                                    <action selector="CreateButton:" destination="hqN-u2-rgz" eventType="touchUpInside" id="SGe-yL-cis"/>
-                                    <segue destination="TDo-cM-XrG" kind="show" id="Qkb-qG-MwV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hlo-Gd-Ne5"/>
-                    </view>
-                    <connections>
-                        <outlet property="CropNameTF" destination="AMZ-G0-Emj" id="oLe-Jg-Q8d"/>
-                        <outlet property="CropTypeTF" destination="uk3-WM-wkA" id="1dc-If-AA1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YL7-Pn-huU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3612" y="-2448"/>
-        </scene>
-        <!--Create Crop View Controller-->
-        <scene sceneID="88N-pG-re0">
-            <objects>
-                <viewController id="47d-Y6-sgc" customClass="CreateCropViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vvC-Rq-JES">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-vX-DwK">
-                                <rect key="frame" x="49" y="318" width="107" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="By Category"/>
-                                <connections>
-                                    <segue destination="YaR-NB-Sfh" kind="show" id="KKU-qE-IYA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsF-5P-cwr">
-                                <rect key="frame" x="229" y="317" width="87" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="By Name"/>
-                                <connections>
-                                    <segue destination="hqN-u2-rgz" kind="show" identifier="CropSetup" id="KD4-ZU-v73"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="09c-8n-xoF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xkW-AU-P7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3588" y="-1597.1514242878561"/>
+            <point key="canvasLocation" x="2772" y="-1616"/>
         </scene>
         <!--Library-->
         <scene sceneID="9lv-lK-iqT">
@@ -638,55 +522,15 @@
             </objects>
             <point key="canvasLocation" x="997.60000000000002" y="-71.514242878560722"/>
         </scene>
-        <!--Categories-->
-        <scene sceneID="q2I-qW-akF">
-            <objects>
-                <viewController title="Categories" id="YaR-NB-Sfh" customClass="CropCategoryViewController" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Pk-H3-sEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BET-yh-egF">
-                                <rect key="frame" x="70" y="213" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="Fruit">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ3-MF-kOS">
-                                <rect key="frame" x="241" y="212" width="69" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="Vegetable"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRq-Jt-v41">
-                                <rect key="frame" x="260" y="382" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="All"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gp-CD-Woa">
-                                <rect key="frame" x="60" y="382" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="Wheats"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="pdw-cd-7UY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EEK-d4-W2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4327" y="-1597"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="AddCrop Button" width="512" height="512"/>
-        <image name="AppleImage" width="225" height="225"/>
         <image name="icons8-literature-50" width="25" height="25"/>
         <image name="icons8-watermelon-50" width="25" height="25"/>
         <image name="icons8-world-map-50" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qkb-qG-MwV"/>
+        <segue reference="Zfq-xd-YFR"/>
+        <segue reference="0E5-9x-tS0"/>
         <segue reference="dGz-tE-o6e"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,14 +11,35 @@ import Foundation
 class CropLibrary{
     var cropDatabase: [CropInfo]
     var fruitDatabase: [CropInfo]
-    var VegetableDatabase: [CropInfo]
+    var veggieDatabase: [CropInfo]
     
-    init(){
+    init(jsonName : String){
         cropDatabase = [CropInfo]()
         fruitDatabase = [CropInfo]()
-        VegetableDatabase = [CropInfo]()
+        veggieDatabase = [CropInfo]()
+        loadJsonInto(fileName: jsonName)
     }
     
+    func getTotalSize() -> Int{
+        return cropDatabase.count
+    }
+    
+    func getMainLibrary() -> [CropInfo]{
+        return cropDatabase
+    }
+    
+    func getFruitLibrary() -> [CropInfo]{
+        return fruitDatabase
+    }
+    
+    func getVeggieLibrary() -> [CropInfo]{
+        return veggieDatabase
+    }
+    
+    func getCropIndex(cropName : String) -> Int!{
+        let loweredName = cropName.lowercased()
+        return cropDatabase.index(where : {$0.getName().lowercased() == loweredName})
+    }
     func addToLibrary(newCropData : CropInfo){
         cropDatabase.append(newCropData)
         addCrctCategory(cropInfo: newCropData)
@@ -34,7 +55,7 @@ class CropLibrary{
     }
     
     func loadJsonInto(fileName:String){
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else { return }
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return }
         let url = URL(fileURLWithPath: path)
         
         do{
@@ -57,16 +78,16 @@ class CropLibrary{
     }
     
     func sortLibraries(){
-        cropDatabase.sort(by: {$0.getName() > $1.getName()})
-        VegetableDatabase.sort(by: {$0.getName() > $1.getName()})
-        fruitDatabase.sort(by: {$0.getName() > $1.getName()})
+        cropDatabase.sort(by: {$0.getName() < $1.getName()})
+        veggieDatabase.sort(by: {$0.getName() < $1.getName()})
+        fruitDatabase.sort(by: {$0.getName() < $1.getName()})
     }
     
     func addCrctCategory(cropInfo: CropInfo){
         if cropInfo.isSameType(matchType: "fruit"){
             fruitDatabase.append(cropInfo)
         }else if(cropInfo.isSameType(matchType: "vegetable")){
-            VegetableDatabase.append(cropInfo)
+            veggieDatabase.append(cropInfo)
         }
     }
     
@@ -74,7 +95,7 @@ class CropLibrary{
         if (categoryType.lowercased() == "fruit"){
             return fruitDatabase
         }else if (categoryType.lowercased() == "vegetable"){
-            return VegetableDatabase
+            return veggieDatabase
         }
         return nil
     }
@@ -88,7 +109,7 @@ class CropLibrary{
             }
         }else if (category.lowercased() == "vegetable"){
             print("Vegetable Database:")
-            for crop in VegetableDatabase{
+            for crop in veggieDatabase{
                 crop.printData()
             }
         }

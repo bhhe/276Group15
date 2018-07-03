@@ -22,6 +22,7 @@ class GardenInterface: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if GardenList.count>0{
             if let garden1=GardenList[0]?.gardenName{
                 garden1Button.isHidden=false

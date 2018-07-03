@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CropLibraryController: UIViewController {
+var lib = CropLibrary(jsonName: "cropdata")
 
+class CropLibraryController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

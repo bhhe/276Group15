@@ -10,13 +10,11 @@
 		6370D0A2BFBA88F044FEB450 /* Pods_CropBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9544522F1BEA5DB6E81A743B /* Pods_CropBook.framework */; };
 		868EBD73556965D2762897CA /* Pods_CropBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87889E77739B6F322046B40 /* Pods_CropBookUITests.framework */; };
 		B2FAC022047BA62CFD1EB4DC /* Pods_CropBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45D285FA043AB962FD55CB7 /* Pods_CropBookTests.framework */; };
-		BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */; };
-		BF58EB0D20EB5194000F239C /* CropCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58EB0C20EB5194000F239C /* CropCategoryViewController.swift */; };
-		BF58EB0F20EB5302000F239C /* CropSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58EB0E20EB5302000F239C /* CropSetupViewController.swift */; };
-		BF58EB1120EB6C0F000F239C /* CropProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58EB1020EB6C0F000F239C /* CropProfileViewController.swift */; };
-		BF79375020EAC4DD00A0BB86 /* GardenCropList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79374F20EAC4DD00A0BB86 /* GardenCropList.swift */; };
-		BF79375220EAD88100A0BB86 /* CreateCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79375120EAD88100A0BB86 /* CreateCropViewController.swift */; };
-		FC1300AB20E9F4FC0006E7E7 /* GardenListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1300A820E9F4FB0006E7E7 /* GardenListInterface.swift */; };
+		BB088F7B20EADC9000B0AE0B /* CtgyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB088F7A20EADC9000B0AE0B /* CtgyTableViewController.swift */; };
+		BB088F7F20EAE41700B0AE0B /* CInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB088F7E20EAE41700B0AE0B /* CInfoViewController.swift */; };
+		BB088F8120EAF1F600B0AE0B /* CtgyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB088F8020EAF1F600B0AE0B /* CtgyViewController.swift */; };
+		BBF2BEB520EB427500CC88A8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF2BEB420EB427500CC88A8 /* SearchViewController.swift */; };
+		FC1300AB20E9F4FC0006E7E7 /* GardenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1300A820E9F4FB0006E7E7 /* GardenInterface.swift */; };
 		FC1300AC20E9F4FC0006E7E7 /* GardenSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1300A920E9F4FB0006E7E7 /* GardenSetupController.swift */; };
 		FC1300AD20E9F4FC0006E7E7 /* GardenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1300AA20E9F4FB0006E7E7 /* GardenClass.swift */; };
 		FC36AB1220EAAA16006E9916 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC36AB1120EAAA16006E9916 /* Weather.swift */; };
@@ -61,16 +59,14 @@
 		69055525CC2D6B3D523DA96E /* Pods-CropBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CropBookUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CropBookUITests/Pods-CropBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8692812832D2EB3E42968DF7 /* Pods-CropBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CropBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CropBookTests/Pods-CropBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		9544522F1BEA5DB6E81A743B /* Pods_CropBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CropBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF58EACD20EB39EE000F239C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		BF58EB0C20EB5194000F239C /* CropCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropCategoryViewController.swift; sourceTree = "<group>"; };
-		BF58EB0E20EB5302000F239C /* CropSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropSetupViewController.swift; sourceTree = "<group>"; };
-		BF58EB1020EB6C0F000F239C /* CropProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProfileViewController.swift; sourceTree = "<group>"; };
-		BF79374F20EAC4DD00A0BB86 /* GardenCropList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenCropList.swift; sourceTree = "<group>"; };
-		BF79375120EAD88100A0BB86 /* CreateCropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCropViewController.swift; sourceTree = "<group>"; };
+		BB088F7A20EADC9000B0AE0B /* CtgyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtgyTableViewController.swift; sourceTree = "<group>"; };
+		BB088F7E20EAE41700B0AE0B /* CInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CInfoViewController.swift; sourceTree = "<group>"; };
+		BB088F8020EAF1F600B0AE0B /* CtgyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtgyViewController.swift; sourceTree = "<group>"; };
+		BBF2BEB420EB427500CC88A8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C87889E77739B6F322046B40 /* Pods_CropBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CropBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45D285FA043AB962FD55CB7 /* Pods_CropBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CropBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E513E6614B3CC2A825BD9BF8 /* Pods-CropBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CropBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-CropBook/Pods-CropBook.release.xcconfig"; sourceTree = "<group>"; };
-		FC1300A820E9F4FB0006E7E7 /* GardenListInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenListInterface.swift; sourceTree = "<group>"; };
+		FC1300A820E9F4FB0006E7E7 /* GardenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenInterface.swift; sourceTree = "<group>"; };
 		FC1300A920E9F4FB0006E7E7 /* GardenSetupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenSetupController.swift; sourceTree = "<group>"; };
 		FC1300AA20E9F4FB0006E7E7 /* GardenClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenClass.swift; sourceTree = "<group>"; };
 		FC36AB1120EAAA16006E9916 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -151,7 +147,6 @@
 		FC754B6C20E5C88500302A58 = {
 			isa = PBXGroup;
 			children = (
-				BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */,
 				FC754B7720E5C88500302A58 /* CropBook */,
 				FC754B8E20E5C88600302A58 /* CropBookTests */,
 				FC754B9920E5C88600302A58 /* CropBookUITests */,
@@ -177,24 +172,23 @@
 			children = (
 				FC754B7820E5C88500302A58 /* AppDelegate.swift */,
 				FC754B7A20E5C88500302A58 /* MyGardenController.swift */,
-				FC754B7C20E5C88500302A58 /* CropLibraryController.swift */,
 				FCB0944220E96002005F060A /* GardenShareController.swift */,
 				FC53835920E8BAC5009651E7 /* CropInfo.swift */,
 				FC53835A20E8BAC5009651E7 /* CropLibrary.swift */,
 				FCE283B120E991F2008AF095 /* CropProfile.swift */,
 				FC53835720E8BAB6009651E7 /* Coefficients.swift */,
 				FC1300AA20E9F4FB0006E7E7 /* GardenClass.swift */,
+				FC1300A820E9F4FB0006E7E7 /* GardenInterface.swift */,
 				FC1300A920E9F4FB0006E7E7 /* GardenSetupController.swift */,
-				FC1300A820E9F4FB0006E7E7 /* GardenListInterface.swift */,
-				BF79374F20EAC4DD00A0BB86 /* GardenCropList.swift */,
-				BF79375120EAD88100A0BB86 /* CreateCropViewController.swift */,
-				BF58EB0E20EB5302000F239C /* CropSetupViewController.swift */,
-				BF58EB0C20EB5194000F239C /* CropCategoryViewController.swift */,
-				BF58EB1020EB6C0F000F239C /* CropProfileViewController.swift */,
 				FC36AB1120EAAA16006E9916 /* Weather.swift */,
 				FCB489FA20EA972900E33680 /* cropdata.json */,
 				FC53835520E883EF009651E7 /* Notifications.swift */,
 				FCE283B720E9F22B008AF095 /* Main.storyboard */,
+				BBF2BEB420EB427500CC88A8 /* SearchViewController.swift */,
+				FC754B7C20E5C88500302A58 /* CropLibraryController.swift */,
+				BB088F8020EAF1F600B0AE0B /* CtgyViewController.swift */,
+				BB088F7A20EADC9000B0AE0B /* CtgyTableViewController.swift */,
+				BB088F7E20EAE41700B0AE0B /* CInfoViewController.swift */,
 				FC754B8120E5C88600302A58 /* Assets.xcassets */,
 				FC754B8320E5C88600302A58 /* LaunchScreen.storyboard */,
 				FC754B8620E5C88600302A58 /* Info.plist */,
@@ -440,24 +434,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB088F7B20EADC9000B0AE0B /* CtgyTableViewController.swift in Sources */,
 				FC1300AD20E9F4FC0006E7E7 /* GardenClass.swift in Sources */,
+				BB088F7F20EAE41700B0AE0B /* CInfoViewController.swift in Sources */,
+				BBF2BEB520EB427500CC88A8 /* SearchViewController.swift in Sources */,
 				FC53835820E8BAB6009651E7 /* Coefficients.swift in Sources */,
-				BF79375020EAC4DD00A0BB86 /* GardenCropList.swift in Sources */,
-				FC1300AB20E9F4FC0006E7E7 /* GardenListInterface.swift in Sources */,
-				BF58EB0F20EB5302000F239C /* CropSetupViewController.swift in Sources */,
+				FC1300AB20E9F4FC0006E7E7 /* GardenInterface.swift in Sources */,
 				FC53835620E883EF009651E7 /* Notifications.swift in Sources */,
 				FC1300AC20E9F4FC0006E7E7 /* GardenSetupController.swift in Sources */,
 				FCE283B220E991F3008AF095 /* CropProfile.swift in Sources */,
 				FC53835C20E8BAC5009651E7 /* CropLibrary.swift in Sources */,
+				BB088F8120EAF1F600B0AE0B /* CtgyViewController.swift in Sources */,
 				FC754B7D20E5C88500302A58 /* CropLibraryController.swift in Sources */,
 				FC36AB1220EAAA16006E9916 /* Weather.swift in Sources */,
-				BF79375220EAD88100A0BB86 /* CreateCropViewController.swift in Sources */,
-				BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */,
-				BF58EB0D20EB5194000F239C /* CropCategoryViewController.swift in Sources */,
 				FC53835B20E8BAC5009651E7 /* CropInfo.swift in Sources */,
 				FCB0944320E96002005F060A /* GardenShareController.swift in Sources */,
 				FC754B7920E5C88500302A58 /* AppDelegate.swift in Sources */,
-				BF58EB1120EB6C0F000F239C /* CropProfileViewController.swift in Sources */,
 				FC754B7B20E5C88500302A58 /* MyGardenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,20 +777,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BF58EACD20EB39EE000F239C /* Model.xcdatamodel */,
-			);
-			currentVersion = BF58EACD20EB39EE000F239C /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = CropBook/Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FC754B6D20E5C88500302A58 /* Project object */;
 }

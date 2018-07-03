@@ -9,6 +9,7 @@
 import Foundation
 
 class CropInfo{
+    
     let cropName : String;
     let coEff : Coefficients;
     let cropType : String;
@@ -16,7 +17,17 @@ class CropInfo{
     let sunExposure : String;
     let soilType : String;
     let soilpH : String;
-
+    
+    init(){
+        self.cropName = ""
+        self.coEff = Coefficients(initial: 0, mid: 0, end: 0)
+        self.cropType = ""
+        self.image = ""
+        self.sunExposure = ""
+        self.soilType = ""
+        self.soilpH = ""
+    }
+    
     init(json:[String: Any],coEff:Coefficients) {
         self.cropName = json["cropName"] as? String ?? ""
         self.coEff = coEff
