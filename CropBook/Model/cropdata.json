@@ -157,7 +157,7 @@
   "coEfficients": {
   "init": 0.7,
   "mid": 1.05,
-  "end" 0.95: 
+  "end": 0.95 
   },
   "Type": "Vegetable",
   "Image": "BrusselSprouts.jpeg",
