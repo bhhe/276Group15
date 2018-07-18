@@ -1101,9 +1101,11 @@
                         <outlet property="infoText" destination="upR-xR-re1" id="D4c-OM-Ye4"/>
                         <outlet property="nameField" destination="AIL-La-8dP" id="oWW-En-50P"/>
                         <outlet property="postTitle" destination="CWG-Qj-G50" id="Q7a-B1-W0F"/>
+                        <segue destination="iCI-Al-tCm" kind="unwind" identifier="unwindPost" unwindAction="unwindToShareWithSegue:" id="ksr-pk-f2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUZ-BH-RHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iCI-Al-tCm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4160.8000000000002" y="2737.7811094452777"/>
         </scene>
@@ -1519,7 +1521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyE-VP-BI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3085.5999999999999" y="2737.3313343328336"/>
+            <point key="canvasLocation" x="2662" y="3018"/>
         </scene>
         <!--Your PostsVC-->
         <scene sceneID="4l8-fg-cHp">
@@ -1560,27 +1562,41 @@
                         <viewLayoutGuide key="safeArea" id="wbu-AI-ljV"/>
                     </view>
                     <connections>
-                        <segue destination="mTt-vO-Lo3" kind="show" id="HBP-g1-UvB"/>
+                        <segue destination="mTt-vO-Lo3" kind="show" identifier="acceptSegue" id="HBP-g1-UvB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYU-TV-Hrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2397.5999999999999" y="812.74362818590714"/>
+            <point key="canvasLocation" x="2404" y="860"/>
         </scene>
-        <!--View Controller-->
+        <!--AcceptVC-->
         <scene sceneID="y0I-42-4Op">
             <objects>
-                <viewController id="mTt-vO-Lo3" sceneMemberID="viewController">
+                <viewController id="mTt-vO-Lo3" customClass="acceptVC" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ph8-85-ztB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-dC-QNS">
+                                <rect key="frame" x="54" y="440" width="266" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Accept"/>
+                                <connections>
+                                    <action selector="acceptPressed:" destination="mTt-vO-Lo3" eventType="touchUpInside" id="9av-c1-ubx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zN8-28-l5i"/>
                     </view>
+                    <connections>
+                        <segue destination="wpZ-in-JEQ" kind="unwind" identifier="unwindAccept" unwindAction="unwindToShareWithSegue:" id="HsP-uf-34c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71K-iC-UoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wpZ-in-JEQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3156" y="813"/>
+            <point key="canvasLocation" x="3240.8000000000002" y="859.52023988005999"/>
         </scene>
         <!--Post-->
         <scene sceneID="OOE-rR-CPH">
@@ -1738,11 +1754,13 @@
                         <outlet property="selectGardenBtn" destination="KHE-0r-frr" id="edW-qw-2B9"/>
                         <outlet property="tableView" destination="qxM-D0-KKO" id="gta-ro-mdQ"/>
                         <outlet property="textView" destination="dem-Vz-giw" id="hAO-Fi-oHd"/>
+                        <segue destination="RPm-Iz-K5F" kind="unwind" identifier="unwindCompose" unwindAction="unwindToShareWithSegue:" id="kxZ-9c-rxF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFz-jI-jFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RPm-Iz-K5F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3086" y="1722"/>
+            <point key="canvasLocation" x="2663" y="1808"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nGT-Xp-EBq">
@@ -1757,6 +1775,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZy-nm-Fqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3886" y="860"/>
         </scene>
     </scenes>
     <resources>

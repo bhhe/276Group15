@@ -49,6 +49,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     
     override func viewWillAppear(_ animated : Bool){
+        /*
         for gData in gardensIds!{
             let gardenId = gData.getId()
             let nameRef = ref?.child("Gardens").child(gardenId).child("gardenName")
@@ -57,6 +58,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 gData.setName(gardenName: name)
             })
         }
+        */
         super.viewWillAppear(animated)
     }
 
@@ -106,11 +108,14 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             postRef?.child("Description").setValue(check3)
             postRef?.child("Poster").setValue(uid)
             postRef?.child("Harvest").setValue(check4)
+            let userRef = ref?.child("Users").child(uid!).child("Posts").child(postKey)
+            userRef?.setValue(true)
         }
-        /*
-         ref?.child("Posts").childByAutoId().child("test").setValue(textView.text)
+        
+        /*ref?.child("Posts").childByAutoId().child("test").setValue(textView.text)
         presentingViewController?.dismiss(animated: true, completion: nil)
          */
+        performSegue(withIdentifier: "unwindCompose", sender: self)
     }
     
     @IBAction func removePost(_ sender: Any) {

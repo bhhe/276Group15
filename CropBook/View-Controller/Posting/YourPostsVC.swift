@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
+    let ref = Database.database().reference()
     var posts : [UserPost] = []
+    var gardIds : [String] = []
+    var postId : String = ""
+    var gardId : String = ""
+    var acceptDatas : [AcceptData] = []
+    var acptData = AcceptData()
     override func viewDidLoad() {
+        let userRef = ref.child("Posts")
         print(posts.count)
         super.viewDidLoad()
 
@@ -33,12 +41,36 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        //gardenId = gardensIds![indexPath.row].getId()
+        postId = posts[indexPath.row].getId()
+        getRequests()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "acceptSegue", sender: self)})
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let receiverVC = segue.destination as! acceptVC
         
     }
     
     func getRequests(){
-        
-        
+        let postRef = ref.child("Posts").child(postId).child("Requests")
+
+        postRef.observe(.value, with: {(snapshot) in
+            for snap in snapshot.children{
+                let userSnap = snap as! DataSnapshot
+                let uID = userSnap.key
+                let userDict = userSnap.value as! [String:AnyObject]
+
+                self.acptData = AcceptData()
+                let info = userDict["info"] as! String
+                let name = userDict["name"] as! String
+                print(info)
+                print(name)
+                print(uID)
+                self.acptData.setInfo(info: info)
+                self.acptData.setName(name: name)
+                self.acptData.setPostId(pId: uID)
+            }
+        })
     }
 }

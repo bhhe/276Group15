@@ -11,11 +11,13 @@ import Foundation
 class UserPost{
     
     var postId : String
+    var gardId : String
     var isOwner : Bool
     
     init(postId : String, isOwner : Bool){
         self.postId = postId
         self.isOwner = isOwner
+        self.gardId = ""
     }
     
     func getId() -> String{
@@ -26,4 +28,7 @@ class UserPost{
         return self.isOwner
     }
     
+    func setGardId(gardId : String){
+        self.gardId = gardId
+    }
 }

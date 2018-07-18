@@ -31,6 +31,7 @@ class ApplyVC: UIViewController {
         let uRef = postRef?.child("Requests").child(uid!)
         uRef?.child("name").setValue(nameField.text)
         uRef?.child("info").setValue(infoText.text)
+        performSegue(withIdentifier: "unwindPost", sender: self)
     }
     
 }

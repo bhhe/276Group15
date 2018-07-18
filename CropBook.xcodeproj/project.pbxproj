@@ -22,6 +22,8 @@
 		BB9D6D0A20FC46B000E94FF5 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D6D0920FC46B000E94FF5 /* PostData.swift */; };
 		BBC5B55E20F9BC5000DD422E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC5B55D20F9BC5000DD422E /* GoogleService-Info.plist */; };
 		BBC6990620F9CD0600F40BE5 /* ComposeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */; };
+		BBCFD25D20FF83830070D05B /* acceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD25C20FF83830070D05B /* acceptVC.swift */; };
+		BBCFD25F20FF87560070D05B /* AcceptData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD25E20FF87560070D05B /* AcceptData.swift */; };
 		BBE8C60820FED5C700F6C300 /* GardenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8C60720FED5C700F6C300 /* GardenData.swift */; };
 		BF03A5A220FC8DAF004B58AC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03A5A120FC8DAF004B58AC /* MainVC.swift */; };
 		BF03A5A420FC8DDB004B58AC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03A5A320FC8DDB004B58AC /* LoginVC.swift */; };
@@ -90,6 +92,8 @@
 		BB9D6D0920FC46B000E94FF5 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		BBC5B55D20F9BC5000DD422E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeVC.swift; sourceTree = "<group>"; };
+		BBCFD25C20FF83830070D05B /* acceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptVC.swift; sourceTree = "<group>"; };
+		BBCFD25E20FF87560070D05B /* AcceptData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptData.swift; sourceTree = "<group>"; };
 		BBE8C60720FED5C700F6C300 /* GardenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenData.swift; sourceTree = "<group>"; };
 		BF03A5A120FC8DAF004B58AC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		BF03A5A320FC8DDB004B58AC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				BB47DCA720FB2BF100EA735D /* PostVC.swift */,
 				BB42B6E920FF51CF000ECC18 /* ApplyVC.swift */,
 				BB42B6ED20FF717E000ECC18 /* YourPostsVC.swift */,
+				BBCFD25C20FF83830070D05B /* acceptVC.swift */,
 			);
 			path = Posting;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				BB9D6D0920FC46B000E94FF5 /* PostData.swift */,
 				BBE8C60720FED5C700F6C300 /* GardenData.swift */,
 				BB42B6EF20FF73B9000ECC18 /* UserPost.swift */,
+				BBCFD25E20FF87560070D05B /* AcceptData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 			files = (
 				FC1300AD20E9F4FC0006E7E7 /* MyGarden.swift in Sources */,
 				FC53835820E8BAB6009651E7 /* Coefficients.swift in Sources */,
+				BBCFD25F20FF87560070D05B /* AcceptData.swift in Sources */,
 				BF03A5A420FC8DDB004B58AC /* LoginVC.swift in Sources */,
 				BB42B6EE20FF717E000ECC18 /* YourPostsVC.swift in Sources */,
 				BF79375020EAC4DD00A0BB86 /* CropListVC.swift in Sources */,
@@ -570,6 +577,7 @@
 				BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */,
 				BB9D6D0A20FC46B000E94FF5 /* PostData.swift in Sources */,
 				BF03A5A620FC8DF0004B58AC /* SignupVC.swift in Sources */,
+				BBCFD25D20FF83830070D05B /* acceptVC.swift in Sources */,
 				BBE8C60820FED5C700F6C300 /* GardenData.swift in Sources */,
 				FC53835B20E8BAC5009651E7 /* CropInfo.swift in Sources */,
 				FCCB23F520FECDCB004AB27C /* CategoryTableViewCell.swift in Sources */,
