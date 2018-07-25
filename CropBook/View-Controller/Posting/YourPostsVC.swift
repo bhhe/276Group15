@@ -36,6 +36,7 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for : indexPath )
         cell.textLabel?.text = posts[indexPath.row].getId()
+        
         return cell
     }
     
