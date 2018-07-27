@@ -46,10 +46,6 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             }
         }
         
-        group.notify(queue: DispatchQueue.main, execute: {
-            print("Work is finished")
-        })
-        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -121,16 +117,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             let userRef = ref?.child("Users").child(uid!).child("Posts").child(postKey)
             userRef?.setValue(true)
         }
-        
-        /*ref?.child("Posts").childByAutoId().child("test").setValue(textView.text)
-        presentingViewController?.dismiss(animated: true, completion: nil)
-         */
-        
-        performSegue(withIdentifier: "unwindCompose", sender: self)
-    }
-    
-    @IBAction func removePost(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "unwindCompose", sender: self)})
     }
 
 }

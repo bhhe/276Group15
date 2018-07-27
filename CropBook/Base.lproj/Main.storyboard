@@ -843,7 +843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlL-Xh-fa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4576.8000000000002" y="812.74362818590714"/>
+            <point key="canvasLocation" x="4910" y="773"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="kgy-Ff-Y4a">
@@ -1129,7 +1129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu2-Sa-sZi">
-                                <rect key="frame" x="67" y="151" width="241" height="250"/>
+                                <rect key="frame" x="67" y="151" width="250" height="250"/>
                                 <color key="backgroundColor" red="0.38783989270000002" green="1" blue="0.42509731039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="FHX-pg-Yjo"/>
@@ -1500,7 +1500,7 @@
             </objects>
             <point key="canvasLocation" x="2662" y="3018"/>
         </scene>
-        <!--Your PostsVC-->
+        <!--Your Posts-->
         <scene sceneID="4l8-fg-cHp">
             <objects>
                 <viewController id="fvd-GA-HMX" customClass="YourPostsVC" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -1538,6 +1538,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wbu-AI-ljV"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Your Posts" id="qR9-i0-Igu"/>
                     <connections>
                         <segue destination="mTt-vO-Lo3" kind="show" identifier="acceptSegue" id="HBP-g1-UvB"/>
                     </connections>
@@ -1546,7 +1547,7 @@
             </objects>
             <point key="canvasLocation" x="2129" y="860"/>
         </scene>
-        <!--AcceptVC-->
+        <!--Title-->
         <scene sceneID="y0I-42-4Op">
             <objects>
                 <viewController id="mTt-vO-Lo3" customClass="acceptVC" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -1588,8 +1589,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zN8-28-l5i"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="sne-Qg-EkP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="nyf-NV-uc6">
+                            <connections>
+                                <action selector="deletePost:" destination="mTt-vO-Lo3" id="eMk-4X-Xup"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="postTitle" destination="sne-Qg-EkP" id="cFf-zj-E4F"/>
                         <segue destination="wpZ-in-JEQ" kind="unwind" identifier="unwindAccept" unwindAction="unwindToShareWithSegue:" id="HsP-uf-34c"/>
+                        <segue destination="EQr-4R-sGa" kind="show" id="8ub-nx-UHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71K-iC-UoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1759,9 +1769,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFz-jI-jFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RPm-Iz-K5F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2663" y="1808"/>
+            <point key="canvasLocation" x="3353" y="1872"/>
         </scene>
-        <!--View Controller-->
+        <!--Applicant-->
         <scene sceneID="nGT-Xp-EBq">
             <objects>
                 <viewController id="EQr-4R-sGa" sceneMemberID="viewController">
@@ -1771,10 +1781,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LiU-hf-UBs"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Applicant" id="Yg3-L2-vgt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZy-nm-Fqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3886" y="860"/>
+            <point key="canvasLocation" x="4161" y="860"/>
         </scene>
     </scenes>
     <resources>
@@ -1793,7 +1804,7 @@
         <image name="icons8-world-map-50" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d6f-Zu-94N"/>
+        <segue reference="xpI-mx-ptx"/>
         <segue reference="Llf-pp-DH0"/>
     </inferredMetricsTieBreakers>
 </document>
