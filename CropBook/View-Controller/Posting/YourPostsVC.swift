@@ -24,18 +24,21 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     override func viewDidLoad() {
         let postRef = ref.child("Posts")
         for chd in posts{
+            print(chd.getId())
             group.enter();
-            postRef.child(chd.getId()).child("Title").observeSingleEvent(of: .childAdded) { (snapshot) in
+            postRef.child(chd.getId()).child("Title").observe(.value) { (snapshot) in
+                print(snapshot)
                 let val = snapshot.value as! String
                 chd.setPostName(postName: val)
                 self.group.leave()
             }
             group.enter();
-            postRef.child(chd.getId()).child("GardenId").observeSingleEvent(of: .childAdded) { (snapshot) in
+            postRef.child(chd.getId()).child("GardenId").observe(.value) { (snapshot) in
                 let val = snapshot.value as! String
                 chd.setGardId(gardId: val)
                 self.group.leave()
             }
+            
         }
 
         super.viewDidLoad()
@@ -51,7 +54,7 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for : indexPath )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{cell.textLabel?.text = self.posts[indexPath.row].getId()})
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{cell.textLabel?.text = self.posts[indexPath.row].getName()})
         
         return cell
     }

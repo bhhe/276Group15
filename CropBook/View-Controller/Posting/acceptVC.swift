@@ -23,6 +23,8 @@ class acceptVC: UIViewController {
     
     override func viewDidLoad() {
         postTitle.title = usrPost.getName()
+        print(usrPost.getName())
+        print(usrPost.getGId())
         let reqRef = ref.child("Posts/\(usrPost.getId())/Requests")
         reqRef.observe(.value, with: {(snapshot) in
             //self.group.enter()
@@ -50,7 +52,7 @@ class acceptVC: UIViewController {
     }
     
     @IBAction func acceptPressed(_ sender: Any) {
-        performSegue(withIdentifier: "unwindAccept", sender: self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
     }
     
     @IBAction func deletePost(_ sender: Any) {

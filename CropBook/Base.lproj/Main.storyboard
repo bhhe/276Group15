@@ -173,7 +173,7 @@
                         <viewLayoutGuide key="safeArea" id="wBl-0B-Z59"/>
                     </view>
                     <navigationItem key="navigationItem" id="efN-m5-xRw">
-                        <barButtonItem key="leftBarButtonItem" title="Your Posts" style="plain" id="idM-P3-7UO">
+                        <barButtonItem key="leftBarButtonItem" title="MyPosts" style="plain" id="idM-P3-7UO">
                             <connections>
                                 <action selector="yourPostsPressed:" destination="QLS-NA-WsD" id="cam-JE-spf"/>
                                 <segue destination="fvd-GA-HMX" kind="show" identifier="ypSegue" id="MEr-vL-8hw"/>
@@ -843,7 +843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlL-Xh-fa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4910" y="773"/>
+            <point key="canvasLocation" x="5319" y="773"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="kgy-Ff-Y4a">
@@ -1556,7 +1556,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-dC-QNS">
-                                <rect key="frame" x="54" y="440" width="266" height="178"/>
+                                <rect key="frame" x="16" y="506" width="114" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Accept"/>
                                 <connections>
@@ -1564,7 +1564,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0vB-Pf-R8t">
-                                <rect key="frame" x="16" y="198" width="343" height="188"/>
+                                <rect key="frame" x="16" y="122" width="343" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1578,13 +1578,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accept Applicants :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbt-SO-BCy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Applicants : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbt-SO-BCy">
                                 <rect key="frame" x="16" y="64" width="343" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jk9-OC-nhf">
+                                <rect key="frame" x="16" y="318" width="343" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06y-WL-VzC">
+                                <rect key="frame" x="245" y="506" width="114" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Decline"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zN8-28-l5i"/>
