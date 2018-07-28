@@ -74,28 +74,5 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         receiverVC.acptData = acceptDatas
         receiverVC.usrPost = self.usrPost
     }
-    
-    func getRequests(){
-        let postRef = ref.child("Posts").child(postId).child("Requests")
 
-        postRef.observe(.value, with: {(snapshot) in
-            self.group.enter()
-            for snap in snapshot.children{
-                let userSnap = snap as! DataSnapshot
-                let uID = userSnap.key
-                let userDict = userSnap.value as! [String:AnyObject]
-
-                self.acptData = AcceptData()
-                let info = userDict["info"] as! String
-                let name = userDict["name"] as! String
-                print(info)
-                print(name)
-                print(uID)
-                self.acptData.setInfo(info: info)
-                self.acptData.setName(name: name)
-                self.acptData.setPostId(pId: uID)
-                self.group.leave()
-            }
-        })
-    }
 }

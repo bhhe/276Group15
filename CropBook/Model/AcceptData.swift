@@ -9,20 +9,27 @@
 import Foundation
 
 class AcceptData{
-    var postId : String
+    var uId : String
     var gardenId : String
     var name : String
     var info : String
     
     init(){
-        postId = ""
+        uId = ""
         gardenId = ""
         name = ""
         info = ""
     }
     
-    func setPostId(pId : String){
-        self.postId = pId
+    init(uId : String, gardenId : String, name : String, info : String){
+        self.uId = uId
+        self.gardenId = gardenId
+        self.name = name
+        self.info = info
+    }
+    
+    func setPostId(uId : String){
+        self.uId = uId
     }
     
     func setGardenId(gId : String){
