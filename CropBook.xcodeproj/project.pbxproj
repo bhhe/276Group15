@@ -48,6 +48,7 @@
 		FC754B8520E5C88600302A58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC754B8320E5C88600302A58 /* LaunchScreen.storyboard */; };
 		FC754B9020E5C88600302A58 /* CropBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B8F20E5C88600302A58 /* CropBookTests.swift */; };
 		FC754B9B20E5C88600302A58 /* CropBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B9A20E5C88600302A58 /* CropBookUITests.swift */; };
+		FCA68850210800F200028A86 /* ExpandedCropCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6884F210800F200028A86 /* ExpandedCropCell.swift */; };
 		FCB0944320E96002005F060A /* GardenShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB0944220E96002005F060A /* GardenShareVC.swift */; };
 		FCB489FB20EA972900E33680 /* cropdata.json in Resources */ = {isa = PBXBuildFile; fileRef = FCB489FA20EA972900E33680 /* cropdata.json */; };
 		FCCAAD9420FAD19E0043301A /* CropCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCAAD9320FAD19E0043301A /* CropCreateVC.swift */; };
@@ -127,6 +128,7 @@
 		FC754B9620E5C88600302A58 /* CropBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CropBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC754B9A20E5C88600302A58 /* CropBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropBookUITests.swift; sourceTree = "<group>"; };
 		FC754B9C20E5C88600302A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA6884F210800F200028A86 /* ExpandedCropCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedCropCell.swift; sourceTree = "<group>"; };
 		FCB0944220E96002005F060A /* GardenShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenShareVC.swift; sourceTree = "<group>"; };
 		FCB489FA20EA972900E33680 /* cropdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cropdata.json; sourceTree = "<group>"; };
 		FCCAAD9320FAD19E0043301A /* CropCreateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropCreateVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				FC6C926020FBAA3700C43121 /* GardenTableViewCell.swift */,
 				FC66DD1820FE51F300FBD2B1 /* OnlineGardenTVC.swift */,
 				FC66DD1620FD99A800FBD2B1 /* CropTableViewCell.swift */,
+				FCA6884F210800F200028A86 /* ExpandedCropCell.swift */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				"${PODS_ROOT}/AerisWeather/lib/AerisWeatherKit.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiSelectSegmentedControl/MultiSelectSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -521,6 +525,7 @@
 				"${DWARF_DSYM_FOLDER_PATH}/AerisWeatherKit.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiSelectSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -582,6 +587,7 @@
 				FC53835B20E8BAC5009651E7 /* CropInfo.swift in Sources */,
 				FCCB23F520FECDCB004AB27C /* CategoryTableViewCell.swift in Sources */,
 				BB4450A220EC462D00F2BC99 /* CInfoVC.swift in Sources */,
+				FCA68850210800F200028A86 /* ExpandedCropCell.swift in Sources */,
 				FCB0944320E96002005F060A /* GardenShareVC.swift in Sources */,
 				BB47DCAA20FB2CA000EA735D /* Posting.swift in Sources */,
 				FC754B7920E5C88500302A58 /* AppDelegate.swift in Sources */,

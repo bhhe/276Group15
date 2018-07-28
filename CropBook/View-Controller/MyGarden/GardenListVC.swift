@@ -107,8 +107,8 @@ class GardenInterface: UIViewController, UITableViewDelegate,UITableViewDataSour
                 print("Adding Crops")
                 for i in 0..<numOfCrops{
                     //let gardenID=GardenList[gardenIndex]?.gardenID
-                    let cropname = OfflineGardenList[passedIndex]?.cropProfile[i].GetCropName()
-                    let profName = OfflineGardenList[passedIndex]?.cropProfile[i].profName
+                    let cropname = OfflineGardenList[passedIndex]?.cropProfile[i]?.GetCropName()
+                    let profName = OfflineGardenList[passedIndex]?.cropProfile[i]?.profName
                     let cropRef=self.ref.child("Gardens/\(gardenID)/CropList").childByAutoId()
                     cropRef.child("CropName").setValue(cropname)
                     cropRef.child("ProfName").setValue(profName)

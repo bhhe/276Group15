@@ -8,7 +8,7 @@ target 'CropBook' do
   # Pods for CropBook
 
 pod 'AerisWeather'
-
+pod 'MultiSelectSegmentedControl'
   target 'CropBookTests' do
     inherit! :search_paths
     # Pods for testing
