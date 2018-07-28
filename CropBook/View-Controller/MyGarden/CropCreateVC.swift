@@ -87,14 +87,14 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if(Online)!{
             //add Crop into Firebase Database
-            let gardenID=OnlineGardenList[gardenIndex]?.gardenID
+            let gardenID=SHARED_GARDEN_LIST[gardenIndex]?.gardenID
             let cropname=newCropProf.GetCropName()
             let gardenRef=ref.child("Gardens/\(gardenID!)/CropList").childByAutoId()
             gardenRef.child("CropName").setValue(cropname)
             gardenRef.child("ProfName").setValue(profName)
             print("Crop added")
         }else{
-            OfflineGardenList[gardenIndex]?.cropProfile.append(newCropProf)
+            MY_GARDEN.cropProfile.append(newCropProf)
         }
         
         self.navigationController?.popViewController(animated: true)
