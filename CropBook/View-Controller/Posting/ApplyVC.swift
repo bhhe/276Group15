@@ -31,8 +31,7 @@ class ApplyVC: UIViewController {
         let uRef = postRef?.child("Requests").child(uid!)
         uRef?.child("name").setValue(nameField.text)
         uRef?.child("info").setValue(infoText.text)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
-            self.performSegue(withIdentifier: "unwindPost", sender: self)})
+        performSegue(withIdentifier: "unwindPost", sender: self)
     }
     
 }
