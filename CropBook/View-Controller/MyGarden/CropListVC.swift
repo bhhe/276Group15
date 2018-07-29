@@ -205,5 +205,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             receiverVC.gardenIndex = gardenIndex
             receiverVC.Online = self.Online
         }
+        else if segue.identifier == "showMap"{
+            let receiverVC = segue.destination as!MapVC
+            receiverVC.gardenIndex=gardenIndex
+            receiverVC.garden=myGarden
+            
+        }
     }
 }
