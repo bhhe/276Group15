@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        try! Auth.auth().signOut()
+        //try! Auth.auth().signOut()
         // Do any additional setup after loading the view.
     }
     

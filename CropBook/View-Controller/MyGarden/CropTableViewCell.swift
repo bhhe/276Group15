@@ -14,6 +14,8 @@ class CropTableViewCell: UITableViewCell {
     @IBOutlet weak var cropLabel : UILabel!
     @IBOutlet weak var deleteButton : UIButton!
     @IBOutlet weak var editButton : UIButton!
+    @IBOutlet weak var detailsButton : UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

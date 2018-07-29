@@ -110,9 +110,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Offline"/>
-                                    <segment title="Online"/>
+                                    <segment title="My Garden"/>
+                                    <segment title="Shared"/>
                                 </segments>
+                                <color key="tintColor" red="0.6470588235294118" green="0.80392156862745101" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="ChangeOfflineOnline:" destination="LNc-op-tDw" eventType="valueChanged" id="iAC-Cs-vEy"/>
                                 </connections>
@@ -215,7 +216,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt6-ww-f7f">
                                 <rect key="frame" x="129" y="64" width="117" height="21"/>
@@ -267,7 +268,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.60167410714285718" green="0.58827159831953435" blue="0.59340447025739351" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.64856292924567116" green="0.80455695433937824" blue="0.3843892983191306" alpha="0.73539282570422537" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.6470588235294118" green="0.80392156862745101" blue="0.38431372549019605" alpha="0.73539282570422537" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
@@ -382,7 +383,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ySx-nM-r22">
-                                <rect key="frame" x="0.0" y="64" width="375" height="341"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="409"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.39440551639999999" green="0.60785702720000001" blue="0.46291602749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -406,14 +407,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-vw-OZX">
-                                                    <rect key="frame" x="276" y="9" width="32" height="32"/>
+                                                    <rect key="frame" x="261" y="8" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="edit"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90i-CO-pST">
-                                                    <rect key="frame" x="333" y="9" width="36" height="32"/>
+                                                    <rect key="frame" x="324" y="77" width="36" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Garbage"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-mr-xGT">
+                                                    <rect key="frame" x="319" y="2" width="47" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Details"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -421,7 +427,87 @@
                                             <outlet property="cropImage" destination="W2h-0t-sfg" id="Biu-jQ-7na"/>
                                             <outlet property="cropLabel" destination="LnD-dA-kY2" id="PLL-Vv-wdi"/>
                                             <outlet property="deleteButton" destination="90i-CO-pST" id="VzS-OI-287"/>
+                                            <outlet property="detailsButton" destination="ANX-mr-xGT" id="nCQ-aM-wH5"/>
                                             <outlet property="editButton" destination="TQj-vw-OZX" id="pWV-UC-0pZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="17" indentationWidth="0.0" reuseIdentifier="ExpandedCropCell" rowHeight="157" id="HZ0-lL-GCv" customClass="ExpandedCropCell" customModule="CropBook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="157"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HZ0-lL-GCv" id="lfR-Qp-IJn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c17-ea-vxE">
+                                                    <rect key="frame" x="15" y="11" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3E-ug-YIA">
+                                                    <rect key="frame" x="80" y="11" width="103" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcy-om-2gY">
+                                                    <rect key="frame" x="201" y="12" width="82" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jBU-Ee-evO" customClass="MultiSelectSegmentedControl">
+                                                    <rect key="frame" x="15" y="64" width="345" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Sun"/>
+                                                        <segment title="Mon"/>
+                                                        <segment title="Tue"/>
+                                                        <segment title="Wed"/>
+                                                        <segment title="Thu"/>
+                                                        <segment title="Fri"/>
+                                                        <segment title="Sat"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.61263020833333337" green="0.81146280126633985" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plot Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieh-R2-lWy">
+                                                    <rect key="frame" x="15" y="105" width="79" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00 mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-ou-NRD">
+                                                    <rect key="frame" x="266" y="100" width="94" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cc8-6J-sww">
+                                                    <rect key="frame" x="176" y="100" width="77" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Water"/>
+                                                </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cm^2" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uY5-V4-Wg3">
+                                                    <rect key="frame" x="98" y="105" width="66" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="enableReminder" destination="c17-ea-vxE" id="1Gu-qY-cxG"/>
+                                            <outlet property="plotSize" destination="uY5-V4-Wg3" id="1sU-xA-aet"/>
+                                            <outlet property="selectDays" destination="jBU-Ee-evO" id="iYS-mF-PmY"/>
+                                            <outlet property="setReminder" destination="W3E-ug-YIA" id="Dyi-Vz-Xv5"/>
+                                            <outlet property="timeField" destination="zcy-om-2gY" id="tgC-fR-brw"/>
+                                            <outlet property="waterAmount" destination="DIN-ou-NRD" id="WNR-Ca-tY1"/>
+                                            <outlet property="waterButton" destination="cc8-6J-sww" id="Ffv-Ur-SIO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1828,6 +1914,7 @@
         <image name="AddCrop Button" width="512" height="512"/>
         <image name="AllCat" width="96" height="96"/>
         <image name="Category" width="128" height="128"/>
+        <image name="Details" width="40" height="40"/>
         <image name="FruitsCat" width="96" height="96"/>
         <image name="Garbage" width="32" height="32"/>
         <image name="Post" width="32" height="32"/>

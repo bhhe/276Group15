@@ -15,6 +15,8 @@ class Notifications: NSObject {
     var minute : Int = 0;
     // Weekdays are Sunday=1 ... Saturday=7
     var weekDay : Int = 1;
+    var scheduleDays : [Int] = [0,0,0,0,0,0,0]
+    var enabled : Bool = false;
     var second : Int = 0;
     
     func setHour(Hour : Int) {
@@ -55,6 +57,45 @@ class Notifications: NSObject {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         // Schedule Request
         center.add(request)
+    }
+    
+    func scheduleEachWeekday(msg : String){
+        self.disableNotifications()
+        self.enabled = true
+        for i in 0...6{
+            if self.scheduleDays[i] == 0 {
+                continue
+            }
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            
+            content.title = "Watering Time!"
+            content.body = msg
+            content.categoryIdentifier = "alarm"
+            content.sound = UNNotificationSound.default()
+            
+            // Set specific time and data here
+            var dateComponents = DateComponents()
+            dateComponents.hour = self.hour
+            dateComponents.minute = self.minute
+            dateComponents.weekday = i+1
+            // Initialise trigger for specfic time and date
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            // Sets trigger for 5 seconds to test
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            // Make Request
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            // Schedule Request
+            center.add(request)
+        }
+    }
+    
+    func disableNotifications(){
+        self.enabled = false
+        //UIApplication.shared.cancelAllLocalNotifications()
+        let notifications = UNUserNotificationCenter.current()
+        notifications.removeAllPendingNotificationRequests()
     }
     
     func RequestPermission(){

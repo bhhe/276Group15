@@ -11,7 +11,7 @@ import Foundation
 class MyGarden{
     
     var gardenID:String?
-    var cropProfile=[CropProfile]()
+    var cropProfile:[CropProfile?]
     var gardenName:String
     var owner:Int?
     var gardenUserID:String?
@@ -19,12 +19,14 @@ class MyGarden{
     var dailyCompletion:Bool?
     var isOnline:Bool?
     init(Name name:String,Address address:String) {
+        self.cropProfile = [CropProfile?]()
         self.gardenName=name
         self.address=address
         self.isOnline = false
     }
     
     init(Name name:String,Address address:String,GardenID id:String) {
+        self.cropProfile = [CropProfile?]()
         self.gardenName=name
         self.address=address
         self.gardenID=id
