@@ -7,26 +7,105 @@
 //
 
 import UIKit
+import Firebase
 
 //Accepting applications and adding other users to participate in
 // the garden
-class acceptVC: UIViewController {
+class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate{
 
     var acptData : [AcceptData] = []
+    var usrPost = UserPost(postId: "false", isOwner: true)
+    var ref = Database.database().reference()
+    var uid = Auth.auth().currentUser?.uid
+    var activeField : UITextField?
+    var appInfo : AcceptData?
+    var postIndex : Int?
+    
+    @IBOutlet weak var postTitle: UINavigationItem!
+    @IBOutlet weak var cells: UITableView!
+    @IBOutlet weak var infoText: UITextView!
+    
+    var group = DispatchGroup()
     
     override func viewDidLoad() {
-        print(acptData.count)
+        cells.reloadData()
+        postTitle.title = usrPost.getName()
+        let gId = usrPost.getGId()
+        
+        let reqRef = ref.child("Posts/\(usrPost.getId())/Requests")
+        group.enter()
+        reqRef.observe(.value, with: {(snapshot) in
+            for snap in snapshot.children{
+                let userSnap = snap as! DataSnapshot
+                let uID = userSnap.key
+                let userDict = userSnap.value as! [String:String]
+                let info = userDict["info"] as? String
+                let name = userDict["name"] as? String
+                let applicData = AcceptData(uId: uID, gardenId: gId, name: name!, info: info!)
+                self.acptData.append(applicData)
+                self.cells.reloadData()
+                self.group.leave()
+            }
+        })
+        
+        cells.dataSource = self
+        cells.delegate = self
+        
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
     }
     
-    @IBAction func acceptPressed(_ sender: Any) {
-        performSegue(withIdentifier: "unwindAccept", sender: self)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return acptData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AppliCell", for : indexPath )
+        if indexPath.row <= acptData.count{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{cell.textLabel?.text = self.acptData[indexPath.row].name})
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appInfo = acptData[indexPath.row]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "appliSegue", sender: self)})
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "appliSegue"{
+            let receiverVC = segue.destination as! ApplicantViewController
+            receiverVC.appInfo = self.appInfo!
+            receiverVC.postId = usrPost.getId()
+        }else{
+            let receiverVC = segue.destination as! YourPostsVC
+            receiverVC.posts.remove(at: postIndex!)
+        }
+    }
+    
+    @IBAction func deletePost(_ sender: Any) {
+        
+        let postRef = ref.child("Posts").child(usrPost.getId())
+        let user = uid as! String
+        let uPostRef = ref.child("Users/\(user)/Posts").child(usrPost.getId())
+        postRef.removeValue{error, _ in print(error)}
+        uPostRef.removeValue{error, _ in print(error)}
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
+    }
+    
+    @IBAction func unwindToApps(segue : UIStoryboardSegue){
+        acptData.removeAll()
+        viewDidLoad()
+    }
+    
+    
 }
