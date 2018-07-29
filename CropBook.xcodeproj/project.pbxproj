@@ -20,6 +20,7 @@
 		BB47DCA820FB2BF100EA735D /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DCA720FB2BF100EA735D /* PostVC.swift */; };
 		BB47DCAA20FB2CA000EA735D /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DCA920FB2CA000EA735D /* Posting.swift */; };
 		BB9D6D0A20FC46B000E94FF5 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D6D0920FC46B000E94FF5 /* PostData.swift */; };
+		BBACD48E210C5CA2006BBEAA /* ApplicantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBACD48D210C5CA2006BBEAA /* ApplicantViewController.swift */; };
 		BBC5B55E20F9BC5000DD422E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC5B55D20F9BC5000DD422E /* GoogleService-Info.plist */; };
 		BBC6990620F9CD0600F40BE5 /* ComposeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */; };
 		BBCFD25D20FF83830070D05B /* acceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD25C20FF83830070D05B /* acceptVC.swift */; };
@@ -90,6 +91,7 @@
 		BB47DCA720FB2BF100EA735D /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		BB47DCA920FB2CA000EA735D /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		BB9D6D0920FC46B000E94FF5 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		BBACD48D210C5CA2006BBEAA /* ApplicantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantViewController.swift; sourceTree = "<group>"; };
 		BBC5B55D20F9BC5000DD422E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeVC.swift; sourceTree = "<group>"; };
 		BBCFD25C20FF83830070D05B /* acceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptVC.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		BFD11C9720ED7F9F0017632A /* Posting */ = {
 			isa = PBXGroup;
 			children = (
+				BBACD48D210C5CA2006BBEAA /* ApplicantViewController.swift */,
 				FCB0944220E96002005F060A /* GardenShareVC.swift */,
 				BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */,
 				BB47DCA720FB2BF100EA735D /* PostVC.swift */,
@@ -591,6 +594,7 @@
 				BBC6990620F9CD0600F40BE5 /* ComposeVC.swift in Sources */,
 				BB4450A020EC462300F2BC99 /* CtgyTableVC.swift in Sources */,
 				BB42B6F020FF73B9000ECC18 /* UserPost.swift in Sources */,
+				BBACD48E210C5CA2006BBEAA /* ApplicantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,15 @@ import Firebase
 
 //Accepting applications and adding other users to participate in
 // the garden
-class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate   {
+class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate{
 
     var acptData : [AcceptData] = []
     var usrPost = UserPost(postId: "false", isOwner: true)
     var ref = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
+    var activeField : UITextField?
+    var appInfo : AcceptData?
+    
     @IBOutlet weak var postTitle: UINavigationItem!
     @IBOutlet weak var cells: UITableView!
     @IBOutlet weak var infoText: UITextView!
@@ -24,6 +27,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate   {
     var group = DispatchGroup()
     
     override func viewDidLoad() {
+        cells.reloadData()
         postTitle.title = usrPost.getName()
         let gId = usrPost.getGId()
         
@@ -34,13 +38,13 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate   {
                 let userSnap = snap as! DataSnapshot
                 let uID = userSnap.key
                 let userDict = userSnap.value as! [String:String]
-                let info = userDict["info"] as! String
-                let name = userDict["name"] as! String
-                let applicData = AcceptData(uId: uID, gardenId: gId, name: name, info: info)
+                let info = userDict["info"] as? String
+                let name = userDict["name"] as? String
+                let applicData = AcceptData(uId: uID, gardenId: gId, name: name!, info: info!)
                 self.acptData.append(applicData)
                 self.cells.reloadData()
+                self.group.leave()
             }
-            self.group.leave()
         })
         
         cells.dataSource = self
@@ -49,7 +53,10 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate   {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -61,36 +68,42 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate   {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppliCell", for : indexPath )
-       DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{cell.textLabel?.text = self.acptData[indexPath.row].name})
+        if indexPath.row <= acptData.count{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{cell.textLabel?.text = self.acptData[indexPath.row].name})
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let info = acptData[indexPath.row].info
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.infoText.text = info})
-        
-    }
- 
-    @IBAction func acceptPressed(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
+        appInfo = acptData[indexPath.row]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "appliSegue", sender: self)})
     }
     
-    @IBAction func removePressed(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{for chd in self.acptData{
-            print(chd.uId)
-            print(chd.name)
-            print(chd.info)
-            }})
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "appliSegue"{
+            let receiverVC = segue.destination as! ApplicantViewController
+            receiverVC.appInfo = self.appInfo!
+            receiverVC.postId = usrPost.getId()
+        }else{
+            let receiverVC = segue.destination as! YourPostsVC
+        }
     }
-    
     
     @IBAction func deletePost(_ sender: Any) {
+        
         let postRef = ref.child("Posts").child(usrPost.getId())
         let user = uid as! String
         let uPostRef = ref.child("Users/\(user)/Posts").child(usrPost.getId())
         postRef.removeValue{error, _ in print(error)}
         uPostRef.removeValue{error, _ in print(error)}
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
+ 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
     }
+    
+    @IBAction func unwindToApps(segue : UIStoryboardSegue){
+        acptData.removeAll()
+        viewDidLoad()
+    }
+    
     
 }

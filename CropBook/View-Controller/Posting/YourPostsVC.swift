@@ -32,13 +32,14 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
                 chd.setPostName(postName: val)
                 self.group.leave()
             }
+            
             group.enter();
             postRef.child(chd.getId()).child("GardenId").observe(.value) { (snapshot) in
                 let val = snapshot.value as! String
+                print(snapshot)
                 chd.setGardId(gardId: val)
                 self.group.leave()
             }
-            
         }
 
         super.viewDidLoad()
@@ -60,11 +61,9 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
         postId = posts[indexPath.row].getId()
         usrPost = posts[indexPath.row]
         
-        //getRequests()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "acceptSegue", sender: self)})
         
     }
@@ -74,5 +73,8 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         receiverVC.acptData = acceptDatas
         receiverVC.usrPost = self.usrPost
     }
-
+    
+    @IBAction func unwindToYP(segue : UIStoryboardSegue){
+        viewDidLoad()
+    }
 }
