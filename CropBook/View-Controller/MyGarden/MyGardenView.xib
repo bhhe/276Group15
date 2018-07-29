@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyGardenView" customModule="CropBook" customModuleProvider="target">
             <connections>
+                <outlet property="editName" destination="d2R-lm-Syr" id="1jI-jJ-BjM"/>
+                <outlet property="nameField" destination="br9-Mn-Avr" id="pbU-Dx-Sof"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,17 +31,8 @@
                         <constraint firstAttribute="height" constant="121" id="j6u-5k-9qO"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Garden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9z-i8-Uz9">
-                    <rect key="frame" x="141" y="50" width="189.5" height="57"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="j9z-i8-Uz9" secondAttribute="height" multiplier="63:19" id="XaP-pq-a6J"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="57"/>
-                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-K1-LCF">
-                    <rect key="frame" x="60" y="376" width="255" height="30"/>
+                    <rect key="frame" x="60" y="407" width="255" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Post"/>
@@ -64,6 +56,9 @@
                         <constraint firstAttribute="height" constant="27" id="s5L-n2-qmo"/>
                     </constraints>
                     <state key="normal" image="edit"/>
+                    <connections>
+                        <action selector="editName:" destination="-1" eventType="touchUpInside" id="B9a-DR-BAz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d59-1R-aGE">
                     <rect key="frame" x="60" y="201" width="255" height="120"/>
@@ -79,17 +74,22 @@
                         <action selector="openCrops:" destination="-1" eventType="touchUpInside" id="Tf9-2P-hMO"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" text="My Garden" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Mn-Avr">
+                    <rect key="frame" x="134" y="53" width="202" height="54"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="57"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="1" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="j9z-i8-Uz9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="5E9-Ib-6vc"/>
                 <constraint firstItem="d59-1R-aGE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="D7V-EY-vrE"/>
                 <constraint firstItem="wXz-2y-796" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="F3Y-1p-m5Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d2R-lm-Syr" secondAttribute="trailing" constant="10" id="JGI-MA-FRs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d59-1R-aGE" secondAttribute="trailing" constant="60" id="dWL-Px-BEw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j9z-i8-Uz9" secondAttribute="trailing" constant="44.5" id="g30-eN-1gw"/>
                 <constraint firstItem="d2R-lm-Syr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="mjU-RJ-KCc"/>
-                <constraint firstItem="j9z-i8-Uz9" firstAttribute="leading" secondItem="wXz-2y-796" secondAttribute="trailing" constant="8" id="veU-NA-oQh"/>
                 <constraint firstItem="wXz-2y-796" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="w6y-vo-rBI"/>
                 <constraint firstItem="d59-1R-aGE" firstAttribute="top" secondItem="wXz-2y-796" secondAttribute="bottom" constant="60" id="wG8-Xe-Pwf"/>
             </constraints>

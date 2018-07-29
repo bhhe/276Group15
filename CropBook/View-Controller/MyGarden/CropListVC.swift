@@ -33,7 +33,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -49,12 +48,12 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
                 for child in snapshot.children.allObjects as![DataSnapshot]{
                     let cropObject=child.value as? [String:AnyObject]
                     let cropname=cropObject?["CropName"]
-                    let profname=cropObject?["ProfName"]
+                    //let profname=cropObject?["ProfName"]
                     let cropinfo=lib.searchByName(cropName: cropname as! String)
                     let newCrop=CropProfile(cropInfo: cropinfo!, profName: cropname as! String)
                     newCrop.cropID=child.key
                     print(child.key)
-                    self.myGarden.AddCrop(New: newCrop)
+                    _ = self.myGarden.AddCrop(New: newCrop)
                 }
                 self.cropList = self.myGarden.cropProfile
                 self.tableView.reloadData()
@@ -129,7 +128,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "CropProfileSegue", sender: self)
     }
     
-    //Delete a selected garden
+    //Delete a selected crop from a garden
     @objc func deleteCrop(sender: UIButton){
         let passedIndex = sender.tag
         
@@ -156,7 +155,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func RemoveCropFromFB(_ id:String){
         let gardenID=myGarden.gardenID
-        let CropRef=ref.child("Gardens/\(gardenID)/CropList/\(id)")
+        let CropRef=ref.child("Gardens/\(gardenID!)/CropList/\(id)")
         CropRef.removeValue()
         print("Removed!")
     }

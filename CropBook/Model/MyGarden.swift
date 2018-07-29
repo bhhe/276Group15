@@ -37,6 +37,9 @@ class MyGarden{
         self.isOnline = state;
     }
     
+    func setGardenName(name: String) {
+        self.gardenName = name
+    }
     func getOnlineState()->Bool{
         return self.isOnline!
     }

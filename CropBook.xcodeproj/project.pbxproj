@@ -38,14 +38,13 @@
 		FC53835B20E8BAC5009651E7 /* CropInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC53835920E8BAC5009651E7 /* CropInfo.swift */; };
 		FC53835C20E8BAC5009651E7 /* CropLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC53835A20E8BAC5009651E7 /* CropLibrary.swift */; };
 		FC66DD1720FD99A800FBD2B1 /* CropTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC66DD1620FD99A800FBD2B1 /* CropTableViewCell.swift */; };
-		FC66DD1920FE51F300FBD2B1 /* OnlineGardenTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC66DD1820FE51F300FBD2B1 /* OnlineGardenTVC.swift */; };
-		FC6C926120FBAA3700C43121 /* GardenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C926020FBAA3700C43121 /* GardenTableViewCell.swift */; };
 		FC754B7920E5C88500302A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B7820E5C88500302A58 /* AppDelegate.swift */; };
 		FC754B7D20E5C88500302A58 /* CropLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B7C20E5C88500302A58 /* CropLibraryVC.swift */; };
 		FC754B8220E5C88600302A58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC754B8120E5C88600302A58 /* Assets.xcassets */; };
 		FC754B8520E5C88600302A58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC754B8320E5C88600302A58 /* LaunchScreen.storyboard */; };
 		FC754B9020E5C88600302A58 /* CropBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B8F20E5C88600302A58 /* CropBookTests.swift */; };
 		FC754B9B20E5C88600302A58 /* CropBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B9A20E5C88600302A58 /* CropBookUITests.swift */; };
+		FC91D6CC210E5C2100F80681 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91D6CB210E5C2100F80681 /* MapVC.swift */; };
 		FCA68850210800F200028A86 /* ExpandedCropCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6884F210800F200028A86 /* ExpandedCropCell.swift */; };
 		FCB0944320E96002005F060A /* GardenShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB0944220E96002005F060A /* GardenShareVC.swift */; };
 		FCB489FB20EA972900E33680 /* cropdata.json in Resources */ = {isa = PBXBuildFile; fileRef = FCB489FA20EA972900E33680 /* cropdata.json */; };
@@ -117,8 +116,6 @@
 		FC53835920E8BAC5009651E7 /* CropInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropInfo.swift; sourceTree = "<group>"; };
 		FC53835A20E8BAC5009651E7 /* CropLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropLibrary.swift; sourceTree = "<group>"; };
 		FC66DD1620FD99A800FBD2B1 /* CropTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropTableViewCell.swift; sourceTree = "<group>"; };
-		FC66DD1820FE51F300FBD2B1 /* OnlineGardenTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineGardenTVC.swift; sourceTree = "<group>"; };
-		FC6C926020FBAA3700C43121 /* GardenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenTableViewCell.swift; sourceTree = "<group>"; };
 		FC754B7520E5C88500302A58 /* CropBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CropBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC754B7820E5C88500302A58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC754B7C20E5C88500302A58 /* CropLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropLibraryVC.swift; sourceTree = "<group>"; };
@@ -131,6 +128,7 @@
 		FC754B9620E5C88600302A58 /* CropBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CropBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC754B9A20E5C88600302A58 /* CropBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropBookUITests.swift; sourceTree = "<group>"; };
 		FC754B9C20E5C88600302A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC91D6CB210E5C2100F80681 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FCA6884F210800F200028A86 /* ExpandedCropCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedCropCell.swift; sourceTree = "<group>"; };
 		FCB0944220E96002005F060A /* GardenShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenShareVC.swift; sourceTree = "<group>"; };
 		FCB489FA20EA972900E33680 /* cropdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cropdata.json; sourceTree = "<group>"; };
@@ -218,11 +216,10 @@
 				FCF79F29210CC33E00C8D0B6 /* SharedGardenView.xib */,
 				FCF79F2C210CDBA200C8D0B6 /* SharedGardenCell.swift */,
 				FCF79F2D210CDBA200C8D0B6 /* SharedGardenCell.xib */,
+				FC91D6CB210E5C2100F80681 /* MapVC.swift */,
 				BF79374F20EAC4DD00A0BB86 /* CropListVC.swift */,
 				FCCAAD9320FAD19E0043301A /* CropCreateVC.swift */,
 				BF58EB1020EB6C0F000F239C /* CropProfileVC.swift */,
-				FC6C926020FBAA3700C43121 /* GardenTableViewCell.swift */,
-				FC66DD1820FE51F300FBD2B1 /* OnlineGardenTVC.swift */,
 				FC66DD1620FD99A800FBD2B1 /* CropTableViewCell.swift */,
 				FCA6884F210800F200028A86 /* ExpandedCropCell.swift */,
 			);
@@ -584,15 +581,14 @@
 				BB42B6EE20FF717E000ECC18 /* YourPostsVC.swift in Sources */,
 				BF79375020EAC4DD00A0BB86 /* CropListVC.swift in Sources */,
 				FCCAAD9420FAD19E0043301A /* CropCreateVC.swift in Sources */,
+				FC91D6CC210E5C2100F80681 /* MapVC.swift in Sources */,
 				BF03A5A220FC8DAF004B58AC /* MainVC.swift in Sources */,
 				BB44509E20EC461A00F2BC99 /* CtgysVC.swift in Sources */,
 				BB47DCA820FB2BF100EA735D /* PostVC.swift in Sources */,
 				FCF79F2E210CDBA200C8D0B6 /* SharedGardenCell.swift in Sources */,
-				FC66DD1920FE51F300FBD2B1 /* OnlineGardenTVC.swift in Sources */,
 				FC53835620E883EF009651E7 /* Notifications.swift in Sources */,
 				FCE283B220E991F3008AF095 /* CropProfile.swift in Sources */,
 				FCF79F1B210C189600C8D0B6 /* MyGardenMainVC.swift in Sources */,
-				FC6C926120FBAA3700C43121 /* GardenTableViewCell.swift in Sources */,
 				FCF79F2A210CC33E00C8D0B6 /* SharedGardenView.swift in Sources */,
 				FC53835C20E8BAC5009651E7 /* CropLibrary.swift in Sources */,
 				FC754B7D20E5C88500302A58 /* CropLibraryVC.swift in Sources */,

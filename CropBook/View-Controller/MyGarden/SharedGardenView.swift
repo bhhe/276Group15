@@ -23,7 +23,6 @@ class SharedGardenView: UIViewController, UITableViewDataSource, UITableViewDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.GetOnlineGardens()
-        self.tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,11 +32,14 @@ class SharedGardenView: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sharedGardenCell", for:indexPath) as! SharedGardenCell
         cell.gardenLabel.text = SHARED_GARDEN_LIST[indexPath.row]?.gardenName ?? "MyGarden"
+        cell.mapButton.addTarget(self, action: #selector(SharedGardenView.openMap), for: .touchUpInside)
+        cell.mapButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(SharedGardenView.createDeleteMessage), for: .touchUpInside)
+        cell.deleteButton.tag = indexPath.row
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         delegate?.openSharedCrops(index: indexPath.row)
     }
     
@@ -58,7 +60,7 @@ class SharedGardenView: UIViewController, UITableViewDataSource, UITableViewDele
         
         //retrieve garden that the user is participating from Firebase
         let gardenref = ref.child("Gardens")
-        gardenref.observe(.value, with: {(snapshot) in
+        gardenref.observeSingleEvent(of: .value, with: {(snapshot) in
             if snapshot.childrenCount>0{
                 for garden in snapshot.children.allObjects as! [DataSnapshot]{
                     // if gardenSet.contains(garden.key)
@@ -76,20 +78,53 @@ class SharedGardenView: UIViewController, UITableViewDataSource, UITableViewDele
             }})
     }
     
+    // Make sure user wants to remove the Garden
+    @objc func createDeleteMessage(sender: UIButton){
+        // Create Alert Message
+        let alert = UIAlertController(title: "Remove Garden?", message: SHARED_GARDEN_LIST[sender.tag]?.gardenName, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated:true, completion:nil)
+            self.deleteGarden(index: sender.tag)
+            self.confirmationMessage()
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated:true, completion:nil)
+        }))
+        self.present(alert, animated:true, completion:nil)
+    }
+    
+    // Delete Garden from SHARED_GARDEN_LIST and from FireBase
+    func deleteGarden(index: Int){
+        let ref = Database.database().reference()
+        let gardenID=SHARED_GARDEN_LIST[index]?.gardenID
+        let GardenRef = ref.child("Gardens/\(gardenID!)")
+        GardenRef.removeValue()
+        //remove child with the matching gardenID
+        print("Garden Removed")
+        //remove garden from Users
+        let userid=Auth.auth().currentUser?.uid
+        let UserGardenRef=ref.child("Users/\(userid!)/Gardens/\(gardenID!)")
+        UserGardenRef.removeValue()
+        SHARED_GARDEN_LIST.remove(at: index)
+    }
+    
+    func confirmationMessage(){
+        let confirmation = UIAlertController(title: "Garden Removed", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        confirmation.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+            confirmation.dismiss(animated: true, completion: nil)
+        }))
+        self.present(confirmation, animated:true, completion:nil)
+    }
+    
+    
+    @objc func openMap(sender: UIButton){
+        delegate?.openMap(index: sender.tag)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

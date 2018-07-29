@@ -212,6 +212,7 @@
                         <outlet property="viewContainer" destination="Yb3-BO-OUu" id="T7v-Ym-WIV"/>
                         <segue destination="TDo-cM-XrG" kind="show" identifier="showCrops" id="VFY-8Z-WFt"/>
                         <segue destination="TDo-cM-XrG" kind="show" identifier="showSharedCrops" id="Ykm-9w-aJd"/>
+                        <segue destination="ANX-mV-edc" kind="show" identifier="showMap" id="YmY-qq-nuM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9F-kT-ROP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -774,21 +775,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysd-Ak-KjC">
                                 <rect key="frame" x="127" y="203" width="121" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Search">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="searchLib:" destination="To3-Mx-sAc" eventType="touchUpInside" id="Mzk-RG-UpJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXq-w5-aLT">
-                                <rect key="frame" x="166" y="432" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="1" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="R8Y-LR-OKx"/>
@@ -1078,6 +1073,47 @@
             </objects>
             <point key="canvasLocation" x="1936.8" y="-0.44977511244377816"/>
         </scene>
+        <!--MapVC-->
+        <scene sceneID="oa8-9h-cEy">
+            <objects>
+                <viewController id="ANX-mV-edc" customClass="MapVC" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JGQ-Ik-HTf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m9i-mK-1RS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m9i-mK-1RS" firstAttribute="trailing" secondItem="VJf-tl-gyu" secondAttribute="trailing" id="aWv-ga-r2T"/>
+                            <constraint firstItem="m9i-mK-1RS" firstAttribute="bottom" secondItem="VJf-tl-gyu" secondAttribute="bottom" id="iD9-48-mQ1"/>
+                            <constraint firstItem="m9i-mK-1RS" firstAttribute="leading" secondItem="VJf-tl-gyu" secondAttribute="leading" id="pQ3-jl-vdl"/>
+                            <constraint firstItem="m9i-mK-1RS" firstAttribute="top" secondItem="VJf-tl-gyu" secondAttribute="top" id="r8s-cy-3Ab"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VJf-tl-gyu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g9M-x9-eEH">
+                        <barButtonItem key="rightBarButtonItem" title="Navigation" style="plain" id="8sG-PB-Pys">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ln6-9d-177">
+                                <rect key="frame" x="241" y="6" width="118" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Navigation" image="marker"/>
+                                <connections>
+                                    <action selector="showMapAPP:" destination="ANX-mV-edc" eventType="touchUpInside" id="1jy-jz-njT"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="m9i-mK-1RS" id="qgk-Y0-pf5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RcY-e4-uYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2874.4000000000001" y="-1499.1004497751126"/>
+        </scene>
         <!--Add Crop-->
         <scene sceneID="y6W-5A-3Ta">
             <objects>
@@ -1087,7 +1123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu2-Sa-sZi">
-                                <rect key="frame" x="67" y="151" width="241" height="250"/>
+                                <rect key="frame" x="67" y="151" width="250" height="250"/>
                                 <color key="backgroundColor" red="0.38783989270000002" green="1" blue="0.42509731039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="FHX-pg-Yjo"/>
@@ -1749,6 +1785,7 @@
         <image name="icons8-literature-50" width="25" height="25"/>
         <image name="icons8-watermelon-50" width="25" height="25"/>
         <image name="icons8-world-map-50" width="25" height="25"/>
+        <image name="marker" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xpI-mx-ptx"/>

@@ -15,6 +15,8 @@ var MY_GARDEN: MyGarden = MyGarden(Name: "My Garden", Address: "")
     func openCrops()
     func postGarden()
     func openSharedCrops(index: Int)
+    func openMap(index: Int)
+
 }
 
 class MyGardenMainVC: UIViewController,gardenButtonClicked{
@@ -50,7 +52,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     }
     
     
-    // Switch between MyGarden View and Shared Garden View
+    // Switch between MyGardenView and SharedGardenView
     @IBAction func switchViewAction(_ sender: UISegmentedControl){
         for i in 0...(views.count-1){
             self.views[i].isUserInteractionEnabled = (i == sender.selectedSegmentIndex)
@@ -95,6 +97,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             print("Crop added")
         }
         
+        self.sharedVC.GetOnlineGardens()
     }
     
     func openSharedCrops(index: Int){
@@ -105,6 +108,12 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     func openCrops(){
         performSegue(withIdentifier: "showCrops", sender: self)
     }
+    
+    func openMap(index: Int) {
+        self.gardenIndex = index
+        performSegue(withIdentifier: "showMap", sender: self)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -118,6 +127,9 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             let nextController=segue.destination as!GardenCropList
             nextController.gardenIndex = gardenIndex!
             nextController.Online=true
+        } else if (segue.identifier == "showMap") {
+            let nextController=segue.destination as!MapVC
+            nextController.gardenIndex = gardenIndex!
         }
     }
     

@@ -8,14 +8,20 @@
 
 import UIKit
 
-
-
-class MyGardenView: UIViewController {
+class MyGardenView: UIViewController, UITextFieldDelegate {
+    
     weak var delegate: gardenButtonClicked?
-
+    @IBOutlet weak var editName: UIButton!
+    @IBOutlet weak var nameField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameField.delegate = self
+        self.nameField.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MyGardenView.viewTapped(gestureRecognizer:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +36,26 @@ class MyGardenView: UIViewController {
     @IBAction internal func postGarden(_ sender: Any){
         if !MY_GARDEN.getOnlineState(){
             delegate?.postGarden()
+        } else {
+            let alert = UIAlertController(title: "Garden Already posted", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+                alert.dismiss(animated:true, completion:nil)
+                
+            }))
+            self.present(alert, animated:true, completion:nil)
         }
+    }
+    
+    @IBAction internal func editName(_ sender: Any){
+        self.nameField.isUserInteractionEnabled = true
+        self.nameField.becomeFirstResponder()
+        self.nameField.selectedTextRange = nameField.textRange(from: nameField.beginningOfDocument, to: nameField.endOfDocument)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        self.nameField.isUserInteractionEnabled = false
+        MY_GARDEN.setGardenName(name: self.nameField.text!)
+        self.nameField.resignFirstResponder()
     }
     
     @IBAction internal func clearCrops(_ sender: Any){
@@ -52,14 +77,5 @@ class MyGardenView: UIViewController {
         self.present(alert, animated:true, completion:nil)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
