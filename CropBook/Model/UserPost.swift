@@ -12,26 +12,16 @@ class UserPost{
     
     var postId : String
     var gardId : String
-    var postName : String
     var isOwner : Bool
     
     init(postId : String, isOwner : Bool){
         self.postId = postId
         self.isOwner = isOwner
         self.gardId = ""
-        self.postName = ""
     }
     
     func getId() -> String{
         return self.postId
-    }
-    
-    func getGId() -> String{
-        return self.gardId
-    }
-    
-    func getName() -> String{
-        return self.postName
     }
     
     func isTheOwner() -> Bool{
@@ -41,9 +31,4 @@ class UserPost{
     func setGardId(gardId : String){
         self.gardId = gardId
     }
-    
-    func setPostName(postName : String){
-        self.postName = postName
-    }
-    
 }

@@ -19,8 +19,6 @@ class LoginVC: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     
     override func viewDidLoad() {
-        usernameField.text = "jason@sfu.ca"
-        passwordField.text = "123456"
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

@@ -25,25 +25,17 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     var gardId = ""
     var myCrops : [String] = []
     var myPosts : [UserPost] = []
-    var group = DispatchGroup()
-    
     override func viewDidLoad() {
-        postings = [PostData]()
-        myPosts = [UserPost]()
-        
         ref = Database.database().reference()
         let userRef = ref?.child("Posts")
         
-        userRef?.observe(.value, with: { (gardenSnapshot) in
-            for child in gardenSnapshot.children{
-                let snap = child as! DataSnapshot
-                let snap2 = snap.childSnapshot(forPath: "Title")
-                let pId = snap.key
-                let pTitle = snap2.value as! String
-                let postData = PostData(postId: pId, postTitle: pTitle,gardenId : "")
-                self.postings.append(postData)
-                self.tableView.reloadData()
-            }
+        userRef?.observe(.childAdded, with: { (gardenSnapshot) in
+            let postId = gardenSnapshot.key as? String
+            let postSnap = gardenSnapshot.childSnapshot(forPath: "Title")
+            let postTitle = postSnap.value as? String
+            let postData = PostData(postId: postId!, postTitle: postTitle!,gardenId : "") as? PostData
+            self.postings.append(postData!)
+            self.tableView.reloadData()
         })
         
         let uRef = ref?.child("Users").child(uid!).child("Posts")
@@ -68,23 +60,16 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     //returns number of rows in data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(postings.count)
         return postings.count
     }
     
     //return cell for display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell")
-        if(indexPath.row <= postings.count){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
-            cell?.textLabel?.text = self.postings[indexPath.row].getTitle()})
-        }
+        
+        cell?.textLabel?.text = postings[indexPath.row].getTitle()
         return cell!
     }
     
@@ -112,7 +97,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         })
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
             self.performSegue(withIdentifier: "createPost", sender: self)})
     }
     
@@ -156,7 +141,6 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     func addCrops(){
         let gardenId = postings[myIndex].getGdnId()
         let GardenRef = ref?.child("Gardens/\(gardenId)/CropList")
-        
         GardenRef?.observe(.value, with: {(snapshot) in
             for child in snapshot.children.allObjects as![DataSnapshot]{
                 let cropObject=child.value as? [String:AnyObject]
@@ -172,6 +156,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func unwindToShare(segue : UIStoryboardSegue){
-        viewDidLoad()
+        
+        
     }
 }
