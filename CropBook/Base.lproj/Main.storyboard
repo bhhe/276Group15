@@ -1540,10 +1540,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your Posts" id="qR9-i0-Igu"/>
                     <connections>
+                        <outlet property="postCells" destination="7ow-c1-TAS" id="hEW-xo-lNt"/>
                         <segue destination="mTt-vO-Lo3" kind="show" identifier="acceptSegue" id="HBP-g1-UvB"/>
+                        <segue destination="DX1-Dd-2he" kind="unwind" identifier="unwindBack" unwindAction="unwindToShareWithSegue:" id="JdF-rn-VRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYU-TV-Hrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DX1-Dd-2he" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2129" y="860"/>
         </scene>
@@ -1592,7 +1595,8 @@
                         <outlet property="cells" destination="MZe-Td-pLU" id="LEg-kR-UJa"/>
                         <outlet property="postTitle" destination="sne-Qg-EkP" id="cFf-zj-E4F"/>
                         <segue destination="EQr-4R-sGa" kind="show" identifier="appliSegue" id="8ub-nx-UHU"/>
-                        <segue destination="wpZ-in-JEQ" kind="unwind" identifier="unwindAccept" unwindAction="unwindToYPWithSegue:" id="YJk-MT-nOc"/>
+                        <segue destination="wpZ-in-JEQ" kind="unwind" identifier="unwindShare" unwindAction="unwindToShareWithSegue:" id="tYw-ze-w43"/>
+                        <segue destination="wpZ-in-JEQ" kind="unwind" identifier="unwindAccept" unwindAction="unwindToYPWithSegue:" id="gkX-En-Sua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71K-iC-UoM" userLabel="First Responder" sceneMemberID="firstResponder"/>

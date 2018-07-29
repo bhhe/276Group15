@@ -156,6 +156,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     func addCrops(){
         let gardenId = postings[myIndex].getGdnId()
         let GardenRef = ref?.child("Gardens/\(gardenId)/CropList")
+        
         GardenRef?.observe(.value, with: {(snapshot) in
             for child in snapshot.children.allObjects as![DataSnapshot]{
                 let cropObject=child.value as? [String:AnyObject]

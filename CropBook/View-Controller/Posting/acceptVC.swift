@@ -19,6 +19,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     var uid = Auth.auth().currentUser?.uid
     var activeField : UITextField?
     var appInfo : AcceptData?
+    var postIndex : Int?
     
     @IBOutlet weak var postTitle: UINavigationItem!
     @IBOutlet weak var cells: UITableView!
@@ -86,6 +87,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             receiverVC.postId = usrPost.getId()
         }else{
             let receiverVC = segue.destination as! YourPostsVC
+            receiverVC.posts.remove(at: postIndex!)
         }
     }
     
@@ -96,7 +98,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         let uPostRef = ref.child("Users/\(user)/Posts").child(usrPost.getId())
         postRef.removeValue{error, _ in print(error)}
         uPostRef.removeValue{error, _ in print(error)}
- 
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "unwindAccept", sender: self)})
     }
     
