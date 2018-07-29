@@ -102,6 +102,8 @@ class GardenInterface: UIViewController, UITableViewDelegate,UITableViewDataSour
             let gardenRef=self.ref.child("Users/\(userid)/Gardens").child(gardenID)
             print(gardenID)
             gardenRef.setValue(true)
+            ////we also need to add a list of members of the garden, boolean value to indicate whether the owner or not.
+            ref.child("Gardens/\(gardenID)/members/\(userid)").setValue(true)
             
             if let numOfCrops = OfflineGardenList[passedIndex]?.getSize() {
                 print("Adding Crops")
