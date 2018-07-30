@@ -23,11 +23,23 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     @IBOutlet weak var cropsView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        let cropRef = ref.child("Gardens/\(post.gardenRef)/CropList")
+        cropRef.observe(.value) { (snapshot) in
+            for snap in snapshot.children{
+                let cropSnap = snap as! DataSnapshot
+                let cropDict = cropSnap.value as! [String:String]
+                let info = cropDict["CropName"] as? String
+                self.crops.append(info!)
+            }
+            self.cropsView.reloadData()
+        }
+        cropsView.delegate = self
+        cropsView.dataSource = self
         descriptionField.text = post.getDescription()
         descriptionField.isEditable = false
         postTitle.text = post.getTitle()
         harvestField.text = post.getHarvest()
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
@@ -42,7 +54,7 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cropCell", for : indexPath )
-        cell.textLabel?.text = crops[indexPath.row]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{cell.textLabel?.text = self.crops[indexPath.row]})
         return cell
     }
     
