@@ -45,6 +45,7 @@
 		FC754B9020E5C88600302A58 /* CropBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B8F20E5C88600302A58 /* CropBookTests.swift */; };
 		FC754B9B20E5C88600302A58 /* CropBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC754B9A20E5C88600302A58 /* CropBookUITests.swift */; };
 		FC91D6CC210E5C2100F80681 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91D6CB210E5C2100F80681 /* MapVC.swift */; };
+		FC91D6D0210E920500F80681 /* ApplicantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91D6CF210E920500F80681 /* ApplicantViewController.swift */; };
 		FCA68850210800F200028A86 /* ExpandedCropCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6884F210800F200028A86 /* ExpandedCropCell.swift */; };
 		FCB0944320E96002005F060A /* GardenShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB0944220E96002005F060A /* GardenShareVC.swift */; };
 		FCB489FB20EA972900E33680 /* cropdata.json in Resources */ = {isa = PBXBuildFile; fileRef = FCB489FA20EA972900E33680 /* cropdata.json */; };
@@ -129,6 +130,7 @@
 		FC754B9A20E5C88600302A58 /* CropBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropBookUITests.swift; sourceTree = "<group>"; };
 		FC754B9C20E5C88600302A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC91D6CB210E5C2100F80681 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		FC91D6CF210E920500F80681 /* ApplicantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicantViewController.swift; sourceTree = "<group>"; };
 		FCA6884F210800F200028A86 /* ExpandedCropCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedCropCell.swift; sourceTree = "<group>"; };
 		FCB0944220E96002005F060A /* GardenShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenShareVC.swift; sourceTree = "<group>"; };
 		FCB489FA20EA972900E33680 /* cropdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cropdata.json; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		BFD11C9720ED7F9F0017632A /* Posting */ = {
 			isa = PBXGroup;
 			children = (
+				FC91D6CF210E920500F80681 /* ApplicantViewController.swift */,
 				FCB0944220E96002005F060A /* GardenShareVC.swift */,
 				BBC6990520F9CD0600F40BE5 /* ComposeVC.swift */,
 				BB47DCA720FB2BF100EA735D /* PostVC.swift */,
@@ -593,6 +596,7 @@
 				FC53835C20E8BAC5009651E7 /* CropLibrary.swift in Sources */,
 				FC754B7D20E5C88500302A58 /* CropLibraryVC.swift in Sources */,
 				BB44509C20EC45EE00F2BC99 /* SearchVC.swift in Sources */,
+				FC91D6D0210E920500F80681 /* ApplicantViewController.swift in Sources */,
 				FC36AB1220EAAA16006E9916 /* Weather.swift in Sources */,
 				BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */,
 				BB9D6D0A20FC46B000E94FF5 /* PostData.swift in Sources */,

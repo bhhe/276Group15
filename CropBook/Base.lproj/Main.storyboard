@@ -380,13 +380,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2a4-gj-uO7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Garden" id="xph-FM-stX">
-                        <barButtonItem key="rightBarButtonItem" title="Map" id="WBF-pG-oEY">
-                            <connections>
-                                <segue destination="fe9-Gr-uTk" kind="show" identifier="showMap" id="vHT-1J-usm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Garden" id="xph-FM-stX"/>
                     <connections>
                         <outlet property="tableView" destination="ySx-nM-r22" id="3C9-nd-BzC"/>
                         <segue destination="VNE-lz-LJY" kind="show" identifier="CropProfileSegue" id="fmY-fV-clb"/>
@@ -1822,42 +1816,6 @@
                 <exit id="zMz-Uq-GQd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4160.8000000000002" y="859.52023988005999"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="Iz8-jC-Csi">
-            <objects>
-                <viewController id="fe9-Gr-uTk" customClass="MapVC" customModule="CropBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="77f-7q-Lxf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iUu-OF-cMk">
-                                <rect key="frame" x="0.0" y="-49" width="375" height="667"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="iUu-OF-cMk" firstAttribute="height" secondItem="77f-7q-Lxf" secondAttribute="height" id="2e7-DN-zsf"/>
-                            <constraint firstItem="iUu-OF-cMk" firstAttribute="centerX" secondItem="NLp-Qs-rrN" secondAttribute="centerX" id="2fX-Wy-zIk"/>
-                            <constraint firstItem="iUu-OF-cMk" firstAttribute="width" secondItem="77f-7q-Lxf" secondAttribute="width" id="629-KU-C1M"/>
-                            <constraint firstItem="NLp-Qs-rrN" firstAttribute="bottom" secondItem="iUu-OF-cMk" secondAttribute="bottom" id="epw-H4-0LG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NLp-Qs-rrN"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="Vwq-L1-xgY">
-                        <barButtonItem key="rightBarButtonItem" title="Navigation" id="pzc-fi-aCc">
-                            <connections>
-                                <action selector="showMapAPP:" destination="fe9-Gr-uTk" id="Ijk-Na-r8c"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="map" destination="iUu-OF-cMk" id="vOK-ei-Gcm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SDA-gb-jJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3241" y="-1742"/>
         </scene>
     </scenes>
     <resources>
