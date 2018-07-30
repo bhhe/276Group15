@@ -29,22 +29,25 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var gardenStrings : [String] = []
     var gardenId = ""
     let uid = Auth.auth().currentUser?.uid
+    let group = DispatchGroup()
     
     override func viewDidLoad() {
         //createPost?.isUserInteractionEnabled = false
         //createPost?.alpha = 0.5
         ref = Database.database().reference()
-        guard let gardenRef = ref?.child("users").child(uid!) else{ return }
+        guard let gardenRef = ref?.child("Gardens") else{ return }
         
-        gardenRef.observeSingleEvent(of: .value) { (snapshot) in
-            for child in snapshot.children{
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                let value = snap.value
-                print("key = \(key) , value = \(value!)")
+        for chd in gardensIds!{
+            group.enter();
+            gardenRef.child(chd.getId()).child("gardenName").observeSingleEvent(of: .value) { (snapshot) in
+                let val = snapshot.value
+                chd.setName(gardenName: val as! String)
+                self.group.leave()
             }
         }
+        
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     
@@ -59,6 +62,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             })
         }
         */
+        
         super.viewWillAppear(animated)
     }
 
@@ -77,7 +81,9 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gardenCell", for : indexPath )
-        cell.textLabel?.text = gardensIds![indexPath.row].getId()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
+            cell.textLabel?.text = self.gardensIds![indexPath.row].getName()
+        })
         return cell
     }
     
@@ -111,15 +117,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             let userRef = ref?.child("Users").child(uid!).child("Posts").child(postKey)
             userRef?.setValue(true)
         }
-        
-        /*ref?.child("Posts").childByAutoId().child("test").setValue(textView.text)
-        presentingViewController?.dismiss(animated: true, completion: nil)
-         */
-        performSegue(withIdentifier: "unwindCompose", sender: self)
-    }
-    
-    @IBAction func removePost(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "unwindCompose", sender: self)})
     }
 
 }
