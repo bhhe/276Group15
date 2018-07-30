@@ -10,14 +10,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet weak var searchLabel: UILabel!
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchBtn: UIButton!
     var cropIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchLabel.text = ""
         // Do any additional setup after loading the view.
     }
 
@@ -30,8 +28,6 @@ class SearchViewController: UIViewController {
         if lib.searchByName(cropName: searchBar?.text ?? "") != nil{
             cropIndex = lib.getCropIndex(cropName : searchBar?.text ?? "")!
             performSegue(withIdentifier: "searched", sender: self)
-        }else{
-            searchLabel.text = "Sorry, that crop is not of this planet"
         }
     }
     

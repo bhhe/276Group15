@@ -25,38 +25,46 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.rowHeight = 120.0
         self.tableView.backgroundColor = UIColor(red: 248.0/255.0, green: 1, blue: 210/255, alpha:1)
         
         // Do any additional setup after loading the view.
-        self.myGarden = GardenList[gardenIndex]
+
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if self.Online! {
             //remove all crop before loading from firebase
+            self.myGarden = SHARED_GARDEN_LIST[gardenIndex]
             self.myGarden.cropProfile.removeAll()
+            //self.cropList?.removeAll()
             //retrieve Crops from the Firebase
             let gardenID = self.myGarden.gardenID
             let GardenRef = ref.child("Gardens/\(gardenID!)/CropList")
-            GardenRef.observe(.value, with: {(snapshot) in
+            GardenRef.observeSingleEvent(of: .value, with: {(snapshot) in
                 for child in snapshot.children.allObjects as![DataSnapshot]{
                     let cropObject=child.value as? [String:AnyObject]
                     let cropname=cropObject?["CropName"]
-                    let profname=cropObject?["ProfName"]
+                    //let profname=cropObject?["ProfName"]
                     let cropinfo=lib.searchByName(cropName: cropname as! String)
                     let newCrop=CropProfile(cropInfo: cropinfo!, profName: cropname as! String)
                     newCrop.cropID=child.key
                     print(child.key)
-                    self.myGarden.AddCrop(New: newCrop)
+                    _ = self.myGarden.AddCrop(New: newCrop)
                 }
+                self.cropList = self.myGarden.cropProfile
                 self.tableView.reloadData()
             })
         }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.myGarden = GardenList[gardenIndex]
-        self.cropList = GardenList[gardenIndex]?.cropProfile
+        else {
+            self.myGarden = MY_GARDEN
+            self.cropList = MY_GARDEN.cropProfile
+        }
+        //self.myGarden = GardenList[gardenIndex]
+        //self.cropList = GardenList[gardenIndex]?.cropProfile
         self.isExtended = nil
         self.tableView.reloadData()
         
@@ -120,7 +128,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "CropProfileSegue", sender: self)
     }
     
-    //Delete a selected garden
+    //Delete a selected crop from a garden
     @objc func deleteCrop(sender: UIButton){
         let passedIndex = sender.tag
         
@@ -147,7 +155,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func RemoveCropFromFB(_ id:String){
         let gardenID=myGarden.gardenID
-        let CropRef=ref.child("Gardens/\(gardenID)/CropList/\(id)")
+        let CropRef=ref.child("Gardens/\(gardenID!)/CropList/\(id)")
         CropRef.removeValue()
         print("Removed!")
     }
@@ -194,12 +202,19 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Dispose of any resources that can be recreated.
     }
     
+    // Prepare next viewcontrollers for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CropProfileSegue"{
             let receiverVC = segue.destination as! CropProfileViewController
-            receiverVC.gardenIndex = self.gardenIndex
+            if self.isExtended != nil {
+                if self.myIndex > self.isExtended! {
+                    receiverVC.crop = myGarden.cropProfile[myIndex - 1]
+                    receiverVC.myIndex = self.myIndex - 1
+                }
+            }
+            receiverVC.crop = myGarden.cropProfile[myIndex]
             receiverVC.myIndex = self.myIndex
-            
+        
         }else if segue.identifier == "createCrop"{
             let receiverVC = segue.destination as! CropCreateVC
             receiverVC.gardenIndex = gardenIndex
