@@ -44,7 +44,8 @@ class MapVC: UIViewController ,CLLocationManagerDelegate{
         manager.desiredAccuracy=kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()*/
-       
+        self.garden = SHARED_GARDEN_LIST[self.gardenIndex!]!
+        
         guard let address = self.garden?.address else
             {
                 print("invalid address")

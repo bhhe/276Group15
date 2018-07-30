@@ -1,19 +1,18 @@
 //
-//  GardenTableViewCell.swift
+//  SharedGardenCell.swift
 //  CropBook
 //
-//  Created by jon on 2018-07-15.
+//  Created by jon on 2018-07-28.
 //  Copyright © 2018 CMPT276-Group15. All rights reserved.
 //
 
 import UIKit
 
-class GardenTableViewCell: UITableViewCell {
+class SharedGardenCell: UITableViewCell {
 
-    @IBOutlet weak var gardenImage: UIImageView!
-    @IBOutlet weak var gardenLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var gardenLabel : UILabel!
+    @IBOutlet weak var deleteButton : UIButton!
+    @IBOutlet weak var mapButton : UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +24,5 @@ class GardenTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
