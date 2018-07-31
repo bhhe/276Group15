@@ -17,6 +17,7 @@ class CropProfile{
     var plantHarvesting : String
     var image : String
     var notif: Notifications
+    var coreData : CropProfileCore?
     
     init (){
         self.cropName = ""
@@ -88,8 +89,8 @@ class CropProfile{
     }
     
     func setNotification(Seconds : Int, msg : String){
-        var str = cropName + " : "
-        var notifMsg = str + msg
+        let str = cropName + " : "
+        let notifMsg = str + msg
         notif.setSeconds(Second: Seconds)
         notif.Schedule(msg: notifMsg)
     }

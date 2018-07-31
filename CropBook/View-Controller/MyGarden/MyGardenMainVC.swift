@@ -8,9 +8,13 @@
 
 import UIKit
 import Firebase
+import CoreData
+
 var SHARED_GARDEN_LIST=[MyGarden?]()
 var MY_GARDEN: MyGarden = MyGarden(Name: "My Garden", Address: "")
 var SIGNED_IN = false
+
+
 @objc protocol gardenButtonClicked{
     func openCrops()
     func postGarden()
@@ -28,10 +32,14 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     var views: [UIView]!
     var sharedVC : SharedGardenView = SharedGardenView()
     var myGardenVC : MyGardenView = MyGardenView()
+    var cropsCore = [CropProfileCore]()
     var gardenIndex : Int?
+    let fetchRequest: NSFetchRequest<CropProfileCore> = CropProfileCore.fetchRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadCoreData()
         
         if let _=Auth.auth().currentUser{
             self.signInSignOut.setTitle("Sign Out", for: UIControlState.normal)
@@ -58,6 +66,19 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         // Dispose of any resources that can be recreated.
     }
     
+    func loadCoreData(){
+        do {
+            let cropsCore = try PersistenceService.context.fetch(fetchRequest)
+            self.cropsCore = cropsCore
+        } catch {}
+        
+        for crop in cropsCore{
+            let info = lib.searchByName(cropName: crop.cropName!)
+            let profile = CropProfile(cropInfo: info!, profName: crop.profName!)
+            profile.coreData = crop
+            MY_GARDEN.AddCrop(New: profile)
+        }
+    }
     
     // Switch between MyGardenView and SharedGardenView
     @IBAction func switchViewAction(_ sender: UISegmentedControl){

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MyGardenView: UIViewController, UITextFieldDelegate {
     
@@ -64,6 +65,8 @@ class MyGardenView: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated:true, completion:nil)
             MY_GARDEN.cropProfile.removeAll()
+            self.clearCore()
+            
             let confirmation = UIAlertController(title: "Crops Removed", message: nil, preferredStyle: UIAlertControllerStyle.alert)
             confirmation.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                 confirmation.dismiss(animated:true, completion:nil)
@@ -76,6 +79,20 @@ class MyGardenView: UIViewController, UITextFieldDelegate {
         }))
         self.present(alert, animated:true, completion:nil)
         
+    }
+    
+    func clearCore(){
+        do{
+            let fetchRequest: NSFetchRequest<CropProfileCore> = CropProfileCore.fetchRequest()
+            let results = try PersistenceService.context.fetch(fetchRequest)
+            for managedObject in results{
+                print(managedObject.cropName as! String)
+                let managedObjectData : NSManagedObject = managedObject as NSManagedObject
+                PersistenceService.context.delete(managedObjectData)
+            }
+            PersistenceService.saveContext()
+        }catch{
+        }
     }
 
 }
