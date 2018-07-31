@@ -9,11 +9,14 @@
 import UIKit
 import Firebase
 import CoreData
+import MultiSelectSegmentedControl
 
 class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     
     var managedObjectContext : NSManagedObjectContext!
     var myIndex=0
@@ -28,17 +31,18 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor(red: 248.0/255.0, green: 1, blue: 210/255, alpha:1)
-        
         // Do any additional setup after loading the view.
-
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         if self.Online! {
+            // Ensure Menu Button is enabled
+            self.menuButton.tintColor = .black
+            self.menuButton.isEnabled = true
+            
             //remove all crop before loading from firebase
             self.myGarden = SHARED_GARDEN_LIST[gardenIndex]
             self.myGarden.cropProfile.removeAll()
@@ -62,6 +66,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             })
         }
         else {
+            // Hide and Disable Menu Button
+            self.menuButton.tintColor = .clear
+            self.menuButton.isEnabled = false
+            
+            // Load local garden
             self.myGarden = MY_GARDEN
             self.cropList = MY_GARDEN.cropProfile
         }
@@ -69,7 +78,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         //self.cropList = GardenList[gardenIndex]?.cropProfile
         self.isExtended = nil
         self.tableView.reloadData()
-        
         
         self.title = myGarden?.gardenName;
         print("Number of Crops = ", myGarden!.getSize())

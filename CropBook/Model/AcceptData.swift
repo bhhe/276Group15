@@ -13,6 +13,7 @@ class AcceptData{
     var gardenId : String
     var name : String
     var info : String
+    var email : String?
     
     init(){
         uId = ""

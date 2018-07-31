@@ -36,12 +36,11 @@ class MyGardenView: UIViewController, UITextFieldDelegate {
     
     @IBAction internal func postGarden(_ sender: Any){
         if !MY_GARDEN.getOnlineState(){
-            delegate?.postGarden()
+            delegate?.postGardenPrompt()
         } else {
             let alert = UIAlertController(title: "Garden Already posted", message: nil, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                 alert.dismiss(animated:true, completion:nil)
-                
             }))
             self.present(alert, animated:true, completion:nil)
         }

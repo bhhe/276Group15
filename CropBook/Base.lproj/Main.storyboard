@@ -356,6 +356,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="menuButton" destination="uuw-oN-Xkh" id="9v1-g2-7pM"/>
                         <outlet property="tableView" destination="ySx-nM-r22" id="3C9-nd-BzC"/>
                         <segue destination="VNE-lz-LJY" kind="show" identifier="CropProfileSegue" id="fmY-fV-clb"/>
                     </connections>
@@ -953,7 +954,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1OX-3s-ba1">
                                 <rect key="frame" x="0.0" y="123" width="375" height="495"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Type Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="upR-xR-re1">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="upR-xR-re1">
                                         <rect key="frame" x="8" y="139" width="359" height="174"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
