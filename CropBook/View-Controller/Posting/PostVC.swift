@@ -54,7 +54,8 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cropCell", for : indexPath )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{cell.textLabel?.text = self.crops[indexPath.row]})
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
+            cell.textLabel?.text = self.crops[indexPath.row]})
         return cell
     }
     
