@@ -31,20 +31,13 @@
                         <constraint firstAttribute="height" constant="121" id="j6u-5k-9qO"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-K1-LCF">
-                    <rect key="frame" x="60" y="407" width="255" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-qO-9V8">
+                    <rect key="frame" x="60" y="449" width="255" height="64"/>
                     <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Post"/>
-                    <connections>
-                        <action selector="postGarden:" destination="-1" eventType="touchUpInside" id="JIG-xq-xCz"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-qO-9V8">
-                    <rect key="frame" x="60" y="452" width="255" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Clear Crops"/>
+                    <inset key="titleEdgeInsets" minX="29" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Clear Crops" image="garbageTruck">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                     <connections>
                         <action selector="clearCrops:" destination="-1" eventType="touchUpInside" id="nIY-3d-Shi"/>
                     </connections>
@@ -82,12 +75,30 @@
                     <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="57"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-K1-LCF">
+                    <rect key="frame" x="60" y="342" width="255" height="80"/>
+                    <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Post" image="post-1">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="postGarden:" destination="-1" eventType="touchUpInside" id="JIG-xq-xCz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="1" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="WoO-qO-9V8" firstAttribute="top" secondItem="eH9-K1-LCF" secondAttribute="bottom" constant="27" id="2Be-Eg-C7X"/>
                 <constraint firstItem="d59-1R-aGE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="D7V-EY-vrE"/>
                 <constraint firstItem="wXz-2y-796" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="F3Y-1p-m5Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d2R-lm-Syr" secondAttribute="trailing" constant="10" id="JGI-MA-FRs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eH9-K1-LCF" secondAttribute="trailing" constant="60" id="KHG-Lj-pwt"/>
+                <constraint firstItem="WoO-qO-9V8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="KWI-c7-cpr"/>
+                <constraint firstItem="eH9-K1-LCF" firstAttribute="top" secondItem="d59-1R-aGE" secondAttribute="bottom" constant="21" id="RI1-jo-JFT"/>
+                <constraint firstItem="eH9-K1-LCF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="aGQ-fv-0hX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WoO-qO-9V8" secondAttribute="trailing" constant="60" id="b5I-Of-yLM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d59-1R-aGE" secondAttribute="trailing" constant="60" id="dWL-Px-BEw"/>
                 <constraint firstItem="d2R-lm-Syr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="mjU-RJ-KCc"/>
                 <constraint firstItem="wXz-2y-796" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="w6y-vo-rBI"/>
@@ -101,6 +112,8 @@
         <image name="AddCrop Button" width="512" height="512"/>
         <image name="AllCat" width="96" height="96"/>
         <image name="edit" width="32" height="32"/>
+        <image name="garbageTruck" width="64" height="64"/>
         <image name="gardenImageBlank" width="80" height="80"/>
+        <image name="post-1" width="80" height="80"/>
     </resources>
 </document>
