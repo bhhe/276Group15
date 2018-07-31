@@ -25,7 +25,10 @@
 		BBCFD25D20FF83830070D05B /* acceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD25C20FF83830070D05B /* acceptVC.swift */; };
 		BBCFD25F20FF87560070D05B /* AcceptData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD25E20FF87560070D05B /* AcceptData.swift */; };
 		BBE8C60820FED5C700F6C300 /* GardenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8C60720FED5C700F6C300 /* GardenData.swift */; };
-		BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */; };
+		BBFA26A0210FD7CD0040ED6B /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFA269F210FD7CD0040ED6B /* PersistenceService.swift */; };
+		BBFA26A3210FD9FF0040ED6B /* CropProfileCore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFA26A1210FD9FF0040ED6B /* CropProfileCore+CoreDataClass.swift */; };
+		BBFA26A4210FD9FF0040ED6B /* CropProfileCore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFA26A2210FD9FF0040ED6B /* CropProfileCore+CoreDataProperties.swift */; };
+		BF58EACE20EB39EE000F239C /* CropModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF58EACC20EB39EE000F239C /* CropModel.xcdatamodeld */; };
 		BF58EB1120EB6C0F000F239C /* CropProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58EB1020EB6C0F000F239C /* CropProfileVC.swift */; };
 		BF79375020EAC4DD00A0BB86 /* CropListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF79374F20EAC4DD00A0BB86 /* CropListVC.swift */; };
 		FC1300AD20E9F4FC0006E7E7 /* MyGarden.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1300AA20E9F4FB0006E7E7 /* MyGarden.swift */; };
@@ -99,6 +102,9 @@
 		BBCFD25C20FF83830070D05B /* acceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptVC.swift; sourceTree = "<group>"; };
 		BBCFD25E20FF87560070D05B /* AcceptData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptData.swift; sourceTree = "<group>"; };
 		BBE8C60720FED5C700F6C300 /* GardenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenData.swift; sourceTree = "<group>"; };
+		BBFA269F210FD7CD0040ED6B /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		BBFA26A1210FD9FF0040ED6B /* CropProfileCore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CropProfileCore+CoreDataClass.swift"; path = "/Users/pickle/Documents/GitHub/276Group15/CropBook/Model/CropProfileCore+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		BBFA26A2210FD9FF0040ED6B /* CropProfileCore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CropProfileCore+CoreDataProperties.swift"; path = "/Users/pickle/Documents/GitHub/276Group15/CropBook/Model/CropProfileCore+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		BF58EACD20EB39EE000F239C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		BF58EB1020EB6C0F000F239C /* CropProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProfileVC.swift; sourceTree = "<group>"; };
 		BF79374F20EAC4DD00A0BB86 /* CropListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropListVC.swift; sourceTree = "<group>"; };
@@ -194,6 +200,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BBFA26A5210FDA6D0040ED6B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BBFA269F210FD7CD0040ED6B /* PersistenceService.swift */,
+				BBFA26A1210FD9FF0040ED6B /* CropProfileCore+CoreDataClass.swift */,
+				BBFA26A2210FD9FF0040ED6B /* CropProfileCore+CoreDataProperties.swift */,
+				BF58EACC20EB39EE000F239C /* CropModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		BFD11C9420ED7F040017632A /* MyGarden */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +273,7 @@
 		BFD11C9B20ED8AD60017632A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BBFA26A5210FDA6D0040ED6B /* CoreData */,
 				FC754B7820E5C88500302A58 /* AppDelegate.swift */,
 				FC53835920E8BAC5009651E7 /* CropInfo.swift */,
 				FC1300AA20E9F4FB0006E7E7 /* MyGarden.swift */,
@@ -276,7 +294,6 @@
 		FC754B6C20E5C88500302A58 = {
 			isa = PBXGroup;
 			children = (
-				BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */,
 				FC754B7720E5C88500302A58 /* CropBook */,
 				FC754B8E20E5C88600302A58 /* CropBookTests */,
 				FC754B9920E5C88600302A58 /* CropBookUITests */,
@@ -571,6 +588,7 @@
 				BF79375020EAC4DD00A0BB86 /* CropListVC.swift in Sources */,
 				FCCAAD9420FAD19E0043301A /* CropCreateVC.swift in Sources */,
 				FC91D6CC210E5C2100F80681 /* MapVC.swift in Sources */,
+				BBFA26A3210FD9FF0040ED6B /* CropProfileCore+CoreDataClass.swift in Sources */,
 				BB44509E20EC461A00F2BC99 /* CtgysVC.swift in Sources */,
 				BB47DCA820FB2BF100EA735D /* PostVC.swift in Sources */,
 				FCF79F2E210CDBA200C8D0B6 /* SharedGardenCell.swift in Sources */,
@@ -583,10 +601,11 @@
 				BB44509C20EC45EE00F2BC99 /* SearchVC.swift in Sources */,
 				FC91D6D0210E920500F80681 /* ApplicantViewController.swift in Sources */,
 				FC36AB1220EAAA16006E9916 /* Weather.swift in Sources */,
-				BF58EACE20EB39EE000F239C /* Model.xcdatamodeld in Sources */,
+				BF58EACE20EB39EE000F239C /* CropModel.xcdatamodeld in Sources */,
 				BB9D6D0A20FC46B000E94FF5 /* PostData.swift in Sources */,
 				BBCFD25D20FF83830070D05B /* acceptVC.swift in Sources */,
 				BBE8C60820FED5C700F6C300 /* GardenData.swift in Sources */,
+				BBFA26A4210FD9FF0040ED6B /* CropProfileCore+CoreDataProperties.swift in Sources */,
 				FC53835B20E8BAC5009651E7 /* CropInfo.swift in Sources */,
 				FCCB23F520FECDCB004AB27C /* CategoryTableViewCell.swift in Sources */,
 				BB4450A220EC462D00F2BC99 /* CInfoVC.swift in Sources */,
@@ -594,6 +613,7 @@
 				FCB0944320E96002005F060A /* GardenShareVC.swift in Sources */,
 				BB47DCAA20FB2CA000EA735D /* Posting.swift in Sources */,
 				FC754B7920E5C88500302A58 /* AppDelegate.swift in Sources */,
+				BBFA26A0210FD7CD0040ED6B /* PersistenceService.swift in Sources */,
 				BF58EB1120EB6C0F000F239C /* CropProfileVC.swift in Sources */,
 				BB42B6EA20FF51CF000ECC18 /* ApplyVC.swift in Sources */,
 				FC66DD1720FD99A800FBD2B1 /* CropTableViewCell.swift in Sources */,
@@ -929,14 +949,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BF58EACC20EB39EE000F239C /* Model.xcdatamodeld */ = {
+		BF58EACC20EB39EE000F239C /* CropModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				BF58EACD20EB39EE000F239C /* Model.xcdatamodel */,
 			);
 			currentVersion = BF58EACD20EB39EE000F239C /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = CropBook/Model.xcdatamodeld;
+			path = CropModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

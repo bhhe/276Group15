@@ -139,8 +139,10 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             print("DELETE")
             
             if self.myGarden.getOnlineState(){
+                print("this is working")
                 let cropid=self.myGarden.cropProfile[passedIndex]?.cropID
                 self.RemoveCropFromFB(cropid!)
+                print(cropid)
             }
             self.cropList?.remove(at: passedIndex)
             self.myGarden.cropProfile.remove(at: passedIndex)

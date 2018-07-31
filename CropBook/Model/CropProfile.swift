@@ -88,8 +88,8 @@ class CropProfile{
     }
     
     func setNotification(Seconds : Int, msg : String){
-        var str = cropName + " : "
-        var notifMsg = str + msg
+        let str = cropName + " : "
+        let notifMsg = str + msg
         notif.setSeconds(Second: Seconds)
         notif.Schedule(msg: notifMsg)
     }
