@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CropProfileViewController: UIViewController {
     
@@ -22,8 +23,9 @@ class CropProfileViewController: UIViewController {
     var gardenIndex = 0
     var myIndex = 0
     var crop: CropProfile!
-    
-    var waterAmll = Float(0)
+    var garden:MyGarden?
+    var waterAmll:Double = 0.00
+    let ref = Database.database().reference()
     
     
     override func viewDidLoad() {
@@ -38,25 +40,25 @@ class CropProfileViewController: UIViewController {
         note.text = "Note: " + (crop?.getNotes())!
         harvesting.text = "Harvesting: " + (crop?.getHarvesting())!
         cropImage.image = UIImage(named: (crop?.getImage())!)
-        waterAmount.text = String(waterAmll) + " (mm)/ day"
+        waterAmount.text = String(waterAmll) + " (ml)/ day"
         
         self.title = crop?.GetCropName();
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
-        // Dispose of any resources that can be recreated.
+    // Dispose of any resources that can be recreated.
     func isStringInt(theString : String) -> Bool{
         return Int(theString) != nil
     }
     
     /*
      Displaying notification for seconds for demonstration purposes
-    */
+     */
     @IBAction func setNotification(_ sender: Any) {
         calculateWater(sender)
-        var notifMsg = "You need to water " + String(waterAmll) + " mm today."
+        var notifMsg = "You need to water " + String(waterAmll) + " ml today."
         // Used this to test notification -- should give notification after 1 minute
         if isStringInt(theString : notifText.text!){
             crop?.setNotification(Seconds: Int(notifText.text!)!,msg : notifMsg)
@@ -66,8 +68,64 @@ class CropProfileViewController: UIViewController {
     @IBAction func calculateWater(_ sender: Any) {
         let midGrowth = crop?.GetWateringVariable().getMid()
         weather.UpdateWaterRequirements(coEfficient: midGrowth!)
-        waterAmll = Float(weather.GetWaterRequirements())
+        waterAmll = Double(weather.GetWaterRequirements())/10*crop.surfaceArea!
+        waterAmll = Double( round(100*waterAmll)/100)
         viewDidLoad()
+    }
+    
+    @IBAction func ResetSize(_ sender: Any) {
+        //it pops up a screen asking user for a new XY input for calcualting the surfaceArea.
+        ResetPlotSize()
+    }
+    
+    func ResetPlotSize(){
+        let alertController = UIAlertController(title: "New Plot Size", message: "Enter new length and width", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Length"
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Width"
+        }
+        
+        let changeAction = UIAlertAction(title: "Change", style: .default) { (_) in
+            
+            let lengthField = alertController.textFields![0]
+            let widthField = alertController.textFields![1]
+            
+            
+            let length = lengthField.text
+            let width = widthField.text
+            
+            
+            if length != "" && width != "" {
+                let gardenID = self.garden?.gardenID
+                let cropRef = self.ref.child("Gardens/\(gardenID!)/CropList/\(self.crop.cropID!)/SurfaceArea")
+                let plotX = (length! as NSString).doubleValue
+                let plotY = (width! as NSString).doubleValue
+                let newArea=plotX*plotY
+                cropRef.setValue(newArea)
+                self.crop.surfaceArea = newArea
+                
+            } else {
+                alertController.dismiss(animated: true, completion: nil)
+                let alert = UIAlertController(title: "Missing Entries", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+                    alert.dismiss(animated:true, completion:nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(changeAction)
+        alertController.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
 }

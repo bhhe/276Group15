@@ -179,6 +179,13 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         print(gardenID)
         gardenRef.setValue(true)
         
+        //create another attribute members so we know who's participating
+        
+        let memberRef=ref.child("Gardens/\(gardenID)/members/\(userid)")
+        let userEmail = Auth.auth().currentUser?.email
+        memberRef.setValue(userEmail)
+        let ownerRef = ref.child("Gardens/\(gardenID)/Owner")
+        ownerRef.setValue(userEmail)
         
         print("Adding Crops")
         for i in 0..<MY_GARDEN.getSize(){

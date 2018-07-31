@@ -18,6 +18,7 @@ class CropProfile{
     var image : String
     var notif: Notifications
     var coreData : CropProfileCore?
+    var surfaceArea:Double?
     
     init (){
         self.cropName = ""
@@ -93,6 +94,10 @@ class CropProfile{
         let notifMsg = str + msg
         notif.setSeconds(Second: Seconds)
         notif.Schedule(msg: notifMsg)
+    }
+    
+    func setSurfaceArea(area: Double){
+        self.surfaceArea = area
     }
     
     func printData(){
