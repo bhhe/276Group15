@@ -179,6 +179,13 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         print(gardenID)
         gardenRef.setValue(true)
         
+        //create another attribute members so we know who's participating
+        
+        let memberRef=ref.child("Gardens/\(gardenID)/members/\(userid)")
+        let userEmail = Auth.auth().currentUser?.email
+        memberRef.setValue(userEmail)
+        let ownerRef = ref.child("Gardens/\(gardenID)/Owner")
+        ownerRef.setValue(userEmail)
         
         print("Adding Crops")
         for i in 0..<MY_GARDEN.getSize(){
@@ -193,9 +200,19 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         self.sharedVC.GetOnlineGardens()
     }
     
+    func forceOfflineView(){
+        for i in 0...(views.count-1){
+            self.views[i].isUserInteractionEnabled = (i == 0)
+        }
+        self.viewContainer.bringSubview(toFront: views[0])
+    }
+    
     @IBAction internal func SignInSelected(_ sender: Any){
         if let _=Auth.auth().currentUser{
             try! Auth.auth().signOut()
+            self.forceOfflineView()
+            self.segControl.selectedSegmentIndex = 0
+
             self.signInSignOut.setTitle("Sign In", for: UIControlState.normal)
         } else {
             self.SignIn()
@@ -229,9 +246,13 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             Auth.auth().signIn(withEmail: username, password: password){user, error in
                 if error == nil && user != nil{
                     // signInSuccess
+                    self.sharedVC.GetOnlineGardens()
+                    self.segControl.selectedSegmentIndex = 0
+
                     self.signInSignOut.setTitle("Sign Out", for: UIControlState.normal)
                 } else {
                     print("Error : \(error!.localizedDescription)")
+                    self.forceOfflineView()
                     self.segControl.selectedSegmentIndex = 0
                     let alert = UIAlertController(title: "Inavlid Username/Password", message: "", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
@@ -249,6 +270,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in
+            self.forceOfflineView()
             self.segControl.selectedSegmentIndex = 0
         }
         alertController.addAction(loginAction)
@@ -294,8 +316,8 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             if password != confirmPassword {
                 //passwords don't match
                 alertController.dismiss(animated: true, completion: nil)
+                self.forceOfflineView()
                 self.segControl.selectedSegmentIndex = 0
-
                 let alert = UIAlertController(title: "Passwords do not match", message: nil, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
                     alert.dismiss(animated:true, completion:nil)
@@ -307,8 +329,10 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             Auth.auth().createUser(withEmail: username, password: password){user, error in
                 if error == nil && user != nil{
                     print("User is saved")
+                    
                     self.signInSignOut.setTitle("Sign Out", for: UIControlState.normal)
                 } else {
+                    self.forceOfflineView()
                     self.segControl.selectedSegmentIndex = 0
                     print("Error : \(error!.localizedDescription)")
                     let alert = UIAlertController(title: "Inavlid Username/Password", message: "Password must be at least 6 Characters. Email must be valid.", preferredStyle: UIAlertControllerStyle.alert)
@@ -321,6 +345,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in
+            self.forceOfflineView()
             self.segControl.selectedSegmentIndex = 0
         }
         alertController.addAction(signupAction)
