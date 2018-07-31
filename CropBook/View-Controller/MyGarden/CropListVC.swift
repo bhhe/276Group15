@@ -106,6 +106,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellData = cropList?[indexPath.row] {
+            // Make regular Crop Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "cropCell", for:indexPath) as! CropTableViewCell
             let name: String? = cellData.cropName
             cell.cropLabel?.text = name
@@ -118,14 +119,27 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         } else{
             //Make Expanded cell
             let expandedCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedCropCell", for:indexPath) as! ExpandedCropCell
+            
+            
+            expandedCell.timeField.placeholder = MY_GARDEN.cropProfile[self.isExtended!]?.notif.getTimeString()
+            if !self.Online!{
+                let indexSet = NSMutableIndexSet()
+                let array = cropList?[self.isExtended!]?.notif.scheduleDays
+                array?.forEach(indexSet.add)
+                expandedCell.selectDays.selectedSegmentIndexes = indexSet as IndexSet?
+                expandedCell.enableReminder.setOn((MY_GARDEN.cropProfile[self.isExtended!]?.notif.enabled)!, animated: true)
+            }
+            
+            expandedCell.enableReminder.addTarget(self, action: #selector(GardenCropList.updateScheduleEnabled), for: .valueChanged)
+            expandedCell.selectDays.addTarget(self, action: #selector(GardenCropList.updateScheduleWeekdays), for: .valueChanged)
+            expandedCell.timeField.addTarget(self, action: #selector(GardenCropList.updateScheduleTime), for: .editingDidEnd)
+            
             return expandedCell
         }
-        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
-        
         if (indexPath.row + 1 >= (cropList?.count)!){
             expandCell(tableView: tableView, index: indexPath.row)
         } else {
@@ -142,6 +156,58 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "CropProfileSegue", sender: self)
     }
     
+    @objc func updateScheduleTime(sender: UITextField){
+        let timeString = sender.text!
+        
+        // Scrapes textfield and converts time string into int values for hour and minute
+        for (index, char) in timeString.enumerated() {
+            if char == ":"{
+                var hourIndex = timeString.index(timeString.startIndex, offsetBy: index)
+                var hour = Int(timeString.prefix(upTo: hourIndex))!
+                
+                hourIndex = timeString.index(timeString.startIndex, offsetBy: index + 1)
+                let minuteIndex = timeString.index(hourIndex, offsetBy: index + 2)
+                let minute = (timeString[hourIndex..<minuteIndex] as NSString).intValue
+                
+                let AM_PM = timeString.index(timeString.endIndex, offsetBy: -2)
+                if timeString.suffix(from: AM_PM) == "PM" && hour != 12{
+                    hour += 12
+                } else if timeString.suffix(from: AM_PM) == "AM" && hour == 12 {
+                    hour += 12
+                }
+                
+                MY_GARDEN.cropProfile[self.isExtended!]?.notif.setTimeString(time: timeString)
+                MY_GARDEN.cropProfile[self.isExtended!]?.notif.setTimeOfDay(Hour: hour, Minute: Int(minute))
+                let message = "Remember to water your " + (MY_GARDEN.cropProfile[self.isExtended!]?.GetCropName())! + "!"
+                MY_GARDEN.cropProfile[self.isExtended!]?.notif.scheduleEachWeekday(msg: message)
+                break
+            }
+        }
+    }
+    
+    @objc func updateScheduleEnabled(sender: UISwitch){
+        if !self.Online!{
+            MY_GARDEN.cropProfile[self.isExtended!]?.notif.enabled = sender.isOn
+            if !sender.isOn{
+                MY_GARDEN.cropProfile[self.isExtended!]?.notif.disableNotifications()
+            } else {
+                let message = "Remember to water your " + (MY_GARDEN.cropProfile[self.isExtended!]?.GetCropName())! + "!"
+                MY_GARDEN.cropProfile[self.isExtended!]?.notif.scheduleEachWeekday(msg: message)
+            }
+        }
+    }
+    
+    // Looks at multisegmented control in extended TableViewCell
+    // Sets the days of the week for notifications
+    @objc func updateScheduleWeekdays(sender: MultiSelectSegmentedControl){
+        let selectedIndices = Array(sender.selectedSegmentIndexes)
+        if !self.Online!{
+            MY_GARDEN.cropProfile[self.isExtended!]?.notif.setScheduleDays(days: selectedIndices)
+            let message = "Remember to water your " + (MY_GARDEN.cropProfile[self.isExtended!]?.GetCropName())! + "!"
+            MY_GARDEN.cropProfile[self.isExtended!]?.notif.scheduleEachWeekday(msg: message)
+        }
+    }
+    
     //Delete a selected crop from a garden
     @objc func deleteCrop(sender: UIButton){
         let passedIndex = sender.tag
@@ -156,7 +222,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
                 print("ahha")
                 let cropid=self.myGarden.cropProfile[passedIndex]?.cropID
                 self.RemoveCropFromFB(cropid!)
-                print(cropid)
+                //print(cropid)
             }else{
                 let core = self.myGarden.cropProfile[passedIndex]?.coreData
                 self.removeFromCore(cropCore: core!)
@@ -181,7 +247,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func removeFromCore(cropCore : NSManagedObject){
-        
         PersistenceService.context.delete(cropCore)
         PersistenceService.saveContext()
         print("Deleted")
