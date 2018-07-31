@@ -17,11 +17,13 @@ class ApplicantViewController: UIViewController {
     var appInfo = AcceptData()
     let ref =  Database.database().reference()
     var postId = ""
+    var email : String?
     
     override func viewDidLoad() {
         applicName.text = appInfo.name
         applicInfo.text = appInfo.info
         applicInfo.isEditable = false
+        print(appInfo.email)
         
         super.viewDidLoad()
 
@@ -34,6 +36,10 @@ class ApplicantViewController: UIViewController {
         
         let reqRef = ref.child("Posts/\(postId)/Requests/\(appInfo.uId)")
         reqRef.removeValue()
+        
+        let memsRef = ref.child("Gardens/\(appInfo.gardenId)/members")
+        let memRef = memsRef.child("\(appInfo.uId)")
+        memRef.setValue(appInfo.email!)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "unwindApp", sender: self)})
     }

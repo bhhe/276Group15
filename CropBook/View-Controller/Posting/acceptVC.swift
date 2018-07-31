@@ -33,7 +33,6 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         let gId = usrPost.getGId()
         
         let reqRef = ref.child("Posts/\(usrPost.getId())/Requests")
-        group.enter()
         reqRef.observe(.value, with: {(snapshot) in
             for snap in snapshot.children{
                 let userSnap = snap as! DataSnapshot
@@ -41,10 +40,11 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                 let userDict = userSnap.value as! [String:String]
                 let info = userDict["info"] as? String
                 let name = userDict["name"] as? String
+                let email = userDict["email"] as? String
                 let applicData = AcceptData(uId: uID, gardenId: gId, name: name!, info: info!)
+                applicData.email = email!
                 self.acptData.append(applicData)
                 self.cells.reloadData()
-                self.group.leave()
             }
         })
         
