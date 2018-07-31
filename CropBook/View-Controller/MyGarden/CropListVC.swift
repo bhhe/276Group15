@@ -9,11 +9,14 @@
 import UIKit
 import Firebase
 import CoreData
+import MultiSelectSegmentedControl
 
 class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     
     var managedObjectContext : NSManagedObjectContext!
     var myIndex=0
@@ -34,7 +37,12 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         if self.Online! {
+            // Ensure Menu Button is enabled
+            self.menuButton.tintColor = .black
+            self.menuButton.isEnabled = true
+            
             //remove all crop before loading from firebase
             self.myGarden = SHARED_GARDEN_LIST[gardenIndex]
             self.myGarden.cropProfile.removeAll()
@@ -58,6 +66,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             })
         }
         else {
+            // Hide and Disable Menu Button
+            self.menuButton.tintColor = .clear
+            self.menuButton.isEnabled = false
+            
+            // Load local garden
             self.myGarden = MY_GARDEN
             self.cropList = MY_GARDEN.cropProfile
         }

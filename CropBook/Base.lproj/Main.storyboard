@@ -356,6 +356,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="menuButton" destination="uuw-oN-Xkh" id="9v1-g2-7pM"/>
                         <outlet property="tableView" destination="ySx-nM-r22" id="3C9-nd-BzC"/>
                         <segue destination="VNE-lz-LJY" kind="show" identifier="CropProfileSegue" id="fmY-fV-clb"/>
                     </connections>
