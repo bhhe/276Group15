@@ -24,6 +24,9 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var harvestField: UITextView!
     
+    @IBOutlet weak var applyBtn: UIButton!
+    
+    
     var ref : DatabaseReference?
     var gardensIds : [GardenData]?
     var gardenStrings : [String] = []
@@ -32,8 +35,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     let group = DispatchGroup()
     
     override func viewDidLoad() {
-        //createPost?.isUserInteractionEnabled = false
-        //createPost?.alpha = 0.5
+        applyBtn.layer.cornerRadius = 5
         ref = Database.database().reference()
         guard let gardenRef = ref?.child("Gardens") else{ return }
         

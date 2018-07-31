@@ -15,7 +15,7 @@ import FirebaseAuth
 class ApplyVC: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
-    
+    @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var infoText: UITextView!
     
     var validApply = true
@@ -23,7 +23,7 @@ class ApplyVC: UIViewController {
     var uid = Auth.auth().currentUser?.uid
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        submitBtn.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     

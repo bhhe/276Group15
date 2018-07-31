@@ -21,13 +21,15 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var harvestField: UILabel!
     @IBOutlet weak var cropsView: UITableView!
+    @IBOutlet weak var applyBtn: UIButton!
     
     override func viewDidLoad() {
+        applyBtn.layer.cornerRadius = 5
         let cropRef = ref.child("Gardens/\(post.gardenRef)/CropList")
         cropRef.observe(.value) { (snapshot) in
             for snap in snapshot.children{
                 let cropSnap = snap as! DataSnapshot
-                let cropDict = cropSnap.value as! [String:String]
+                let cropDict = cropSnap.value as! [String:AnyObject]
                 let info = cropDict["CropName"] as? String
                 self.crops.append(info!)
             }

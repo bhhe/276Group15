@@ -29,7 +29,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     
     override func viewDidLoad() {
         cells.reloadData()
-        postTitle.title = usrPost.getName()
+        postTitle.title = "Applicants"
         let gId = usrPost.getGId()
         
         let reqRef = ref.child("Posts/\(usrPost.getId())/Requests")
