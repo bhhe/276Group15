@@ -28,11 +28,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor(red: 248.0/255.0, green: 1, blue: 210/255, alpha:1)
-        
         // Do any additional setup after loading the view.
-
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +65,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         //self.cropList = GardenList[gardenIndex]?.cropProfile
         self.isExtended = nil
         self.tableView.reloadData()
-        
         
         self.title = myGarden?.gardenName;
         print("Number of Crops = ", myGarden!.getSize())

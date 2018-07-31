@@ -54,6 +54,10 @@ class MyGarden{
         return cropProfile.count
     }
     
+    func setAddress(address: String, city: String, postalCode: String){
+        self.address = address + ", " + city + ", " + postalCode
+    }
+    
     func RemoveCrop(Position index:Int)->Bool{
         cropProfile.remove(at: index)
         if index>cropProfile.count{
