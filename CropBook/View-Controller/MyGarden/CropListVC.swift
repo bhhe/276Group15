@@ -138,17 +138,18 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated:true, completion:nil)
-            print("DELETE")
             
-            if self.myGarden.getOnlineState(){
-                print("this is working")
+            
+            if self.Online!{
+                print("ahha")
                 let cropid=self.myGarden.cropProfile[passedIndex]?.cropID
                 self.RemoveCropFromFB(cropid!)
                 print(cropid)
+            }else{
+                let core = self.myGarden.cropProfile[passedIndex]?.coreData
+                self.removeFromCore(cropCore: core!)
             }
             self.cropList?.remove(at: passedIndex)
-            let core = self.myGarden.cropProfile[passedIndex]?.coreData
-            self.removeFromCore(cropCore: core!)
             self.myGarden.cropProfile.remove(at: passedIndex)
             self.tableView.reloadData()
         }))
