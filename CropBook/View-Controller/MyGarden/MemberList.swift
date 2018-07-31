@@ -125,11 +125,11 @@ class MemberList: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         let date = Date()
         let calendar = Calendar.current
         
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
+        let hour = String(format: "%02d",calendar.component(.hour, from: date))
+        let minutes = String(format: "%02d",calendar.component(.minute, from: date))
         
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
+        let day = String(format: "%02d",calendar.component(.day, from: date))
+        let month = String(format: "%02d",calendar.component(.month, from: date))
         let year = calendar.component(.year, from: date)
         
         let time = "\(hour):\(minutes) on \(month)/\(day)/\(year)"
