@@ -88,16 +88,19 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     // Switch between MyGardenView and SharedGardenView
     @IBAction func switchViewAction(_ sender: UISegmentedControl){
         if let _=Auth.auth().currentUser{
-            for i in 0...(views.count-1){
-                self.views[i].isUserInteractionEnabled = (i == sender.selectedSegmentIndex)
-            }
-            self.viewContainer.bringSubview(toFront: views[sender.selectedSegmentIndex])
+            switchViews(index: sender.selectedSegmentIndex)
         } else {
             if sender.selectedSegmentIndex == 1{
                 self.SignIn()
             }
         }
-
+    }
+    
+    func switchViews(index: Int) {
+        for i in 0...(views.count-1){
+            self.views[i].isUserInteractionEnabled = (i == index)
+        }
+        self.viewContainer.bringSubview(toFront: views[index])
     }
     
     func postGardenPrompt() {
@@ -247,12 +250,11 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
                 if error == nil && user != nil{
                     // signInSuccess
                     self.sharedVC.GetOnlineGardens()
-                    self.segControl.selectedSegmentIndex = 0
-
+                    self.switchViews(index: self.segControl.selectedSegmentIndex)
                     self.signInSignOut.setTitle("Sign Out", for: UIControlState.normal)
                 } else {
                     print("Error : \(error!.localizedDescription)")
-                    self.forceOfflineView()
+                    self.switchViews(index: 0)
                     self.segControl.selectedSegmentIndex = 0
                     let alert = UIAlertController(title: "Inavlid Username/Password", message: "", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
@@ -270,7 +272,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in
-            self.forceOfflineView()
+            self.switchViews(index: 0)
             self.segControl.selectedSegmentIndex = 0
         }
         alertController.addAction(loginAction)
@@ -316,7 +318,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             if password != confirmPassword {
                 //passwords don't match
                 alertController.dismiss(animated: true, completion: nil)
-                self.forceOfflineView()
+                self.switchViews(index: 0)
                 self.segControl.selectedSegmentIndex = 0
                 let alert = UIAlertController(title: "Passwords do not match", message: nil, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
@@ -329,10 +331,11 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             Auth.auth().createUser(withEmail: username, password: password){user, error in
                 if error == nil && user != nil{
                     print("User is saved")
-                    
+                    self.sharedVC.GetOnlineGardens()
+                    self.switchViews(index: self.segControl.selectedSegmentIndex)
                     self.signInSignOut.setTitle("Sign Out", for: UIControlState.normal)
                 } else {
-                    self.forceOfflineView()
+                    self.switchViews(index: 0)
                     self.segControl.selectedSegmentIndex = 0
                     print("Error : \(error!.localizedDescription)")
                     let alert = UIAlertController(title: "Inavlid Username/Password", message: "Password must be at least 6 Characters. Email must be valid.", preferredStyle: UIAlertControllerStyle.alert)
@@ -345,7 +348,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){ (_) in
-            self.forceOfflineView()
+            self.switchViews(index: 0)
             self.segControl.selectedSegmentIndex = 0
         }
         alertController.addAction(signupAction)
@@ -354,7 +357,6 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     func openSharedCrops(index: Int){
