@@ -30,9 +30,10 @@ class ApplyVC: UIViewController {
     @IBAction func submitPressed(_ sender: Any) {
         let email = Auth.auth().currentUser?.email as! String
         let uRef = postRef?.child("Requests").child(uid!)
-        uRef?.child("name").setValue(nameField.text)
-        uRef?.child("info").setValue(infoText.text)
         uRef?.child("email").setValue(email)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{uRef?.child("info").setValue(self.infoText.text)})
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{uRef?.child("name").setValue(self.nameField.text)})
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
             self.performSegue(withIdentifier: "unwindPost", sender: self)})

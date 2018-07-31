@@ -23,7 +23,6 @@ class ApplicantViewController: UIViewController {
         applicName.text = appInfo.name
         applicInfo.text = appInfo.info
         applicInfo.isEditable = false
-        print(appInfo.email)
         
         super.viewDidLoad()
 

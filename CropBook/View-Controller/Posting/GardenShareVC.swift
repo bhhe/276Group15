@@ -42,8 +42,8 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
                 let pTitle = snap2.value as! String
                 let postData = PostData(postId: pId, postTitle: pTitle,gardenId : "")
                 self.postings.append(postData)
-                self.tableView.reloadData()
             }
+            self.tableView.reloadData()
         })
         
         let uRef = ref?.child("Users").child(uid!).child("Posts")

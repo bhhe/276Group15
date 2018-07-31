@@ -37,12 +37,12 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             for snap in snapshot.children{
                 let userSnap = snap as! DataSnapshot
                 let uID = userSnap.key
-                let userDict = userSnap.value as! [String:String]
-                let info = userDict["info"] as? String
-                let name = userDict["name"] as? String
-                let email = userDict["email"] as? String
-                let applicData = AcceptData(uId: uID, gardenId: gId, name: name!, info: info!)
-                applicData.email = email!
+                let userDict = userSnap.value as! [String:AnyObject]
+                let email = userDict["email"] as? String ?? ""
+                let info = userDict["info"] as? String ?? ""
+                let name = userDict["name"] as? String ?? ""
+                let applicData = AcceptData(uId: uID, gardenId: gId, name: name, info: info)
+                applicData.email = email
                 self.acptData.append(applicData)
                 self.cells.reloadData()
             }
