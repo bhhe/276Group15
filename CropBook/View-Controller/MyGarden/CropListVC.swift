@@ -9,11 +9,14 @@
 import UIKit
 import Firebase
 import CoreData
+import MultiSelectSegmentedControl
 
 class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     
     var managedObjectContext : NSManagedObjectContext!
     var myIndex=0
@@ -34,7 +37,12 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         if self.Online! {
+            // Ensure Menu Button is enabled
+            self.menuButton.tintColor = .black
+            self.menuButton.isEnabled = true
+            
             //remove all crop before loading from firebase
             self.myGarden = SHARED_GARDEN_LIST[gardenIndex]
             self.myGarden.cropProfile.removeAll()
@@ -44,12 +52,16 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             let GardenRef = ref.child("Gardens/\(gardenID!)/CropList")
             GardenRef.observeSingleEvent(of: .value, with: {(snapshot) in
                 for child in snapshot.children.allObjects as![DataSnapshot]{
+                    print(child)
                     let cropObject=child.value as? [String:AnyObject]
                     let cropname=cropObject?["CropName"]
-                    //let profname=cropObject?["ProfName"]
+                    let area=cropObject?["SurfaceArea"]
+                    
                     let cropinfo=lib.searchByName(cropName: cropname as! String)
                     let newCrop=CropProfile(cropInfo: cropinfo!, profName: cropname as! String)
                     newCrop.cropID=child.key
+                    newCrop.surfaceArea = area as? Double
+                    print(newCrop.surfaceArea)
                     print(child.key)
                     _ = self.myGarden.AddCrop(New: newCrop)
                 }
@@ -58,6 +70,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             })
         }
         else {
+            // Hide and Disable Menu Button
+            self.menuButton.tintColor = .clear
+            self.menuButton.isEnabled = false
+            
+            // Load local garden
             self.myGarden = MY_GARDEN
             self.cropList = MY_GARDEN.cropProfile
         }
@@ -224,6 +241,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             receiverVC.crop = myGarden.cropProfile[myIndex]
             receiverVC.myIndex = self.myIndex
+            receiverVC.garden = myGarden
         
         }else if segue.identifier == "createCrop"{
             let receiverVC = segue.destination as! CropCreateVC
