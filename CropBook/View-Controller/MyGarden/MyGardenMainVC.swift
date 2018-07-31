@@ -14,6 +14,7 @@ var SHARED_GARDEN_LIST=[MyGarden?]()
 var MY_GARDEN: MyGarden = MyGarden(Name: "My Garden", Address: "")
 var SIGNED_IN = false
 
+
 @objc protocol gardenButtonClicked{
     func openCrops()
     func postGarden()
@@ -33,7 +34,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     var myGardenVC : MyGardenView = MyGardenView()
     var cropsCore = [CropProfileCore]()
     var gardenIndex : Int?
-    
+    let fetchRequest: NSFetchRequest<CropProfileCore> = CropProfileCore.fetchRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,6 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
     }
     
     func loadCoreData(){
-        let fetchRequest: NSFetchRequest<CropProfileCore> = CropProfileCore.fetchRequest()
         do {
             let cropsCore = try PersistenceService.context.fetch(fetchRequest)
             self.cropsCore = cropsCore
@@ -75,6 +75,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         for crop in cropsCore{
             let info = lib.searchByName(cropName: crop.cropName!)
             let profile = CropProfile(cropInfo: info!, profName: crop.profName!)
+            profile.coreData = crop
             MY_GARDEN.AddCrop(New: profile)
         }
     }

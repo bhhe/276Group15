@@ -100,6 +100,8 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cropCore.plotLength = Int16(0)
             cropCore.plotWidth = Int16(0)
             PersistenceService.saveContext()
+            newCropProf.coreData = cropCore
+            print(newCropProf.coreData?.cropName as! String)
             MY_GARDEN.cropProfile.append(newCropProf)
         }
         

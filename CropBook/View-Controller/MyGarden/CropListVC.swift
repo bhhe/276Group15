@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
-
+import CoreData
 
 class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var managedObjectContext : NSManagedObjectContext!
     var myIndex=0
     var gardenIndex = 0
     var myGarden: MyGarden!
@@ -145,6 +147,8 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
                 print(cropid)
             }
             self.cropList?.remove(at: passedIndex)
+            let core = self.myGarden.cropProfile[passedIndex]?.coreData
+            self.removeFromCore(cropCore: core!)
             self.myGarden.cropProfile.remove(at: passedIndex)
             self.tableView.reloadData()
         }))
@@ -153,6 +157,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             print("no delete")
         }))
         self.present(alert, animated:true, completion:nil)
+        self.tableView.reloadData()
     }
     
     func RemoveCropFromFB(_ id:String){
@@ -160,6 +165,13 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         let CropRef=ref.child("Gardens/\(gardenID!)/CropList/\(id)")
         CropRef.removeValue()
         print("Removed!")
+    }
+    
+    func removeFromCore(cropCore : NSManagedObject){
+        
+        PersistenceService.context.delete(cropCore)
+        PersistenceService.saveContext()
+        print("Deleted")
     }
     
     /*  Expand cell at given index  */

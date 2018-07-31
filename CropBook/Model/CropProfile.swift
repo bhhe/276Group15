@@ -17,6 +17,7 @@ class CropProfile{
     var plantHarvesting : String
     var image : String
     var notif: Notifications
+    var coreData : CropProfileCore?
     
     init (){
         self.cropName = ""

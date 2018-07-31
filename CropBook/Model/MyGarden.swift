@@ -18,6 +18,7 @@ class MyGarden{
     var address:String?	
     var dailyCompletion:Bool?
     var isOnline:Bool?
+    
     init(Name name:String,Address address:String) {
         self.cropProfile = [CropProfile?]()
         self.gardenName=name
