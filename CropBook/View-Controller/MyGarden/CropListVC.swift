@@ -240,5 +240,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             receiverVC.garden=myGarden
             
         }
+        else if segue.identifier == "showMember"{
+            let receiverVC = segue.destination as!MemberList
+            
+            receiverVC.garden=myGarden
+            
+        }
     }
 }
