@@ -104,6 +104,8 @@ class CropProfileViewController: UIViewController {
                 let cropRef = self.ref.child("Gardens/\(gardenID!)/CropList/\(self.crop.cropID!)/SurfaceArea")
                 let plotX = (length! as NSString).doubleValue
                 let plotY = (width! as NSString).doubleValue
+                self.crop.coreData?.plotLength = Double(plotX)
+                self.crop.coreData?.plotWidth = Double(plotY)
                 let newArea=plotX*plotY
                 cropRef.setValue(newArea)
                 self.crop.surfaceArea = newArea

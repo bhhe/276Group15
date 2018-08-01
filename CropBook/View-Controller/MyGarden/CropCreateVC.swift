@@ -103,11 +103,13 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             print("Crop added")
         }else{
+        
+            //Save Core Data for crop
             let cropCore = CropProfileCore(context: PersistenceService.context)
             cropCore.cropName = newCropProf.GetCropName()
             cropCore.profName = profName
-            cropCore.plotLength = Int16(0)
-            cropCore.plotWidth = Int16(0)
+            cropCore.plotLength = Double(length.text!)!
+            cropCore.plotWidth = Double(width.text!)!
             PersistenceService.saveContext()
             newCropProf.coreData = cropCore
             print(newCropProf.coreData?.cropName as! String)

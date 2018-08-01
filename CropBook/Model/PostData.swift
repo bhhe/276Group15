@@ -12,6 +12,8 @@ class PostData{
     var postId : String
     var postTitle : String
     var gardenId : String
+    var city : String?
+    
     init(){
         self.postId = ""
         self.postTitle = ""

@@ -25,6 +25,7 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     @IBOutlet weak var postCells: UITableView!
     
     override func viewDidLoad() {
+        postCells.separatorColor = UIColor.green
         let postRef = ref.child("Posts")
         for chd in posts{
             postRef.observe(.value) { (snapshot) in
@@ -74,6 +75,8 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         if indexPath.row < posts.count{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{cell.textLabel?.text = self.posts[indexPath.row].getName()})
         }
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+            , size : 22)
         
         return cell
     }
@@ -87,6 +90,10 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "acceptSegue"{
             let receiverVC = segue.destination as! acceptVC
@@ -98,12 +105,19 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
             receiverVC.tableView.reloadData()
         }
     }
-    
-    
-    
+
     @IBAction func unwindToYP(segue : UIStoryboardSegue){
         postCells.reloadData()
         viewDidLoad()
         DispatchQueue.main.asyncAfter(deadline: .now(), execute:{self.performSegue(withIdentifier: "unwindBack", sender: self)})
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

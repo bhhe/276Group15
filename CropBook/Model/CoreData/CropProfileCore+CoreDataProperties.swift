@@ -17,8 +17,8 @@ extension CropProfileCore {
     }
 
     @NSManaged public var cropName: String?
-    @NSManaged public var plotLength: Int16
-    @NSManaged public var plotWidth: Int16
+    @NSManaged public var plotLength: Double
+    @NSManaged public var plotWidth: Double
     @NSManaged public var profName: String?
     @NSManaged public var isOnline: Bool
 

@@ -71,6 +71,7 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         // Dispose of any resources that can be recreated.
     }
     
+    //load coredata
     func loadCoreData(){
         do {
             let cropsCore = try PersistenceService.context.fetch(fetchRequest)
@@ -80,7 +81,11 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         for crop in cropsCore{
             let info = lib.searchByName(cropName: crop.cropName!)
             let profile = CropProfile(cropInfo: info!, profName: crop.profName!)
+            let surfaceArea = crop.plotLength * crop.plotWidth
             profile.coreData = crop
+            profile.setSurfaceArea(area: surfaceArea)
+            print(crop.plotLength)
+            print(crop.plotWidth)
             MY_GARDEN.AddCrop(New: profile)
         }
     }

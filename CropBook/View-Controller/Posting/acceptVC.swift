@@ -28,6 +28,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     var group = DispatchGroup()
     
     override func viewDidLoad() {
+        cells.separatorColor = UIColor.green
         cells.reloadData()
         postTitle.title = "Applicants"
         let gId = usrPost.getGId()
@@ -72,12 +73,19 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         if indexPath.row <= acptData.count{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{cell.textLabel?.text = self.acptData[indexPath.row].name})
         }
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+            , size : 22)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appInfo = acptData[indexPath.row]
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "appliSegue", sender: self)})
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,5 +115,13 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         viewDidLoad()
     }
     
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
 }

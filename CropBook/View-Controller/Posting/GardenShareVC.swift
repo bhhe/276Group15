@@ -33,16 +33,18 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         
         ref = Database.database().reference()
         let userRef = ref?.child("Posts")
-        
-        userRef?.observe(.value, with: { (gardenSnapshot) in
+        userRef?.observeSingleEvent(of: .value, with: { (gardenSnapshot) in
             for child in gardenSnapshot.children{
                 let snap = child as! DataSnapshot
                 let snap2 = snap.childSnapshot(forPath: "Title")
+                let snap3 = snap.childSnapshot(forPath: "Address")
                 let pId = snap.key
                 let pTitle = snap2.value as! String
                 let postData = PostData(postId: pId, postTitle: pTitle,gardenId : "")
+                postData.city = snap3.value as? String
                 self.postings.append(postData)
             }
+            
             self.tableView.reloadData()
         })
         
@@ -57,6 +59,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
                 self.myPosts.append(usrPost)
             }
         })
+    
         tableView.delegate = self
         tableView.dataSource = self
         super.viewDidLoad()
@@ -87,12 +90,27 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     
     //return cell for display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell")
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "PostCell")
         if(indexPath.row <= postings.count){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
-            cell?.textLabel?.text = self.postings[indexPath.row].getTitle()})
+            cell.textLabel?.text = self.postings[indexPath.row].getTitle()
+            cell.detailTextLabel?.text = self.postings[indexPath.row].city
+        })
         }
-        return cell!
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+                                      , size : 22)
+        cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+                                            , size : 15)
+        
+        //
+        //CAE1C8
+        if indexPath.row % 2 == 0{
+            cell.backgroundColor = UIColorFromRGB(rgbValue: 0xF6FED9)
+        }else{
+            cell.backgroundColor = UIColorFromRGB(rgbValue: 0xCAE1C8)
+        }
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -102,6 +120,9 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{ self.performSegue(withIdentifier: "postSegue", sender: self)})
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     
     @IBAction func composePost(_ sender: Any) {
         gardens.removeAll()
@@ -181,4 +202,15 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func unwindToShare(segue : UIStoryboardSegue){
         viewDidLoad()
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 }
+
+

@@ -11,15 +11,18 @@ import Foundation
 class GardenData{
     var gardenId : String
     var gardenName : String
+    var city : String
     
     init(){
         self.gardenId = ""
         self.gardenName = ""
+        self.city = ""
     }
     
     init(gardenId : String, gardenName : String){
         self.gardenId = gardenId
         self.gardenName = gardenName
+        self.city = ""
     }
     
     func setId(gardenId : String){
