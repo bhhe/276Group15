@@ -229,50 +229,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W2h-0t-sfg">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W2h-0t-sfg">
                                                     <rect key="frame" x="15" y="11" width="98" height="98"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="W2h-0t-sfg" secondAttribute="height" multiplier="1:1" id="rin-6C-1to"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnD-dA-kY2">
-                                                    <rect key="frame" x="126" y="11" width="161" height="29"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="Bkr-HV-Q6a"/>
-                                                        <constraint firstAttribute="width" constant="161" id="DAK-Lu-E98"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnD-dA-kY2">
+                                                    <rect key="frame" x="126" y="11" width="142" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-mr-xGT">
-                                                    <rect key="frame" x="126" y="63" width="47" height="46"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="2CM-Gh-4pI"/>
-                                                        <constraint firstAttribute="height" constant="46" id="ght-fC-mJc"/>
-                                                    </constraints>
-                                                    <state key="normal" image="Details"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90i-CO-pST">
-                                                    <rect key="frame" x="324" y="8" width="36" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="Yld-yY-56a"/>
-                                                        <constraint firstAttribute="width" constant="36" id="sjp-4M-ePv"/>
-                                                    </constraints>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90i-CO-pST">
+                                                    <rect key="frame" x="324" y="77" width="36" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Garbage"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-mr-xGT">
+                                                    <rect key="frame" x="319" y="2" width="47" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Details"/>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ANX-mr-xGT" firstAttribute="leading" secondItem="W2h-0t-sfg" secondAttribute="trailing" constant="13" id="BW8-QX-8rp"/>
-                                                <constraint firstItem="90i-CO-pST" firstAttribute="top" secondItem="TvR-eU-lkR" secondAttribute="top" constant="8" id="HlV-w6-Y9Q"/>
-                                                <constraint firstItem="W2h-0t-sfg" firstAttribute="bottom" secondItem="TvR-eU-lkR" secondAttribute="bottomMargin" id="W8X-BV-uLB"/>
-                                                <constraint firstItem="LnD-dA-kY2" firstAttribute="leading" secondItem="W2h-0t-sfg" secondAttribute="trailing" constant="13" id="Y5u-fz-bhq"/>
-                                                <constraint firstItem="LnD-dA-kY2" firstAttribute="top" secondItem="TvR-eU-lkR" secondAttribute="topMargin" id="kFP-tM-Zjw"/>
-                                                <constraint firstItem="W2h-0t-sfg" firstAttribute="leading" secondItem="TvR-eU-lkR" secondAttribute="leadingMargin" id="lTc-JA-cLf"/>
-                                                <constraint firstItem="W2h-0t-sfg" firstAttribute="top" secondItem="TvR-eU-lkR" secondAttribute="topMargin" id="qQ2-3U-h35"/>
-                                                <constraint firstItem="ANX-mr-xGT" firstAttribute="bottom" secondItem="TvR-eU-lkR" secondAttribute="bottomMargin" id="uM6-j4-YNq"/>
-                                                <constraint firstAttribute="trailing" secondItem="90i-CO-pST" secondAttribute="trailing" constant="15" id="zlw-gD-d9G"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cropImage" destination="W2h-0t-sfg" id="Biu-jQ-7na"/>
