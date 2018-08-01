@@ -9,7 +9,7 @@
  "end": 0.75
  },
  "Type": "Fruit",
- "Image": "Apple.jpeg",
+ "Image": "Apples.jpeg",
  "sunExposure": "Sun/Partial Shade",
  "soilType": "Any",
  "soilpH": "Slightly Acidic to Neutral",
@@ -29,7 +29,7 @@
  "end": 0.8
  },
  "Type": "Vegetable",
- "Image": "Artichoke.jpeg",
+ "Image": "Artichokes.jpeg",
  "sunExposure": "Full Sun",
  "soilType": "Loamy and sandy",
  "soilpH": "Neutral",
@@ -68,7 +68,7 @@
  "mid": 1.15,
  "end": 0.4
  },
- "Type": "Cereal",
+ "Type": "Wheat",
  "Image": "Barley.jpeg",
  "sunExposure": "Full Sun",
  "soilType": "Well Drained",
@@ -364,7 +364,7 @@
  "mid": 1.05,
  "end": 0.50
  },
- "Type": "Vegetable",
+ "Type": "Fruit",
  "Image": "Grapes.jpg",
  "sunExposure": "Full Sun or Part Sun.",
  "soilType": "Will grow on relatively poor soil as long as it is well drained and compost is dug in.",
@@ -482,7 +482,7 @@
  "mid": 1.15,
  "end": 0.25
  },
- "Type": "Miscellaneous",
+ "Type": "Wheat",
  "Image": "Oats.jpeg",
  "sunExposure": "Full sun",
  "soilType": "Any average, well drained soil.",
@@ -522,7 +522,7 @@
  "mid": 0.45,
  "end": 0.55
  },
- "Type": "Fuit",
+ "Type": "Fruit",
  "Image": "Orange.jpeg",
  "sunExposure": "A sheltered spot in full sun. In gardens where the temperatures drop below 0 °C grow them in containers that can be moved into a warm, sheltered area during winter.",
  "soilType": "Warm, moist soil, well-enriched with organic matter. Oranges grafted onto a dwarfing rootstock may be grown in containers",
@@ -562,7 +562,7 @@
  "mid": 0.95,
  "end": 0.75
  },
- "Type": "Fuit",
+ "Type": "Fruit",
  "Image": "Pear.jpeg",
  "sunExposure": "In cool climates, grow dwarf varieties against a wall, as an espalier. Semi-dwarf and standard pears make excellent landscape trees in large gardens.",
  "soilType": "Moist, well-drained soil with a near-neutral pH.",
@@ -682,7 +682,7 @@
  "mid": 1.15,
  "end": 0.4
  },
- "Type": "Cereal",
+ "Type": "Wheat",
  "Image": "Wheat.jpeg",
  "sunExposure": "Full Sun",
  "soilType": "Any well drained soil.",

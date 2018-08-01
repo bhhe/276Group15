@@ -12,11 +12,13 @@ class CropLibrary{
     var cropDatabase: [CropInfo]
     var fruitDatabase: [CropInfo]
     var veggieDatabase: [CropInfo]
+    var wheatDatabase : [CropInfo]
     
     init(jsonName : String){
         cropDatabase = [CropInfo]()
         fruitDatabase = [CropInfo]()
         veggieDatabase = [CropInfo]()
+        wheatDatabase = [CropInfo]()
         loadJsonInto(fileName: jsonName)
     }
     
@@ -88,6 +90,8 @@ class CropLibrary{
             fruitDatabase.append(cropInfo)
         }else if(cropInfo.isSameType(matchType: "vegetable")){
             veggieDatabase.append(cropInfo)
+        }else if(cropInfo.isSameType(matchType: "wheat")){
+            wheatDatabase.append(cropInfo)
         }
     }
     
@@ -96,6 +100,8 @@ class CropLibrary{
             return fruitDatabase
         }else if (categoryType.lowercased() == "vegetable"){
             return veggieDatabase
+        }else if(categoryType.lowercased() == "wheat"){
+            return wheatDatabase
         }
         return nil
     }

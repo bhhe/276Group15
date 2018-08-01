@@ -21,12 +21,6 @@ class CtgyViewController: UIViewController {
         veggieButton.layer.cornerRadius = 7;
         wheatButton.layer.cornerRadius = 7;
         allButton.layer.cornerRadius = 7;
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func selectCategory(sender : UIButton!){
@@ -35,20 +29,10 @@ class CtgyViewController: UIViewController {
         }else if sender == veggieButton{
             ctgyLib = lib.getVeggieLibrary()
         }else if sender == wheatButton{
-            ctgyLib = [CropInfo]()    
+            ctgyLib = lib.wheatDatabase
         }else{
             ctgyLib = lib.getMainLibrary()
         }
-        //performSegue(withIdentifier: "sltdCtgySegue", sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
