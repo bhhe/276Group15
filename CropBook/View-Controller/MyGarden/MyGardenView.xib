@@ -22,9 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gardenImageBlank" highlightedImage="AddCrop Button" translatesAutoresizingMaskIntoConstraints="NO" id="wXz-2y-796">
-                    <rect key="frame" x="16" y="20" width="117" height="121"/>
-                    <color key="backgroundColor" red="0.81187451579887704" green="0.98447477762360003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gardenImageBlank" highlightedImage="AddCrop Button" translatesAutoresizingMaskIntoConstraints="NO" id="wXz-2y-796">
+                    <rect key="frame" x="129" y="20" width="117" height="121"/>
                     <color key="tintColor" red="0.64705882349999999" green="0.80392156859999997" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="117" id="P9u-Y0-uJv"/>
@@ -43,10 +42,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-lm-Syr">
-                    <rect key="frame" x="338" y="50" width="27" height="27"/>
+                    <rect key="frame" x="332" y="36" width="27" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="27" id="ftH-aV-9sO"/>
-                        <constraint firstAttribute="height" constant="27" id="s5L-n2-qmo"/>
+                        <constraint firstAttribute="width" constant="27" id="4zq-N8-Kuf"/>
+                        <constraint firstAttribute="height" constant="32" id="pfx-tA-rj8"/>
                     </constraints>
                     <state key="normal" image="edit"/>
                     <connections>
@@ -67,14 +66,6 @@
                         <action selector="openCrops:" destination="-1" eventType="touchUpInside" id="Tf9-2P-hMO"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" text="My Garden" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Mn-Avr">
-                    <rect key="frame" x="134" y="53" width="202" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
-                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="57"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-K1-LCF">
                     <rect key="frame" x="60" y="342" width="255" height="80"/>
                     <color key="backgroundColor" red="0.41176470590000003" green="0.66666666669999997" blue="0.3921568627" alpha="0.35760916100000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,21 +78,34 @@
                         <action selector="postGarden:" destination="-1" eventType="touchUpInside" id="JIG-xq-xCz"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" text="My Garden" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Mn-Avr">
+                    <rect key="frame" x="42" y="48" width="290" height="65"/>
+                    <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="290" id="AiB-wh-5hB"/>
+                        <constraint firstAttribute="height" constant="65" id="nrk-lT-t4P"/>
+                    </constraints>
+                    <color key="textColor" white="0.33414713541666669" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="58"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="1" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="WoO-qO-9V8" firstAttribute="top" secondItem="eH9-K1-LCF" secondAttribute="bottom" constant="27" id="2Be-Eg-C7X"/>
+                <constraint firstItem="d2R-lm-Syr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="7o5-tf-y19"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d2R-lm-Syr" secondAttribute="trailing" constant="16" id="8GI-aV-tjp"/>
+                <constraint firstItem="wXz-2y-796" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9eq-Tb-MbQ"/>
                 <constraint firstItem="d59-1R-aGE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="D7V-EY-vrE"/>
                 <constraint firstItem="wXz-2y-796" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="F3Y-1p-m5Q"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d2R-lm-Syr" secondAttribute="trailing" constant="10" id="JGI-MA-FRs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eH9-K1-LCF" secondAttribute="trailing" constant="60" id="KHG-Lj-pwt"/>
                 <constraint firstItem="WoO-qO-9V8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="KWI-c7-cpr"/>
+                <constraint firstItem="br9-Mn-Avr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="28" id="MOd-1e-PBA"/>
                 <constraint firstItem="eH9-K1-LCF" firstAttribute="top" secondItem="d59-1R-aGE" secondAttribute="bottom" constant="21" id="RI1-jo-JFT"/>
                 <constraint firstItem="eH9-K1-LCF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="aGQ-fv-0hX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WoO-qO-9V8" secondAttribute="trailing" constant="60" id="b5I-Of-yLM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d59-1R-aGE" secondAttribute="trailing" constant="60" id="dWL-Px-BEw"/>
-                <constraint firstItem="d2R-lm-Syr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="mjU-RJ-KCc"/>
-                <constraint firstItem="wXz-2y-796" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="w6y-vo-rBI"/>
+                <constraint firstItem="br9-Mn-Avr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iOF-3j-4iB"/>
                 <constraint firstItem="d59-1R-aGE" firstAttribute="top" secondItem="wXz-2y-796" secondAttribute="bottom" constant="60" id="wG8-Xe-Pwf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

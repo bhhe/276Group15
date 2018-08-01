@@ -31,6 +31,11 @@ class SharedGardenView: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sharedGardenCell", for:indexPath) as! SharedGardenCell
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor(red: 202.0/255.0, green: 225/255, blue: 200/255, alpha:1)
+        } else {
+            cell.backgroundColor = UIColor(red: 244.0/255.0, green: 254/255, blue: 217/255, alpha:1)
+        }
         cell.gardenLabel.text = SHARED_GARDEN_LIST[indexPath.row]?.gardenName ?? "MyGarden"
         cell.mapButton.addTarget(self, action: #selector(SharedGardenView.openMap), for: .touchUpInside)
         cell.mapButton.tag = indexPath.row
