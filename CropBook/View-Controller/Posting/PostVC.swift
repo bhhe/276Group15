@@ -93,5 +93,4 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         receiverVC.postRef = post.getRef()
     }
     
-    
 }

@@ -33,18 +33,22 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var gardenId = ""
     let uid = Auth.auth().currentUser?.uid
     let group = DispatchGroup()
-    
+    var cityName = ""
     override func viewDidLoad() {
         applyBtn.layer.cornerRadius = 5
         ref = Database.database().reference()
         guard let gardenRef = ref?.child("Gardens") else{ return }
         
         for chd in gardensIds!{
-            group.enter();
             gardenRef.child(chd.getId()).child("gardenName").observeSingleEvent(of: .value) { (snapshot) in
                 let val = snapshot.value
                 chd.setName(gardenName: val as! String)
-                self.group.leave()
+            }
+            gardenRef.child(chd.getId()).child("Address").observeSingleEvent(of: .value) { (snapshot) in
+                let val = snapshot.value as! String
+                let str = val.split(separator: ",")
+                let city: String = String(str[1]).trimmingCharacters(in: .whitespacesAndNewlines)
+                chd.city = city
             }
         }
         
@@ -93,7 +97,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         selectGardenBtn.setTitle(cell?.textLabel?.text, for: .normal)
         gardenId = gardensIds![indexPath.row].getId()
-        
+        cityName = gardensIds![indexPath.row].city
     }
     
     @IBAction func selectGarden(_ sender: Any) {
@@ -116,6 +120,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             postRef?.child("Description").setValue(check3)
             postRef?.child("Poster").setValue(uid)
             postRef?.child("Harvest").setValue(check4)
+            postRef?.child("Address").setValue(cityName)
             let userRef = ref?.child("Users").child(uid!).child("Posts").child(postKey)
             userRef?.setValue(true)
         }
