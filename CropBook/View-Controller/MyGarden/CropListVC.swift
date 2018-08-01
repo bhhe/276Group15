@@ -125,12 +125,14 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             //Make Expanded cell
             let expandedCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedCropCell", for:indexPath) as! ExpandedCropCell
             
-            if let surface = cropList?[self.isExtended!]?.surfaceArea {
+            if let surface = cropList?[indexPath.row - 1]?.surfaceArea {
                 expandedCell.plotSize.text = String(surface)
             } else {
                 expandedCell.plotSize.text = ""
                 expandedCell.plotSize.placeholder = "cm^2"
             }
+            expandedCell.waterAmount.text = "0.0 mL"
+
             if !self.Online!{
                 let indexSet = NSMutableIndexSet()
                 let array = cropList?[self.isExtended!]?.notif.scheduleDays
@@ -196,7 +198,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     @objc func updatePlotSize(sender: UITextField){
-        print("changed")
         if let newSize = sender.text {
             if !self.Online!{
                 MY_GARDEN.cropProfile[self.isExtended!]?.setSurfaceArea(area: Double(newSize)!)
@@ -229,10 +230,8 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         if cell.plotSize.text != "" {
             if let surfaceArea = cropList?[self.isExtended!]?.surfaceArea{
-                print(surfaceArea)
                 var waterAmnt = Double(weather.GetWaterRequirements())/10*surfaceArea
                 waterAmnt = Double( round(100*waterAmnt)/100)
-                print(waterAmnt)
                 cell.waterAmount.text = String(waterAmnt) + " mL"
             } else {
                 print("No surface Area")
