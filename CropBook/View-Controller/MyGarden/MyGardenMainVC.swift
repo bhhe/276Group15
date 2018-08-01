@@ -79,7 +79,9 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
         } catch {}
         
         for crop in cropsCore{
+            print(crop.cropName!)
             let info = lib.searchByName(cropName: crop.cropName!)
+            print(info)
             let profile = CropProfile(cropInfo: info!, profName: crop.profName!)
             let surfaceArea = crop.plotLength * crop.plotWidth
             profile.coreData = crop
