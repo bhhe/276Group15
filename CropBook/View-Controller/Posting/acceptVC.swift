@@ -33,6 +33,8 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         postTitle.title = "Applicants"
         let gId = usrPost.getGId()
         
+        //Retrieve all user applications for
+        //acceptance or declining
         let reqRef = ref.child("Posts/\(usrPost.getId())/Requests")
         reqRef.observe(.value, with: {(snapshot) in
             for snap in snapshot.children{
@@ -68,6 +70,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         return acptData.count
     }
     
+    //Applicant information
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppliCell", for : indexPath )
         if indexPath.row <= acptData.count{
@@ -79,15 +82,18 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         return cell
     }
     
+    //Select applicant to display in next VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appInfo = acptData[indexPath.row]
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "appliSegue", sender: self)})
     }
     
+    //cell size
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
+    //segue prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "appliSegue"{
             let receiverVC = segue.destination as! ApplicantViewController
@@ -99,6 +105,8 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         }
     }
     
+    //Deletes current post from firebase and
+    //from user
     @IBAction func deletePost(_ sender: Any) {
         
         let postRef = ref.child("Posts").child(usrPost.getId())
@@ -115,6 +123,7 @@ class acceptVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         viewDidLoad()
     }
     
+    //Get UICOLOR based on inputted hex parameter
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

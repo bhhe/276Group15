@@ -29,6 +29,8 @@ class ApplicantViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //Accept applicant, add garden data to applicant user
+    //remove applicant off post
     @IBAction func acceptApplicant(_ sender: Any) {
         let usrRef = ref.child("Users/\(appInfo.uId)/Gardens/\(appInfo.gardenId)")
         usrRef.setValue(false)
@@ -43,6 +45,7 @@ class ApplicantViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{self.performSegue(withIdentifier: "unwindApp", sender: self)})
     }
     
+    //Applicant declined, remove application from firebase
     @IBAction func declineApplicant(_ sender: Any) {
         let reqRef = ref.child("Posts/\(postId)/Requests/\(appInfo.uId)")
         reqRef.removeValue()

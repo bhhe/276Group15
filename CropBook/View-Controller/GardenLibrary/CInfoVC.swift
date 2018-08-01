@@ -8,7 +8,6 @@
 
 import UIKit
 
-//var lib = CropLibrary(jsonName : "cropdata")
 class CInfoViewController: UIViewController {
     
     @IBOutlet weak var cropType: UILabel!

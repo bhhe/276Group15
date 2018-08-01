@@ -81,8 +81,16 @@ class MemberList: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         }else{
             cell.detailTextLabel?.text = "Members"
         }
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+            , size : 20)
+        cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
+            , size : 14)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
     
     func getOwner(){
