@@ -16,7 +16,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+    @IBOutlet weak var addCropButton: UIButton!
     
     var managedObjectContext : NSManagedObjectContext!
     var myIndex=0
@@ -31,6 +31,7 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor(red: 248.0/255.0, green: 1, blue: 210/255, alpha:1)
+        self.view.bringSubview(toFront: self.addCropButton)
         // Do any additional setup after loading the view.
     }
     
@@ -56,7 +57,6 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
                     let cropObject=child.value as? [String:AnyObject]
                     let cropname=cropObject?["CropName"]
                     let area=cropObject?["SurfaceArea"]
-                    
                     let cropinfo=lib.searchByName(cropName: cropname as! String)
                     let newCrop=CropProfile(cropInfo: cropinfo!, profName: cropname as! String)
                     newCrop.cropID=child.key
@@ -109,6 +109,11 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             // Make regular Crop Cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "cropCell", for:indexPath) as! CropTableViewCell
             let name: String? = cellData.cropName
+            if indexPath.row % 2 == 0 {
+                cell.backgroundColor = UIColor(red: 202.0/255.0, green: 225/255, blue: 200/255, alpha:1)
+            } else {
+                cell.backgroundColor = UIColor(red: 244.0/255.0, green: 254/255, blue: 217/255, alpha:1)
+            }
             cell.cropLabel?.text = name
             cell.cropImage?.image = UIImage(named: (cellData.getImage()))
             cell.deleteButton.addTarget(self, action: #selector(GardenCropList.deleteCrop), for: .touchUpInside)
@@ -120,20 +125,25 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             //Make Expanded cell
             let expandedCell = tableView.dequeueReusableCell(withIdentifier: "ExpandedCropCell", for:indexPath) as! ExpandedCropCell
             
-            
-            expandedCell.timeField.placeholder = MY_GARDEN.cropProfile[self.isExtended!]?.notif.getTimeString()
+            if let surface = cropList?[self.isExtended!]?.surfaceArea {
+                expandedCell.plotSize.text = String(surface)
+            } else {
+                expandedCell.plotSize.text = ""
+                expandedCell.plotSize.placeholder = "cm^2"
+            }
             if !self.Online!{
                 let indexSet = NSMutableIndexSet()
                 let array = cropList?[self.isExtended!]?.notif.scheduleDays
+                expandedCell.timeField.placeholder = MY_GARDEN.cropProfile[self.isExtended!]?.notif.getTimeString()
                 array?.forEach(indexSet.add)
                 expandedCell.selectDays.selectedSegmentIndexes = indexSet as IndexSet?
                 expandedCell.enableReminder.setOn((MY_GARDEN.cropProfile[self.isExtended!]?.notif.enabled)!, animated: true)
             }
-            
+            expandedCell.waterButton.addTarget(self, action: #selector(GardenCropList.updateWaterAmount), for: .touchUpInside)
             expandedCell.enableReminder.addTarget(self, action: #selector(GardenCropList.updateScheduleEnabled), for: .valueChanged)
             expandedCell.selectDays.addTarget(self, action: #selector(GardenCropList.updateScheduleWeekdays), for: .valueChanged)
             expandedCell.timeField.addTarget(self, action: #selector(GardenCropList.updateScheduleTime), for: .editingDidEnd)
-            
+            expandedCell.plotSize.addTarget(self, action: #selector(GardenCropList.updatePlotSize), for: .editingDidEnd)
             return expandedCell
         }
     }
@@ -185,6 +195,17 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
+    @objc func updatePlotSize(sender: UITextField){
+        print("changed")
+        if let newSize = sender.text {
+            if !self.Online!{
+                MY_GARDEN.cropProfile[self.isExtended!]?.setSurfaceArea(area: Double(newSize)!)
+            } else {
+                SHARED_GARDEN_LIST[self.gardenIndex]?.cropProfile[self.isExtended!]?.setSurfaceArea(area: Double(newSize)!)
+            }
+        }
+    }
+    
     @objc func updateScheduleEnabled(sender: UISwitch){
         if !self.Online!{
             MY_GARDEN.cropProfile[self.isExtended!]?.notif.enabled = sender.isOn
@@ -193,6 +214,28 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
             } else {
                 let message = "Remember to water your " + (MY_GARDEN.cropProfile[self.isExtended!]?.GetCropName())! + "!"
                 MY_GARDEN.cropProfile[self.isExtended!]?.notif.scheduleEachWeekday(msg: message)
+            }
+        }
+    }
+    
+    // Water Button is Clicked
+    @objc func updateWaterAmount(sender: UIButton){
+        
+        let midGrowth = cropList?[self.isExtended!]?.GetWateringVariable().getMid()
+        weather.UpdateWaterRequirements(coEfficient: midGrowth!)
+        
+        let indexPath = IndexPath(row: self.isExtended! + 1, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) as? ExpandedCropCell else {return}
+        
+        if cell.plotSize.text != "" {
+            if let surfaceArea = cropList?[self.isExtended!]?.surfaceArea{
+                print(surfaceArea)
+                var waterAmnt = Double(weather.GetWaterRequirements())/10*surfaceArea
+                waterAmnt = Double( round(100*waterAmnt)/100)
+                print(waterAmnt)
+                cell.waterAmount.text = String(waterAmnt) + " mL"
+            } else {
+                print("No surface Area")
             }
         }
     }
@@ -217,9 +260,10 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated:true, completion:nil)
             
-            
+            if passedIndex == self.isExtended{
+                self.contractCell(tableView: self.tableView, index: passedIndex)
+            }
             if self.Online!{
-                print("ahha")
                 let cropid=self.myGarden.cropProfile[passedIndex]?.cropID
                 self.RemoveCropFromFB(cropid!)
                 //print(cropid)
