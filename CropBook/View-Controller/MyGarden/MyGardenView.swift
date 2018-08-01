@@ -20,7 +20,7 @@ class MyGardenView: UIViewController, UITextFieldDelegate {
         self.nameField.delegate = self
         self.nameField.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
-        
+        self.view.bringSubview(toFront: nameField)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MyGardenView.viewTapped(gestureRecognizer:)))
         self.view.addGestureRecognizer(tapGesture)
     }

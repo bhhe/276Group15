@@ -29,6 +29,7 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         tblDropDown.delegate = self
         tblDropDown.dataSource = self
         tblDropDownHC.constant = 0
+        tblDropDown.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +59,7 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         UIView.animate(withDuration: 0.5) {
             self.tblDropDownHC.constant = 0
             self.isTableVisible = false
+            self.tblDropDown.isHidden = true
             self.view.layoutIfNeeded()
         }
     }
@@ -66,7 +68,8 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         UIView.animate(withDuration: 0.5) {
             if self.isTableVisible == false {
                 self.isTableVisible = true
-                self.tblDropDownHC.constant = 44.0 * 3.0
+                self.tblDropDown.isHidden = false
+                self.tblDropDownHC.constant = 44*3
             } else {
                 self.tblDropDownHC.constant = 0
                 self.isTableVisible = false
