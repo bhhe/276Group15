@@ -281,18 +281,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="156.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c17-ea-vxE">
-                                                    <rect key="frame" x="15" y="11" width="49" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3E-ug-YIA">
+                                                    <rect key="frame" x="15" y="11" width="117" height="31"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="WK5-iA-hIX"/>
-                                                        <constraint firstAttribute="height" constant="31" id="kn0-aG-4JN"/>
-                                                    </constraints>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3E-ug-YIA">
-                                                    <rect key="frame" x="80" y="11" width="103" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="6PC-4k-xkE"/>
-                                                        <constraint firstAttribute="height" constant="31" id="ar8-ve-3dK"/>
+                                                        <constraint firstAttribute="width" constant="117" id="db8-bH-e5u"/>
+                                                        <constraint firstAttribute="height" constant="31" id="uw3-ad-KUY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -364,25 +357,32 @@
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c17-ea-vxE">
+                                                    <rect key="frame" x="140" y="11" width="49" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="47" id="47V-x9-DgB"/>
+                                                        <constraint firstAttribute="height" constant="31" id="vMi-zQ-LEo"/>
+                                                    </constraints>
+                                                </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jBU-Ee-evO" firstAttribute="top" secondItem="c17-ea-vxE" secondAttribute="bottom" constant="13" id="0Gl-Hi-zXb"/>
                                                 <constraint firstItem="uY5-V4-Wg3" firstAttribute="leading" secondItem="ieh-R2-lWy" secondAttribute="trailing" constant="8" id="1Yg-52-fY8"/>
                                                 <constraint firstItem="jBU-Ee-evO" firstAttribute="leading" secondItem="lfR-Qp-IJn" secondAttribute="leadingMargin" id="4bL-15-i91"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zcy-om-2gY" secondAttribute="trailing" constant="6" id="6yN-sr-ijq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="uY5-V4-Wg3" secondAttribute="bottom" constant="11" id="7qA-Xg-0OJ"/>
-                                                <constraint firstItem="W3E-ug-YIA" firstAttribute="leading" secondItem="c17-ea-vxE" secondAttribute="trailing" constant="18" id="83u-gh-n2x"/>
                                                 <constraint firstItem="ieh-R2-lWy" firstAttribute="leading" secondItem="lfR-Qp-IJn" secondAttribute="leadingMargin" id="9eQ-XP-JPh"/>
+                                                <constraint firstItem="c17-ea-vxE" firstAttribute="top" secondItem="lfR-Qp-IJn" secondAttribute="topMargin" id="9wa-Sg-5bE"/>
+                                                <constraint firstItem="W3E-ug-YIA" firstAttribute="leading" secondItem="lfR-Qp-IJn" secondAttribute="leadingMargin" id="Avh-6V-JUI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ieh-R2-lWy" secondAttribute="bottom" constant="11" id="F3d-Se-aTk"/>
-                                                <constraint firstItem="c17-ea-vxE" firstAttribute="leading" secondItem="lfR-Qp-IJn" secondAttribute="leadingMargin" id="GRW-3q-yb0"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="cc8-6J-sww" secondAttribute="bottom" constant="5" id="Oq1-wR-ZWY"/>
                                                 <constraint firstItem="DIN-ou-NRD" firstAttribute="trailing" secondItem="lfR-Qp-IJn" secondAttribute="trailingMargin" id="exk-D0-r09"/>
                                                 <constraint firstItem="jBU-Ee-evO" firstAttribute="trailing" secondItem="lfR-Qp-IJn" secondAttribute="trailingMargin" id="mT6-AP-1Qx"/>
+                                                <constraint firstItem="W3E-ug-YIA" firstAttribute="top" secondItem="lfR-Qp-IJn" secondAttribute="topMargin" id="mrj-CJ-GWR"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DIN-ou-NRD" secondAttribute="bottom" constant="5" id="om4-dE-L2X"/>
+                                                <constraint firstItem="c17-ea-vxE" firstAttribute="leading" secondItem="W3E-ug-YIA" secondAttribute="trailing" constant="8" id="pXN-pC-0e4"/>
+                                                <constraint firstItem="jBU-Ee-evO" firstAttribute="top" secondItem="c17-ea-vxE" secondAttribute="bottom" constant="13" id="qaJ-c4-rK4"/>
                                                 <constraint firstItem="DIN-ou-NRD" firstAttribute="leading" secondItem="cc8-6J-sww" secondAttribute="trailing" constant="8" id="qmc-p9-UGk"/>
-                                                <constraint firstItem="c17-ea-vxE" firstAttribute="top" secondItem="lfR-Qp-IJn" secondAttribute="topMargin" id="sHh-QL-uF7"/>
                                                 <constraint firstItem="zcy-om-2gY" firstAttribute="top" secondItem="lfR-Qp-IJn" secondAttribute="topMargin" constant="1" id="uDL-fW-hBT"/>
-                                                <constraint firstItem="W3E-ug-YIA" firstAttribute="top" secondItem="lfR-Qp-IJn" secondAttribute="topMargin" id="zc9-N3-CPg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

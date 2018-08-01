@@ -35,25 +35,14 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     let group = DispatchGroup()
     var cityName = ""
     override func viewDidLoad() {
-        applyBtn.layer.cornerRadius = 5
-        ref = Database.database().reference()
-        guard let gardenRef = ref?.child("Gardens") else{ return }
-        
-        for chd in gardensIds!{
-            gardenRef.child(chd.getId()).child("gardenName").observeSingleEvent(of: .value) { (snapshot) in
-                let val = snapshot.value
-                chd.setName(gardenName: val as! String)
-            }
-            gardenRef.child(chd.getId()).child("Address").observeSingleEvent(of: .value) { (snapshot) in
-                let val = snapshot.value as! String
-                let str = val.split(separator: ",")
-                let city: String = String(str[1]).trimmingCharacters(in: .whitespacesAndNewlines)
-                chd.city = city
-            }
-        }
-        
         super.viewDidLoad()
 
+        applyBtn.layer.cornerRadius = 5
+        ref = Database.database().reference()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ComposeVC.viewTapped(gestureRecognizer:)))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -68,7 +57,21 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             })
         }
         */
+        guard let gardenRef = ref?.child("Gardens") else{ return }
         
+        for chd in gardensIds!{
+            gardenRef.child(chd.getId()).child("gardenName").observeSingleEvent(of: .value) { (snapshot) in
+                let val = snapshot.value
+                chd.setName(gardenName: val as! String)
+            }
+            gardenRef.child(chd.getId()).child("Address").observeSingleEvent(of: .value) { (snapshot) in
+                let val = snapshot.value as! String
+                let str = val.split(separator: ",")
+                let city: String = String(str[1]).trimmingCharacters(in: .whitespacesAndNewlines)
+                chd.city = city
+            }
+        }
+
         super.viewWillAppear(animated)
     }
 
@@ -99,6 +102,11 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         gardenId = gardensIds![indexPath.row].getId()
         cityName = gardensIds![indexPath.row].city
     }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+
     
     @IBAction func selectGarden(_ sender: Any) {
        print(selectGardenBtn.titleLabel?.text)

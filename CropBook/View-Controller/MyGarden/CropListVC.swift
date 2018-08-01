@@ -280,6 +280,15 @@ class GardenCropList: UIViewController,UITableViewDelegate,UITableViewDataSource
         }))
         self.present(alert, animated:true, completion:nil)
         self.tableView.reloadData()
+        self.deleteConfirmed()
+    }
+    
+    func deleteConfirmed(){
+        let alert = UIAlertController(title: "Crop Removed", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated:true, completion:nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func RemoveCropFromFB(_ id:String){

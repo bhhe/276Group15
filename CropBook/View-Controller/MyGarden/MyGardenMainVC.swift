@@ -206,19 +206,21 @@ class MyGardenMainVC: UIViewController,gardenButtonClicked{
             print("Crop added")
         }
         self.sharedVC.GetOnlineGardens()
+        
     }
     
-    func forceOfflineView(){
-        for i in 0...(views.count-1){
-            self.views[i].isUserInteractionEnabled = (i == 0)
-        }
-        self.viewContainer.bringSubview(toFront: views[0])
+    func postedConfirmation(){
+        let alert = UIAlertController(title: "Garden is Posted", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated:true, completion:nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction internal func SignInSelected(_ sender: Any){
         if let _=Auth.auth().currentUser{
             try! Auth.auth().signOut()
-            self.forceOfflineView()
+            self.switchViews(index: 0)
             self.segControl.selectedSegmentIndex = 0
 
             self.signInSignOut.setTitle("Sign In", for: UIControlState.normal)
