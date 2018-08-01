@@ -22,10 +22,24 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     @IBOutlet weak var harvestField: UILabel!
     @IBOutlet weak var cropsView: UITableView!
     @IBOutlet weak var applyBtn: UIButton!
+    @IBOutlet weak var errorText: UILabel!
     
     override func viewDidLoad() {
         applyBtn.layer.cornerRadius = 5
         let cropRef = ref.child("Gardens/\(post.gardenRef)/CropList")
+        let userRef = ref.child("Users/\(uid!)/Gardens")
+        
+        userRef.observeSingleEvent(of: .value) { (snapshot) in
+            for child in snapshot.children{
+                let snap = child as! DataSnapshot
+                let gardenId = snap.key
+                if gardenId == self.post.gardenRef{
+                    self.vApply = false
+                }
+                
+            }
+        }
+        
         cropRef.observe(.value) { (snapshot) in
             for snap in snapshot.children{
                 let cropSnap = snap as! DataSnapshot
@@ -35,6 +49,17 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
             }
             self.cropsView.reloadData()
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
+            if(self.vApply == false){
+                self.applyBtn.alpha = 0.5
+                self.applyBtn.isEnabled = false
+                self.errorText.isHidden = false
+            }else{
+                self.applyBtn.alpha = 1
+                self.applyBtn.isEnabled = true
+                self.errorText.isHidden = true
+            }
+        })
         cropsView.delegate = self
         cropsView.dataSource = self
         descriptionField.text = post.getDescription()
@@ -83,7 +108,6 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     }
     
     @IBAction func applyPressed(_ sender: Any) {
-        //isValidApply()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "applySegue", sender: self)})
     }
     
