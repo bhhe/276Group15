@@ -19,6 +19,10 @@ class CropProfileViewController: UIViewController {
     @IBOutlet weak var spacing: UILabel!
     @IBOutlet weak var note: UILabel!
     @IBOutlet weak var harvesting: UILabel!
+    @IBOutlet weak var notificationBtn: UIButton!
+    @IBOutlet weak var calcBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var image: UIImageView!
     
     var gardenIndex = 0
     var myIndex = 0
@@ -29,6 +33,10 @@ class CropProfileViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        notificationBtn.layer.cornerRadius = 5
+        calcBtn.layer.cornerRadius = 5
+        resetBtn.layer.cornerRadius = 5
+        
         super.viewDidLoad()
         let midGrowth = crop?.GetWateringVariable().getMid()
         weather.UpdateWaterRequirements(coEfficient: midGrowth!)
@@ -61,7 +69,7 @@ class CropProfileViewController: UIViewController {
         var notifMsg = "You need to water " + String(waterAmll) + " ml today."
         // Used this to test notification -- should give notification after 1 minute
         if isStringInt(theString : notifText.text!){
-            crop?.setNotification(Seconds: Int(notifText.text!)!,msg : notifMsg)
+            crop?.setNotification(Hours: Int(notifText.text!)!,msg : notifMsg)
         }
     }
     

@@ -89,10 +89,10 @@ class CropProfile{
         return self.wateringVariable
     }
     
-    func setNotification(Seconds : Int, msg : String){
+    func setNotification(Hours : Int, msg : String){
         let str = cropName + " : "
         let notifMsg = str + msg
-        notif.setSeconds(Second: Seconds)
+        notif.setHour(Hour: Hours)
         notif.Schedule(msg: notifMsg)
     }
     

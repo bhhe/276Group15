@@ -39,6 +39,8 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         ref = Database.database().reference()
         guard let gardenRef = ref?.child("Gardens") else{ return }
         
+        //Pass garden information to be stored in Posts
+        //for firebase
         for chd in gardensIds!{
             gardenRef.child(chd.getId()).child("gardenName").observeSingleEvent(of: .value) { (snapshot) in
                 let val = snapshot.value
@@ -56,27 +58,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated : Bool){
-        /*
-        for gData in gardensIds!{
-            let gardenId = gData.getId()
-            let nameRef = ref?.child("Gardens").child(gardenId).child("gardenName")
-            nameRef?.observeSingleEvent(of: .value, with: { (snapshot) in
-                let name = snapshot.value as! String
-                gData.setName(gardenName: name)
-            })
-        }
-        */
-        
-        super.viewWillAppear(animated)
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -85,6 +67,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         return (gardensIds?.count)!
     }
     
+    //Display all gardens available to make post for
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gardenCell", for : indexPath )
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
@@ -93,6 +76,7 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     
+    //Select Garden for Post
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         selectGardenBtn.setTitle(cell?.textLabel?.text, for: .normal)
@@ -104,6 +88,8 @@ class ComposeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
        print(selectGardenBtn.titleLabel?.text)
     }
     
+    //Add inputted data in textfield to firebase
+    //Display in public postings
     @IBAction func addPost(_ sender: Any) {
         let check1 = textView.text
         let check2 = gardenId

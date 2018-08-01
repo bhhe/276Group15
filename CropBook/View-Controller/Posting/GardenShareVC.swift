@@ -30,8 +30,10 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         postings = [PostData]()
         myPosts = [UserPost]()
-        
         ref = Database.database().reference()
+        
+        //Get all Post ref,address,title to process
+        //through tableview cells
         let userRef = ref?.child("Posts")
         userRef?.observeSingleEvent(of: .value, with: { (gardenSnapshot) in
             for child in gardenSnapshot.children{
@@ -48,6 +50,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
             self.tableView.reloadData()
         })
         
+        //Get ref to all user's post
         let uRef = ref?.child("Users").child(uid!).child("Posts")
         
         uRef?.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -73,11 +76,6 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -100,6 +98,8 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
             cell.detailTextLabel?.text = self.postings[indexPath.row].city
         })
         }
+        
+        //cell font size
         cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
                                       , size : 22)
         cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
@@ -115,19 +115,28 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
+        
+        //create and load post with retrieved firebase data
         createPosting()
         addCrops()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{ self.performSegue(withIdentifier: "postSegue", sender: self)})
     }
     
+    //Cell size
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
+    //Proceed to compose public post
     @IBAction func composePost(_ sender: Any) {
+        //safety check
         gardens.removeAll()
+        
+        //add all retrieved garden references
+        //to pass onto next VC
         let gardensRef = ref?.child("Users").child(uid!).child("Gardens")
         gardensRef?.observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children{
@@ -146,6 +155,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
             self.performSegue(withIdentifier: "createPost", sender: self)})
     }
     
+    //Segue Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "postSegue"{
             let receiverVC = segue.destination as! PostVC
@@ -159,6 +169,8 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    //Create posting information to display
+    //in the next View controller
     func createPosting(){
         let postRef = ref?.child("Posts/\(postings[myIndex].getGardenId())")
         self.postInfo.setPostRef(postRef: postRef!)
@@ -179,10 +191,13 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
             self.postInfo.setHarvest(harvest: val)
         })
         
+        //For testing to see if transfer failed
         let crops = ["Blueberries","Apples","Asparagus"]
         self.postInfo.setCrops(cropNames: crops)
     }
     
+    //Add crops to pass onto next
+    //VC for viewing
     func addCrops(){
         let gardenId = postings[myIndex].getGdnId()
         let GardenRef = ref?.child("Gardens/\(gardenId)/CropList")
@@ -196,15 +211,18 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         })
     }
     
+    //Go to YourPosts VC
     @IBAction func yourPostsPressed(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
             self.performSegue(withIdentifier: "ypSegue", sender: self)})
     }
     
+    //Way to get back to this Vc from anywhere
     @IBAction func unwindToShare(segue : UIStoryboardSegue){
         viewDidLoad()
     }
     
+    //Input Hex parameter to get UICOLOR
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

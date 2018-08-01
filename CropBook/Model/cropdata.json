@@ -1,346 +1,697 @@
- [
+[
+
+ 
+ {
+ "cropName": "Apples",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.0,
+ "end": 0.75
+ },
+ "Type": "Fruit",
+ "Image": "Apples.jpeg",
+ "sunExposure": "Sun/Partial Shade",
+ "soilType": "Any",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish. Should be planted with at least one other apple tree which flowers at a similar time to aid pollination.",
+ "feeding" : "Not required",
+ "spacing" : "Single Plants: 5.00m each way (minimum) Rows: (5.00m) with (5.00m) row gap (minimum)",
+ "notes" : "Prune towards the end of the season to remove any dead or overcrowded branches and to shape if required.",
+ "harvesting" : "Harvest when ripe (70% red in color)"
+ },
+ 
+ 
+ {
+ "cropName": "Artichokes",
+ "coEfficients": {
+ "init": 0.5,
+ "mid": 1.0,
+ "end": 0.8
+ },
+ "Type": "Vegetable",
+ "Image": "Artichokes.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy and sandy",
+ "soilpH": "Neutral",
+ "plant" : "Sow in spring is colder regions; sow in fall in warm subtropical regions. May wish to start 8 weeks indoors",
+ "feeding" : "Keep well fed with liquid feed through midsummer. Feed less when plants begin to produce buds.",
+ "spacing" : "Single Plants: (90cm) each way (minimum) Rows:  (90cm) with (90cm) row gap (minimum)",
+ "notes" : "Need plenty of water, so mulch generously to keep the soil cool and moist.",
+ "harvesting" : "Use a sharp knife to cut the heads (flower buds) with 2 inches of stem attached while they are still closed or justly slightly opening."
+ },
+ 
+ 
+ {
+ "cropName": "Asparagus",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 0.95,
+ "end": 0.3
+ },
+ "Type": "Vegetable",
+ "Image": "Asparagus.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Sandy, Fertile, well drained, and free of persistent weeds",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Set out dormant 1-year old roots, called crowns, in late winter or early spring. A few varieties can be grown from seed.",
+ "feeding" : "mulch with 2 inches of rich compost or rotted manure every winter",
+ "spacing" : "Single Plants:(45cm) each way (minimum) Rows:(45cm) with (45cm) row gap (minimum)",
+ "notes" : "After the stems die back in early winter, cut them off at ground level and compost them. Remove weeds, apply compost and mulch, and your yearly maintenance is done.",
+ "harvesting" : "Begin gathering spears the second year after planting, cutting all spears that appear for a month in early spring. In subsequent years, harvest for 6 weeks each spring."
+ },
+ 
+ 
+ {
+ "cropName": "Barley",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 1.15,
+ "end": 0.4
+ },
+ "Type": "Wheat",
+ "Image": "Barley.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Well Drained",
+ "soilpH": "Acidic",
+ "plant" : "For winter barley, October is the best time to plant. For spring barley, plant in January.",
+ "feeding" : "Regular compost",
+ "spacing" : "Sow the seeds in the rows, ensuring that there are 20 to 25 seeds per square foot of space.",
+ "notes" : "Barley does not require too much watering. Too much watering can lead to decomposition.",
+ "harvesting" : "Barley is harvested the same as wheat: cut, bundled and shocked to dry. Wear a shirt when harvesting barley as the awns can irritate your skin. Barley may be stored in the bundle and fed to stock without threshing. "
+ },
+ 
+ 
+ {
+ "cropName": "Beans",
+ "coEfficients": {
+ "init": 0.5,
+ "mid": 1.05,
+ "end": 0.9
+ },
+ "Type": "Vegetable",
+ "Image": "Beans.jpeg",
+ "sunExposure": "Full sun to very light shade.",
+ "soilType": "Regular, well drained soil.",
+ "soilpH": "Slightly Acidic",
+ "plant" : "Plant seeds 2 inches deep and 6 inches apart in late spring, after the last frost has passed and the soil is warm. Install a sturdy trellis before you plant your pole beans.",
+ "feeding" : "Mix an organic fertilizer into the soil before planting, using rates given on the label. Supplemental fertilizer seldom required.",
+ "spacing" : "Single Plants: (25cm) each way (minimum) Rows: (15cm) with (35cm) row gap (minimum)",
+ "notes" : "Mulch to keep the soil cool and moist, and to reduce problems with weeds.",
+ "harvesting" : "Gather pods before they fill with seeds. When picked often, pole beans continue to produce all summer."
+ },
+ 
+ 
+ {
+ "cropName": "Beets",
+ "coEfficients": {
+ "init": 0.5,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Beets.jpeg",
+ "sunExposure": "Full Sun, Part Sun",
+ "soilType": "Loamy, Sandy",
+ "soilpH": "Neutral",
+ "plant" : "Sow in mid-spring, at about the time apple trees bloom. Sow fall crops in mid to late summer. Thin seedlings to at least 5 inches apart to grow large roots.",
+ "feeding" : "Rarely required",
+ "spacing" : "Single: Plants(15cm) each way (minimum) Rows:(10cm) with (20cm) row gap (minimum)",
+ "notes" :  "Each seed is actually a multi-celled capsule, so you may need small scissors to thin plants to proper spacing. Weed carefully, and mulch between plants to deter weeds. Baby beet greens often are included in salad mixes.",
+ "harvesting" : "Harvest young leaves for salad greens as you thin young plants. Pull roots when they become plump. To keep through winter, harvest plants, cut off the tops, and keep in a cool root cellar or refrigerator."
+ },
+ 
+ 
+ {
+ "cropName": "Blueberries",
+ "coEfficients": {
+ "init": 0.4,
+ "mid": 1.0,
+ "end": 0.75
+ },
+ "Type": "Fruit",
+ "Image": "Blueberries.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Any",
+ "soilpH": "Acidic",
+ "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish.",
+ "feeding" : "May need potash (potassium) adding, particularly if the leaves start to brown at the edges.",
+ "spacing" : "Single Plants: (90cm) each way (minimum) Rows:  (90cm) with  (90cm) row gap (minimum)",
+ "notes" : "After harvesting prune the bush back to five leaves on each side shoot and remove any dead or overcrowded branches to 'open up' the plant.",
+ "harvesting" : "Harvest fruit when ripe."
+ },
+ 
+ 
+ {
+ "cropName": "Broccoli",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Broccoli.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Sandy",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Sow indoors in early spring, and set out while the soil is still cool. Sow fall broccoli indoors in summer, and set out when the plants are 3 weeks old.",
+ "feeding" : "Mix composted manure or another high-nitrogen compost into the soil before planting. When heads begin to form, feed with a liquid plant food.",
+ "spacing" : "Single Plants: (45cm) each way (minimum) Rows: (45cm) with (45cm) row gap (minimum)",
+ "notes" : "Broccoli that matures in cool fall weather has an especially tender texture with sweet flavor to match.",
+ "harvesting" : "Use a sharp knife to harvest the primary head when the beads are plump and well-filled. Many varieties produce numerous smaller side shoots after the primary head is cut."
+ },
+ 
+ 
+ {
+ "cropName": "Brussel Sprouts",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "BrusselSprouts.jpeg",
+ "sunExposure": "Full sun.",
+ "soilType": "Rich, deep soil, firm with organic compost.",
+ "soilpH": "Slightly Acidic",
+ "plant" : "Start indoors in early spring and set plants out when they have 5 or more leaves.",
+ "feeding" : "Mix a high-nitrogen compost into the soil before planting.",
+ "spacing" : "Single Plants: (60cm) each way (minimum) Rows: (60cm) with (60cm) row gap (minimum)",
+ "notes" : "Under the coldest conditions, colonies of gray-green cabbage aphids can seriously infest plants. Control early outbreaks with insecticidal soap.",
+ "harvesting" : "Harvest from the bottom of the plant upward, twisting off sprouts that are larger than a marble. Removing nearby leaves helps to make room for growing sprouts."
+ },
+ 
+ 
+ {
+ "cropName": "Cabbage",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Cabbage.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy, Sandy",
+ "soilpH": "Neutral",
+ "plant" : "Sow late summer to move to final positions in fall to be over-wintered and ready for spring",
+ "feeding" : "Drench every two weeks with an organic liquid fertilizer.",
+ "spacing" : "Single Plants:(60cm) each way (minimum) Rows: (60cm) with (60cm) row gap (minimum)",
+ "notes" : " Try growing different varieties from seed to explore differences in leaf color and type. Most early-maturing cabbage varieties produce smallish heads.",
+ "harvesting" : "Cut heads when they reach the size you prefer. Small secondary heads often grow from the base of early cabbage plants after the primary head is cut."
+ },
+ 
+ 
+ {
+ "cropName": "Carrots",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Carrots.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Sandy, Well drained soil rich in organic matter, but with no manure added prior to planting. Use well aged compost or vermicompost to condition compacted soil.",
+ "soilpH": "Neutral",
+ "plant" : "Sow direct into soil in spring. Make a second sowing for a fall crop in mid to late summer.",
+ "feeding" : "Soil quality is more essential that supplemental feeding.",
+ "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with (15cm) row gap (minimum)",
+ "notes" : "keep plants well weeded to reduce competition for nutrients are water. Mulch over the tops of mature carrots to keep their shoulders from turning green.",
+ "harvesting" : "Can be harvested over a long period, but the longer plants are left in the ground, the more likely they are to be injured by insects or animals."
+ },
+ 
+ 
+ {
+ "cropName": "Cauliflower",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Cauliflower.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" :"Sow indoors in early spring, and set out while the soil is still cool.",
+ "feeding" : "Mix composted manure or another high-nitrogen compost into the soil before planting. When heads begin to form, feed with a liquid plant food.",
+ "spacing" : "Single Plants: (50cm) each way (minimum) Rows: (45cm) with(60cm) row gap (minimum)",
+ "notes" : "Cabbageworms are small green larvae of the cabbage white butterfly. You can use row covers to keep them from eating plants. Bend over a few leaves if required so that the cauliflower head is kept shaded while it is forming.",
+ "harvesting" : "Harvest when the head has fully developed, but before the curd becomes loose, with a ricey appearance."
+ },
+ 
+ 
+ {
+ "cropName": "Celery",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Celery.jpeg",
+ "sunExposure": "Full Sun, Part Sun",
+ "soilType": "Any Rich, moisture-retentive soil with plenty of compost dug in before planting.",
+ "soilpH": "Neutral",
+ "plant" : "Sow indoors in early spring, and set out transplants when they are big enough to handle.",
+ "feeding" : "Liquid feed every two weeks throughout the season.",
+ "spacing" : "Single Plants: (20cm) each way (minimum) Rows: (15cm) with (30cm) row gap (minimum)",
+ "notes" :  "Garden-grown celery is looser and darker green than the supermarket version, with much more intense flavor. Provide water as needed to the soil moist in dry weather.",
+ "harvesting" : "Cut individual stalks as needed in the kitchen, or pull entire plants."
+ },
+ 
+ {
+ "cropName": "Cherries",
+ "coEfficients": {
+ "init": 0.45,
+ "mid": 0.95,
+ "end": 0.7
+ },
+ "Type": "Fruit",
+ "Image": "Cherries.jpg",
+ "sunExposure": "Full Sun, Part Sun",
+ "soilType": "Fertile, moisture-retentive but well-drained soil.",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Prepare a large hole by breaking up the soil and adding plenty of well-rotted organic matter. A wide hole is better than a very deep one. Mulch after planting, and encircle the trunk with a wire cage or protective pipe to protect the young tree from animal and insect pests. Young cherry trees are at high risk for damage from insects that bore into the main trunk.",
+ "feeding" : "Cherries benefit from a mulch of well-rotted organic matter and a feed with a balanced organic fertilizer in spring.",
+ "spacing" : "Single Plants: (3.00m) each way (minimum) Rows: (3.00m) row gap (minimum)",
+ "notes" : "Many sweet cherries need to be grown with at least one other flowering at a similar time for pollination, but many tart cherries are self-fertile. Prune in late winter to shape trees and removed damaged branches. Healthy cherry trees will bear for twenty years or more.",
+ "harvesting" : "Pick cherries carefully so as not to damage the delicate fruit."
+ },
+ 
+ {
+ "cropName": "Corn",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 1.15,
+ "end": 0.4
+ },
+ "Type": "Vegetable",
+ "Image": "Corn.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy",
+ "soilpH": "Neutral",
+ "plant" : "Wait until the soil is warm to sow sweet corn. Soak seeds in water overnight before planting them 1 inch deep and 6 inches apart. Thin to 12 inches apart when the plants are 6 inches tall.",
+ "feeding" : "Needs more nitrogen than other vegetables. Mix an organic fertilizer into the soil before planting, following label application rates. When tassels form, feed plants second time.",
+ "spacing" : "Single Plants: (35cm) each way (minimum) Rows:  (30cm) with (45cm) row gap (minimum)",
+ "notes" : "Plant in blocks of at least 15 plants, all the same variety, to insure good wind pollination. Keep well watered in dry spells.",
+ "harvesting" : "Sweet corn is ready when the ears feel firm and full when grasped, and a test kernel pierced with a fingernail released milky juice. Harvest in the morning, and promptly refrigerate ears to help them hold their delicate sugars."
+ },
+ 
+ {
+ "cropName": "Cucumber",
+ "coEfficients": {
+ "init": 0.6,
+ "mid": 1,
+ "end": 0.75
+ },
+ "Type": "Vegetable",
+ "Image": "Cucumber.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy",
+ "soilpH": "Neutral",
+ "plant" : "Easily grown from seeds sown directly in the ground, or start seeds indoors and set plants out when they are 3 weeks old.",
+ "feeding" : "Drench with a liquid organic fertilizer when plants begin to bloom heavily.",
+ "spacing" : "Single Plants:  (60cm) each way (minimum) Rows:  (60cm) with  (60cm) row gap (minimum)",
+ "notes" : "Use a trellis to save space, or you can let cucumbers ramble over mulched ground.",
+ "harvesting" : "Pick cucumbers at least every other day by snipping them from the vine with pruning shears. Many varieties are extremely productive. Fruits with hard seeds inside are overripe."
+ },
+ 
+ 
+ {
+ "cropName": "Eggplants",
+ "coEfficients": {
+ "init": 0.6,
+ "mid": 1.15,
+ "end": 0.8
+ },
+ "Type": "Vegetable",
+ "Image": "Eggplants.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Warm, fertile, and well drained.",
+ "soilpH": "Slightly Acidic",
+ "plant" : "Sow indoors 6 weeks before last spring frost, or buy seedlings in late spring. Transplant to larger pots if needed. Plant out in late spring, when the weather is settled and warm.",
+ "feeding" : "From midsummer onward, drench with a liquid feed every two weeks.",
+ "spacing" : "Single Plants: (40cm) each way (minimum)Rows: (35cm) with (45cm) row gap (minimum)",
+ "notes" : "Stake plants to keep them from falling over when they become heavy with fruit. Mulch to keep soil lightly moist.",
+ "harvesting" : "Use pruning shears to cut fruits from the stem. Perfect fruits have shiny skins and only a few immature seeds inside."
+ },
+ 
+ 
+ {
+ "cropName": "Garlic",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.00,
+ "end": 0.7
+ },
+ "Type": "Vegetable",
+ "Image": "Garlic.jpeg",
+ "sunExposure": "Sunny",
+ "soilType": "Fertile, well-drained soil with organic compost.",
+ "soilpH": "Slightly Acidic",
+ "plant" : "In fall, plant individual cloves 4 inches deep with the pointed ends up. Cover the planting with at least 3 inches of mulch.",
+ "feeding" : "Not usually required.",
+ "spacing" : "Single Plants: (15cm) each way (minimum) Rows: (10cm) with (25cm) row gap (minimum)",
+ "notes" : "Use hardy Rocambole types in cold climates. Where winters are mild, grow heavy-yielding artichoke types. Among the most deer-resistant of all edibles.",
+ "harvesting" : "Dig up bulbs in summer when one third of the leaves become dry and lose their green color. Shake off soil, and cure whole plants dry in a warm, shady place for two weeks before trimming and storing the garlic bulbs."
+ },
+ 
+ {
+ "cropName": "Grapes",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 1.05,
+ "end": 0.50
+ },
+ "Type": "Fruit",
+ "Image": "Grapes.jpg",
+ "sunExposure": "Full Sun or Part Sun.",
+ "soilType": "Will grow on relatively poor soil as long as it is well drained and compost is dug in.",
+ "soilpH": "Slightly Acidic to Neutral.",
+ "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish.",
+ "feeding" : "Mulch with well rotted compost annually.",
+ "spacing" : "Single Plants: (1.50m) each way (minimum) Rows: (1.50m) with (1.50m) row gap (minimum)",
+ "notes" : "After harvesting prune the bush back to three buds. Vines can gradually be trained up a support system.",
+ "harvesting" : "Harvest fruit when ripe, thinning a few out beforehand to allow others to swell.",
+ },
+ 
+ {
+ "cropName": "Green onions",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Green onions.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy, Sandy",
+ "soilpH": "",
+ "plant" : "Start seeds indoors in late winter to early spring when growing cold-hardy bunching varieties. Or, plant large sets close together and harvest the plants when young.",
+ "feeding" : "Work an organic fertilizer into the soil prior to setting out seedlings or sets.",
+ "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with 3 (10cm) row gap (minimum)",
+ "notes" : "Any immature onion can be eaten as a green onion, or scallion.",
+ "harvesting" : "Pull individual plants as you need them in the kitchen. With perennial bunching varieties, lift clumps in spring or fall and replant some of the divisions."
+ },
+ 
+ 
+ {
+ "cropName": "Kiwi",
+ "coEfficients": {
+ "init": 0.4,
+ "mid": 1.05,
+ "end": 1.05
+ },
+ "Type": "Fruit",
+ "Image": "Kiwi.jpeg",
+ "sunExposure": "Kiwis thrive in full sun provided their roots receive midday shade. It is a deciduous climber that prefers a temperate climate.It will survive mild frosts but won’t do well in hot summers.",
+ "soilType": "Fertile, well-drained soil.",
+ "soilpH": "",
+ "plant" : "Start with a purchased plant, or start seeds indoors and set out at about the time of your last frost. Mint is also easy to root from stem tip cuttings stuck into moist potting soil. Some strains are propagated only from cuttings rather than seeds.",
+ "feeding" : "Not generally needed.",
+ "spacing" : "Single Plants: 3.00m each way (minimum) Rows: 3.00m with 3.00m row gap (minimum)",
+ "notes" :  "FMost kiwi varieties require both male and female plants for successful pollination. One male plant can pollinate up to eight nearby females. Hardy kiwis produce smaller fruits, but are usually self fertile.",
+ "harvesting" : "Pick before the first frosts and then ripen indoors if the fruit is not completely ripe."
+ },
+ 
+ 
+ {
+ "cropName": "Lettuce",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Lettuce.jpeg",
+ "sunExposure": "Part Sun",
+ "soilType": "Loamy",
+ "soilpH": "",
+ "plant" : "Start seeds indoors in early spring, or simply sow fresh seeds where you want them to grow. Scatter seeds atop prepared soil, about one-half inch apart, and barely cover them before patting them into place. Sow more seeds in summer for a fall crop.",
+ "feeding" : "Not usually required.",
+ "spacing" : "Single Plants:(10cm) each way (minimum) Rows:  (10cm) with  (15cm) row gap (minimum)",
+ "notes" : "As lettuce seedlings grow, thin them so that the leaves of adjoining plants do not overlap. Mulch open space between plants to retain soil moisture and prevent weeds.",
+ "harvesting" : "You can pick individual leaves, use scissor or a knife to harvest handfuls of baby lettuce, or grow plants at proper spacing to get large, loose heads.",
+ },
+
+
   {
-  "cropName": "Asparagus",
-  "coEfficients": {
-  "init": 0.3,
-  "mid": 0.95,
-  "end": 0.3
-  },
-  "Type": "Vegetable",
-  "Image": "Asparagus.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Sandy, Fertile, well drained, and free of persistent weeds",
-  "soilpH": "Slightly Acidic to Neutral",
-  "plant" : "Set out dormant 1-year old roots, called crowns, in late winter or early spring. A few varieties can be grown from seed.",
-  "feeding" : "mulch with 2 inches of rich compost or rotted manure every winter",
-  "spacing" : "Single Plants:(45cm) each way (minimum) Rows:(45cm) with (45cm) row gap (minimum)",
-  "notes" : "After the stems die back in early winter, cut them off at ground level and compost them. Remove weeds, apply compost and mulch, and your yearly maintenance is done.",
-  "harvesting" : "Begin gathering spears the second year after planting, cutting all spears that appear for a month in early spring. In subsequent years, harvest for 6 weeks each spring."
-  },
-  
-  {
-  "cropName": "Beets",
-  "coEfficients": {
-  "init": 0.5,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Beets.jpeg",
-  "sunExposure": "Full Sun, Part Sun",
-  "soilType": "Loamy, Sandy",
-  "soilpH": "Neutral",
-  "plant" : "Sow in mid-spring, at about the time apple trees bloom. Sow fall crops in mid to late summer. Thin seedlings to at least 5 inches apart to grow large roots.",
-  "feeding" : "Rarely required",
-  "spacing" : "Single: Plants(15cm) each way (minimum) Rows:(10cm) with (20cm) row gap (minimum)",
-  "notes" :  "Each seed is actually a multi-celled capsule, so you may need small scissors to thin plants to proper spacing. Weed carefully, and mulch between plants to deter weeds. Baby beet greens often are included in salad mixes.",
-  "harvesting" : "Harvest young leaves for salad greens as you thin young plants. Pull roots when they become plump. To keep through winter, harvest plants, cut off the tops, and keep in a cool root cellar or refrigerator."
-  
-  },
-  
-  {
-  "cropName": "Blueberries",
-  "coEfficients": {
-  "init": 0.4,
-  "mid": 1.0,
-  "end": 0.75
-  },
-  "Type": "Fruit",
-  "Image": "Blueberries.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Any",
-  "soilpH": "Acidic",
-  "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish.",
-  "feeding" : "May need potash (potassium) adding, particularly if the leaves start to brown at the edges.",
-  "spacing" : "Single Plants: (90cm) each way (minimum) Rows:  (90cm) with  (90cm) row gap (minimum)",
-  "notes" : "After harvesting prune the bush back to five leaves on each side shoot and remove any dead or overcrowded branches to 'open up' the plant.",
-  "harvesting" : "Harvest fruit when ripe."
-  },
-  
-  {
-  "cropName": "Broccoli",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Broccoli.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Sandy",
-  "soilpH": "Slightly Acidic to Neutral",
-  "plant" : "Sow indoors in early spring, and set out while the soil is still cool. Sow fall broccoli indoors in summer, and set out when the plants are 3 weeks old.",
-  "feeding" : "Mix composted manure or another high-nitrogen compost into the soil before planting. When heads begin to form, feed with a liquid plant food.",
-  "spacing" : "Single Plants: (45cm) each way (minimum) Rows: (45cm) with (45cm) row gap (minimum)",
-  "notes" : "Broccoli that matures in cool fall weather has an especially tender texture with sweet flavor to match.",
-  "harvesting" : "Use a sharp knife to harvest the primary head when the beads are plump and well-filled. Many varieties produce numerous smaller side shoots after the primary head is cut."
-  },
-  
-  {
-  "cropName": "Cabbage",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Cabbage.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy, Sandy",
-  "soilpH": "Neutral",
-  "plant" : "Sow late summer to move to final positions in fall to be over-wintered and ready for spring",
-  "feeding" : "Drench every two weeks with an organic liquid fertilizer.",
-  "spacing" : "Single Plants:(60cm) each way (minimum) Rows: (60cm) with (60cm) row gap (minimum)",
-  "notes" : " Try growing different varieties from seed to explore differences in leaf color and type. Most early-maturing cabbage varieties produce smallish heads.",
-  "harvesting" : "Cut heads when they reach the size you prefer. Small secondary heads often grow from the base of early cabbage plants after the primary head is cut."
-  },
-  
-  {
-  "cropName": "Carrots",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Carrots.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Sandy, Well drained soil rich in organic matter, but with no manure added prior to planting. Use well aged compost or vermicompost to condition compacted soil.",
-  "soilpH": "Neutral",
-  "plant" : "Sow direct into soil in spring. Make a second sowing for a fall crop in mid to late summer.",
-  "feeding" : "Soil quality is more essential that supplemental feeding.",
-  "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with (15cm) row gap (minimum)",
-  "notes" : "keep plants well weeded to reduce competition for nutrients are water. Mulch over the tops of mature carrots to keep their shoulders from turning green.",
-  "harvesting" : "Can be harvested over a long period, but the longer plants are left in the ground, the more likely they are to be injured by insects or animals."
-  },
-  
-  {
-  "cropName": "Cauliflower",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Cauliflower.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy",
-  "soilpH": "Slightly Acidic to Neutral",
-  "plant" :"Sow indoors in early spring, and set out while the soil is still cool.",
-  "feeding" : "Mix composted manure or another high-nitrogen compost into the soil before planting. When heads begin to form, feed with a liquid plant food.",
-  "spacing" : "Single Plants: (50cm) each way (minimum) Rows: (45cm) with(60cm) row gap (minimum)",
-  "notes" : "Cabbageworms are small green larvae of the cabbage white butterfly. You can use row covers to keep them from eating plants. Bend over a few leaves if required so that the cauliflower head is kept shaded while it is forming.",
-  "harvesting" : "Harvest when the head has fully developed, but before the curd becomes loose, with a ricey appearance."
-  },
-  
-  {
-  "cropName": "Celery",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Celery.jpeg",
-  "sunExposure": "Full Sun, Part Sun",
-  "soilType": "Any Rich, moisture-retentive soil with plenty of compost dug in before planting.",
-  "soilpH": "Neutral",
-  "plant" : "Sow indoors in early spring, and set out transplants when they are big enough to handle.",
-  "feeding" : "Liquid feed every two weeks throughout the season.",
-  "spacing" : "Single Plants: (20cm) each way (minimum) Rows: (15cm) with (30cm) row gap (minimum)",
-  "notes" :  "Garden-grown celery is looser and darker green than the supermarket version, with much more intense flavor. Provide water as needed to the soil moist in dry weather.",
-  "harvesting" : "Cut individual stalks as needed in the kitchen, or pull entire plants."
-  
-  },
-  
-  {
-  "cropName": "Corn",
-  "coEfficients": {
-  "init": 0.3,
-  "mid": 1.15,
-  "end": 0.4
-  },
-  "Type": "Vegetable",
-  "Image": "Corn.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy",
-  "soilpH": "Neutral",
-  "plant" : "Wait until the soil is warm to sow sweet corn. Soak seeds in water overnight before planting them 1 inch deep and 6 inches apart. Thin to 12 inches apart when the plants are 6 inches tall.",
-  "feeding" : "Needs more nitrogen than other vegetables. Mix an organic fertilizer into the soil before planting, following label application rates. When tassels form, feed plants second time.",
-  "spacing" : "Single Plants: (35cm) each way (minimum) Rows:  (30cm) with (45cm) row gap (minimum)",
-  "notes" : "Plant in blocks of at least 15 plants, all the same variety, to insure good wind pollination. Keep well watered in dry spells.",
-  "harvesting" : "Sweet corn is ready when the ears feel firm and full when grasped, and a test kernel pierced with a fingernail released milky juice. Harvest in the morning, and promptly refrigerate ears to help them hold their delicate sugars."
-  },
-  
-  {
-  "cropName": "Cucumber",
-  "coEfficients": {
-  "init": 0.6,
-  "mid": 1,
-  "end": 0.75
-  },
-  "Type": "Vegetable",
-  "Image": "Cucumber.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy",
-  "soilpH": "Neutral",
-  "plant" : "Easily grown from seeds sown directly in the ground, or start seeds indoors and set plants out when they are 3 weeks old.",
-  "feeding" : "Drench with a liquid organic fertilizer when plants begin to bloom heavily.",
-  "spacing" : "Single Plants:  (60cm) each way (minimum) Rows:  (60cm) with  (60cm) row gap (minimum)",
-  "notes" : "Use a trellis to save space, or you can let cucumbers ramble over mulched ground.",
-  "harvesting" : "Pick cucumbers at least every other day by snipping them from the vine with pruning shears. Many varieties are extremely productive. Fruits with hard seeds inside are overripe."
-  },
-  
-  {
-  "cropName": "Green onions",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Green onions.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy, Sandy",
-  "soilpH": "",
-  "plant" : "Start seeds indoors in late winter to early spring when growing cold-hardy bunching varieties. Or, plant large sets close together and harvest the plants when young.",
-  "feeding" : "Work an organic fertilizer into the soil prior to setting out seedlings or sets.",
-  "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with 3 (10cm) row gap (minimum)",
-  "notes" : "Any immature onion can be eaten as a green onion, or scallion.",
-  "harvesting" : "Pull individual plants as you need them in the kitchen. With perennial bunching varieties, lift clumps in spring or fall and replant some of the divisions."
-  },
-  
-  {
-  "cropName": "Lettuce",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Lettuce.jpeg",
-  "sunExposure": "Part Sun",
-  "soilType": "Loamy",
-  "soilpH": "",
-  "plant" : "Start seeds indoors in early spring, or simply sow fresh seeds where you want them to grow. Scatter seeds atop prepared soil, about one-half inch apart, and barely cover them before patting them into place. Sow more seeds in summer for a fall crop.",
-  "feeding" : "Not usually required.",
-  "spacing" : "Single Plants:(10cm) each way (minimum) Rows:  (10cm) with  (15cm) row gap (minimum)",
-  "notes" : "As lettuce seedlings grow, thin them so that the leaves of adjoining plants do not overlap. Mulch open space between plants to retain soil moisture and prevent weeds.",
-  "harvesting" : "You can pick individual leaves, use scissor or a knife to harvest handfuls of baby lettuce, or grow plants at proper spacing to get large, loose heads.",
-  },
-  
-  {
-  "cropName": "Onions",
-  "coEfficients": {
-  "init": 0.7,
-  "mid": 1.05,
-  "end": 0.95
-  },
-  "Type": "Vegetable",
-  "Image": "Onions.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Any, Loamy",
-  "soilpH": "Neutral",
-  "plant" : "If you don't start your own seeds, set out sets (small dormant bulbs) or pencil-size seedlings in spring, while the soil is still cool.",
-  "feeding" : "Mix a balanced organic fertilizer into the bed or row before planting your onions, taking care to get it into the soil below the plants. Do not feed plants that are nearing maturity if you want very sweet onions.",
-  "spacing" : "Single Plants: (15cm) each way (minimum) Rows: (10cm) with  (20cm) row gap (minimum)",
-  "notes" : "Onions respond to changing day length. Grow short-day varieties in southern latitudes. Long-day varieties work best in northern areas. Try growing different varieties from seed to explore differences in bulb color, size and shape.",
-  "harvesting" : "Harvest young onions as scallions. When bulbs form and the tops of the plants fall over, pull them and cure in a warm place for about 10 days before storing."
-  },
-  
-  {
-  "cropName": "Peas",
-  "coEfficients": {
-  "init": 0.5,
-  "mid": 1.15,
-  "end": 1.1
-  },
-  "Type": "Vegetable",
-  "Image": "Peas.jpeg",
-  "sunExposure": "Full Sun, Part Sun",
-  "soilType": "Loamy",
-  "soilpH": "Neutral",
-  "plant" : "Soak seeds in water overnight before sowing 2 inches deep and 2 inches apart. Thin plants to proper spacing after the seeds germinate.",
-  "feeding" : "Not usually required if the plants are mulched deeply with grass clippings, shredded leaves, or another biodegradable material.",
-  "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with (20cm) row gap (minimum)",
-  "notes" : "Support plants with a trellis, which can be made from string, netting, or twiggy sticks pushed into the ground near each plant.",
-  "harvesting" : "Pick snow peas when the delicate pods begin to show immature seeds inside. Gather snap peas when the pods become plump yet are still glossy and filled with sweet-tasting peas. Pick shell peas before the pods become waxy"
-  },
-  
-  {
-  "cropName": "Potato",
-  "coEfficients": {
-  "init": 0.5,
-  "mid": 1.15,
-  "end": 0.75
-  },
-  "Type": "Vegetable",
-  "Image": "Potato.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Sandy",
-  "soilpH": "Acidic",
-  "plant" : "Plant 'slips' that grow from sprouting tubers in late spring or early summer, after the soil is very warm.",
-  "feeding" : "Mix a light application of a balanced organic fertilizer into the soil before planting.",
-  "spacing" : "Single Plants: (45cm) each way (minimum) Rows: (45cm) with  (60cm) row gap (minimum)",
-  "notes" : "potatoes form a dense green ground cover under hot summer conditions. Tubers are often found 12 inches or more from the plant's primary crown, so dig carefully. Although not from the solanaceae family, sweet potatoes are often placed in that group for crop rotation purposes because they share several important pests and diseases such as wireworms and nematodes which is why we show it as solanaceae.",
-  "harvesting" : "Dig in fall when the soil is still warm. Cure in a warm, airy place for two weeks before storing at cool room temperatures."
-  },
-  
-  {
-  "cropName": "Raspberries",
-  "coEfficients": {
-  "init": 0.4,
-  "mid": 1.2,
-  "end": 0.75
-  },
-  "Type": "Fruit",
-  "Image": "Raspberries.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Any",
-  "soilpH": "Slightly Acidic to Neutral",
-  "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish.",
-  "feeding" : "Not usually required.",
-  "spacing" : "Single Plants:  (70cm) each way (minimum) Rows:  (60cm) with  (90cm) row gap (minimum)",
-  "notes" : "After harvesting cut the canes down to ground level, leaving any new shoots.",
-  "harvesting" : "Harvest fruit when ripe. Can protect with netting if birds are eating them but make sure that the plant doesn't grow through the netting making it difficult to remove."
-  },
-  
-  {
-  "cropName": "Strawberries",
-  "coEfficients": {
-  "init": 0.4,
-  "mid": 1.05,
-  "end": 0.7
-  },
-  "Type": "Fruit",
-  "Image": "Strawberries.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Loamy, Well-drained, moderately acidic soil amended with compost.",
-  "soilpH": "Slightly Acidic to Neutral",
-  "plant" : "Set out plants in early spring, or in fall in mild winter areas. Take care not to bury the central crown when transplanting.",
-  "feeding" :"In fall and again in early spring, topdress established plants with rich compost or an organic fertilizer. Allow plants to rest in midsummer.",
-  "spacing" : "Single Plants: (60cm) each way (minimum) Rows:  (60cm) with (60cm) row gap (minimum)",
-  "notes" : "Can be used as a ground cover beneath grapes or blueberries, or managed as a perpetual bed. In late summer, remove weeds and withered leaves, and thin runners to no more than 3 per plant. Lift and transplant extra runners",
-  "harvesting" : "Gather ripe fruits in the morning, when they are cool, and refrigerate immediately. Wash in cool water just before eating."
-  },
-  
-  {
-  "cropName": "Watermelon",
-  "coEfficients": {
-  "init": 0.4,
-  "mid": 1,
-  "end": 0.75
-  },
-  "Type": "Fruit",
-  "Image": "Watermelon.jpeg",
-  "sunExposure": "Full Sun",
-  "soilType": "Sandy, Rich soil with plenty of compost added. Often grown in widely spaced enriched hills, or in well-aged compost heaps that include some soil.",
-  "soilpH": "",
-  "plant" : "Sow seeds 1 inch deep in rows, or in hills spaced 6 feet apart. After 2 weeks, thin to 2 plants per hill.",
-  "feeding" : "After plants set fruit, feed twice, at two week intervals, with a water soluble plant food.",
-  "spacing" : "Single Plants: (90cm) each way (minimum) Rows: (90cm) with (90cm) row gap (minimum)",
-  "notes" : "Fruit size varies with variety. Small icebox watermelons mature quickly and take up less space compared to huge watermelons.",
-  "harvesting" : "Ripe watermelons sound deep and resonant when thumped, and the curled tendril opposite the melon should be brown. Wipe clean and store indoors."
-  
-  }
-  ]
+ "cropName": "Mushrooms",
+ "coEfficients": {
+ "init":  0.5,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Mushrooms.jpeg",
+ "sunExposure": "Since mushrooms do not contain chlorophyll they do not require light or photosynthesis to grow. While the environment needs to be as dark as possible to for mushrooms to spawn, some light does not harm their growth. Mushrooms do need a dim light to form fruit bodies, but only requires a few hours a day for successful fruiting. When growing indoors, indirect sunlight or a florescent lamp can suffice. Wild mushrooms often grow in shady, wooded areas where they receive filtered light.",
+ "soilType": "Some mushrooms may grow on trees, decomposing leaves, dung, mulch, soil or compost, feeding off the dead or decaying matter in those substances. Commercially grown mushrooms are often grown in a combination of manure and straw. The growing medium for wild mushrooms may not be easily visible, such as a dead vegetation under the ground. Many wild mushrooms, like morels (Morchella) are found at the base of trees and among dead leaves on the forest floor.",
+ "soilpH": "",
+ "plant" : "Start with a purchased plant, or start seeds indoors and set out at about the time of your last frost. Mint is also easy to root from stem tip cuttings stuck into moist potting soil. Some strains are propagated only from cuttings rather than seeds.",
+ "feeding" : "Mushrooms contain no chlorophyll and most are considered saprophytes. That is, they obtain their nutrition from metabolizing non living organic matter. This means they break down and eat dead plants, like your compost pile does.",
+ "spacing" : "Single Plants:(5cm) each way (minimum) Rows:(10cm) with (3cm) row gap (minimum)",
+ "notes" :  "Mushrooms are a type of fungus that grows by feeding off of decaying tree bark or other materials. Unlike plants, mushrooms do not contain chlorophyll and do not require sunlight to grow. Whether mushrooms grow indoors or in the wild, they have certain light, water, heat and growing-medium requirements to thrive and produce their fruit. Some mushroom varieties are safe for human consumption, while others are not. Commercially grown mushrooms are a safe choice for those who do not know how to identify edible mushrooms in the wild.",
+ "harvesting" : "The mushrooms should be ready to harvest in approximately 3 to 5 days after you see the first mushrooms begin to form. When the cap of the largest mushroom in the cluster begins to go from convex (turning down at the edges) to concave (flattening out or turning up at the edges), pick the whole cluster."
+ },
+ 
+ {
+ "cropName": "Mint",
+ "coEfficients": {
+ "init": 0.6,
+ "mid": 1.15,
+ "end": 1.1
+ },
+ "Type": "Herb",
+ "Image": "Mint.jpeg",
+ "sunExposure": "Full sun to partial afternoon shade",
+ "soilType": "Any average, well drained soil where mint's wandering tendencies can be kept in check.",
+ "soilpH": "",
+ "plant" : "Start with a purchased plant, or start seeds indoors and set out at about the time of your last frost. Mint is also easy to root from stem tip cuttings stuck into moist potting soil. Some strains are propagated only from cuttings rather than seeds.",
+ "feeding" : "Not generally needed.",
+ "spacing" : "Single Plants:(20cm) each way (minimum) Rows:(15cm) with (25cm) row gap (minimum)",
+ "notes" :  "Frequent pinching back helps to keep plants bushy and full, and it delays flowering. Spearmint or peppermint are the most versatile strain for cooking.",
+ "harvesting" : "Gather sprigs as needed in the kitchen. Gather stems for drying in early summer, just before the plants bloom."
+ },
+ 
+ 
+ {
+ "cropName": "Oats",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 1.15,
+ "end": 0.25
+ },
+ "Type": "Wheat",
+ "Image": "Oats.jpeg",
+ "sunExposure": "Full sun",
+ "soilType": "Any average, well drained soil.",
+ "soilpH": "",
+ "plant" : "Sow in late summer to grow a cover crop that forms its own mulch when it is winterkilled, or when using oats as a companion crop for slower-growing legumes. Oats also can be grown as a spring cover crop to increase soil organic matter. Broadcast seed into cultivated soil so that the seeds are about 3 inches (7 cm) apart and one-half inch (1 cm) deep. No thinning is required. Increase spacing to 8 inches (20cm) apart when growing oats with other cover crops. Our Garden Planner can produce a personalized calendar of when to sow, plant and harvest for your area.",
+ "feeding" : "None generally needed, especially when oats are grown with nitrogen-fixing cover crops such as winter peas, winter beans or hairy vetch.",
+ "spacing" : "Single Plants:(10cm) each way (minimum) Rows:(10cm) with (10cm) row gap (minimum)",
+ "notes" :  "Oats are an ideal late summer cover crop where winters are cold enough to kill it; the dead residue forms its own winter mulch, which is usually well rotted by spring.",
+ "harvesting" : "Young oats can be turned under anytime. In mild winter climates, oats should be mowed and tilled before seedheads appear in late spring."
+ },
+ 
+ 
+ {
+ "cropName": "Onions",
+ "coEfficients": {
+ "init": 0.7,
+ "mid": 1.05,
+ "end": 0.95
+ },
+ "Type": "Vegetable",
+ "Image": "Onions.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Any, Loamy",
+ "soilpH": "Neutral",
+ "plant" : "If you don't start your own seeds, set out sets (small dormant bulbs) or pencil-size seedlings in spring, while the soil is still cool.",
+ "feeding" : "Mix a balanced organic fertilizer into the bed or row before planting your onions, taking care to get it into the soil below the plants. Do not feed plants that are nearing maturity if you want very sweet onions.",
+ "spacing" : "Single Plants: (15cm) each way (minimum) Rows: (10cm) with  (20cm) row gap (minimum)",
+ "notes" : "Onions respond to changing day length. Grow short-day varieties in southern latitudes. Long-day varieties work best in northern areas. Try growing different varieties from seed to explore differences in bulb color, size and shape.",
+ "harvesting" : "Harvest young onions as scallions. When bulbs form and the tops of the plants fall over, pull them and cure in a warm place for about 10 days before storing."
+ },
+ 
+ 
+ {
+ "cropName": "Orange",
+ "coEfficients": {
+ "init": 0.5,
+ "mid": 0.45,
+ "end": 0.55
+ },
+ "Type": "Fruit",
+ "Image": "Orange.jpeg",
+ "sunExposure": "A sheltered spot in full sun. In gardens where the temperatures drop below 0 °C grow them in containers that can be moved into a warm, sheltered area during winter.",
+ "soilType": "Warm, moist soil, well-enriched with organic matter. Oranges grafted onto a dwarfing rootstock may be grown in containers",
+ "soilpH": "",
+ "plant" : "Set out new plants in late winter or early spring. Grow in containers of rich compost to keep plants compact and to make it easy to bring plants indoors for the winter. Good drainage is essential. Our Garden Planner can produce a personalised calendar of when to sow, plant and harvest for your area.",
+ "feeding" : "In spring and summer, feed with a balanced organic fertiliser. Yellowing leaves indicate a need for more nitrogen.",
+ "spacing" : "Single Plants: 5.00m each way (minimum) Rows: 5.00m with 5.00m row gap (minimum)",
+ "notes" :  "Prune in spring or summer to shape plants, and watch for thorns. Very sweet oranges need a long season of warm weather, but kumquats, calamondin oranges and satsumas fruit well in marginal areas or when grown in containers.",
+ "harvesting" : "CPick when richly coloured and fully ripe. Picking can continue for several weeks as fruits do not ripen all at once."
+ },
+ 
+ 
+ {
+ "cropName": "Peas",
+ "coEfficients": {
+ "init": 0.5,
+ "mid": 1.15,
+ "end": 1.1
+ },
+ "Type": "Vegetable",
+ "Image": "Peas.jpeg",
+ "sunExposure": "Full Sun, Part Sun",
+ "soilType": "Loamy",
+ "soilpH": "Neutral",
+ "plant" : "Soak seeds in water overnight before sowing 2 inches deep and 2 inches apart. Thin plants to proper spacing after the seeds germinate.",
+ "feeding" : "Not usually required if the plants are mulched deeply with grass clippings, shredded leaves, or another biodegradable material.",
+ "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with (20cm) row gap (minimum)",
+ "notes" : "Support plants with a trellis, which can be made from string, netting, or twiggy sticks pushed into the ground near each plant.",
+ "harvesting" : "Pick snow peas when the delicate pods begin to show immature seeds inside. Gather snap peas when the pods become plump yet are still glossy and filled with sweet-tasting peas. Pick shell peas before the pods become waxy"
+ },
+ 
+ 
+ {
+ "cropName": "Pear",
+ "coEfficients": {
+ "init": 0.6,
+ "mid": 0.95,
+ "end": 0.75
+ },
+ "Type": "Fruit",
+ "Image": "Pear.jpeg",
+ "sunExposure": "In cool climates, grow dwarf varieties against a wall, as an espalier. Semi-dwarf and standard pears make excellent landscape trees in large gardens.",
+ "soilType": "Moist, well-drained soil with a near-neutral pH.",
+ "soilpH": "",
+ "plant" : "Set out new plants in late winter or early spring. Grow in containers of rich compost to keep plants compact and to make it easy to bring plants indoors for the winter. Good drainage is essential. Our Garden Planner can produce a personalised calendar of when to sow, plant and harvest for your area.",
+ "feeding" : "Benefits from a mulch of well-rotted organic matter in spring, topped by a deep mulch of wood chips or sawdust year round",
+ "spacing" : "Single Plants: 2.50m each way (minimum) Rows: 2.50m with 2.50m row gap (minimum)",
+              "notes" :  "Prune in winter to remove any dead or overcrowded branches and to shape if required. Most varieties need at least one other pear tree in the neighborhood to get good pollination.",
+              "harvesting" : "Harvest pears before they fully ripen, and ripen under cool indoor temperatures."
+},
+
+ 
+{
+"cropName": "Potato",
+"coEfficients": {
+ "init": 0.5,
+ "mid": 1.15,
+ "end": 0.75
+ },
+ "Type": "Vegetable",
+ "Image": "Potato.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Sandy",
+ "soilpH": "Acidic",
+ "plant" : "Plant 'slips' that grow from sprouting tubers in late spring or early summer, after the soil is very warm.",
+ "feeding" : "Mix a light application of a balanced organic fertilizer into the soil before planting.",
+ "spacing" : "Single Plants: (45cm) each way (minimum) Rows: (45cm) with  (60cm) row gap (minimum)",
+ "notes" : "potatoes form a dense green ground cover under hot summer conditions. Tubers are often found 12 inches or more from the plant's primary crown, so dig carefully. Although not from the solanaceae family, sweet potatoes are often placed in that group for crop rotation purposes because they share several important pests and diseases such as wireworms and nematodes which is why we show it as solanaceae.",
+ "harvesting" : "Dig in fall when the soil is still warm. Cure in a warm, airy place for two weeks before storing at cool room temperatures."
+ },
+ 
+ 
+ {
+ "cropName": "Raspberries",
+ "coEfficients": {
+ "init": 0.4,
+ "mid": 1.2,
+ "end": 0.75
+ },
+ "Type": "Fruit",
+ "Image": "Raspberries.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Any",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Plant in mid-fall or early winter when it's not too cold for a little root growth to help them establish.",
+ "feeding" : "Not usually required.",
+ "spacing" : "Single Plants:  (70cm) each way (minimum) Rows:  (60cm) with  (90cm) row gap (minimum)",
+ "notes" : "After harvesting cut the canes down to ground level, leaving any new shoots.",
+ "harvesting" : "Harvest fruit when ripe. Can protect with netting if birds are eating them but make sure that the plant doesn't grow through the netting making it difficult to remove."
+ },
+
+ 
+ {
+ "cropName": "Strawberries",
+ "coEfficients": {
+ "init": 0.4,
+ "mid": 1.05,
+ "end": 0.7
+ },
+ "Type": "Fruit",
+ "Image": "Strawberries.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Loamy, Well-drained, moderately acidic soil amended with compost.",
+ "soilpH": "Slightly Acidic to Neutral",
+ "plant" : "Set out plants in early spring, or in fall in mild winter areas. Take care not to bury the central crown when transplanting.",
+ "feeding" :"In fall and again in early spring, topdress established plants with rich compost or an organic fertilizer. Allow plants to rest in midsummer.",
+ "spacing" : "Single Plants: (60cm) each way (minimum) Rows:  (60cm) with (60cm) row gap (minimum)",
+ "notes" : "Can be used as a ground cover beneath grapes or blueberries, or managed as a perpetual bed. In late summer, remove weeds and withered leaves, and thin runners to no more than 3 per plant. Lift and transplant extra runners",
+ "harvesting" : "Gather ripe fruits in the morning, when they are cool, and refrigerate immediately. Wash in cool water just before eating."
+ },
+ 
+ 
+ {
+ "cropName": "Sunflower",
+ "coEfficients": {
+ "init": 0.35,
+ "mid": 1.15,
+ "end": 0.35
+ },
+ "Type": "Miscellaneous",
+ "Image": "Sunflower.jpeg",
+ "sunExposure": "Full sun to partial afternoon shade",
+ "soilType": "Any average, well drained soil where mint's wandering tendencies can be kept in check.",
+ "soilpH": "",
+ "plant" : "Sow sunflowers from late spring to early summer. Where summers are long and warm, make a second sowing for autumn harvest. Poke seeds into the soil about 1 inch (3 cm) deep and 3 inches (8 cm) apart. Thin to 12 inches (30 cm) apart in all directions for dwarf varieties. Extremely tall sunflowers or those that grow into multi-branched bushes may require 3 feet (1 meter) between plants. Our Garden Planner can produce a personalized calendar of when to sow, plant and harvest for your area.",
+ "feeding" : "Mix a light application of a balanced organic fertilizer into the soil prior to planting.",
+ "spacing" : "Single Plants: (30cm) each way (minimum) Rows:(30cm) with (30cm) row gap (minimum)",
+ "notes" :  "Explore different sunflower varieties, which vary in size, color, growth habit, and the culinary quality of the seeds.",
+ "harvesting" : "Cut sunflower heads when some of the seeds inside the edges appear ripe and fall away when rubbed, or when birds start harvesting them for you. Store in a warm, dry place."
+ },
+ 
+ 
+ {
+ "cropName": "Watermelon",
+ "coEfficients": {
+ "init": 0.4,
+ "mid": 1.0,
+ "end": 0.75
+ },
+ "Type": "Fruit",
+ "Image": "Watermelon.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Sandy, Rich soil with plenty of compost added. Often grown in widely spaced enriched hills, or in well-aged compost heaps that include some soil.",
+ "soilpH": "",
+ "plant" : "Sow seeds 1 inch deep in rows, or in hills spaced 6 feet apart. After 2 weeks, thin to 2 plants per hill.",
+ "feeding" : "After plants set fruit, feed twice, at two week intervals, with a water soluble plant food.",
+ "spacing" : "Single Plants: (90cm) each way (minimum) Rows: (90cm) with (90cm) row gap (minimum)",
+ "notes" : "Fruit size varies with variety. Small icebox watermelons mature quickly and take up less space compared to huge watermelons.",
+ "harvesting" : "Ripe watermelons sound deep and resonant when thumped, and the curled tendril opposite the melon should be brown. Wipe clean and store indoors."
+ },
+ 
+ 
+ {
+ "cropName": "Wheat",
+ "coEfficients": {
+ "init": 0.3,
+ "mid": 1.15,
+ "end": 0.4
+ },
+ "Type": "Wheat",
+ "Image": "Wheat.jpeg",
+ "sunExposure": "Full Sun",
+ "soilType": "Any well drained soil.",
+ "soilpH": "Acidic",
+ "plant" : "Sow in late summer or early fall for an overwintered crop. Spring wheat can be planted while the soil is still cool. Broadcast seed into cultivated soil so that the seeds are about 3 inches (7 cm) apart and one-half inch (1 cm) deep. No thinning is required. Increase spacing to 8 inches (20cm) apart when growing wheat with other cover crops.",
+ "feeding" : "When using wheat to improve very poor soil, mixing a balanced organic fertilizer into the soil before planting will give better results.",
+ "spacing" : "Single Plants: (10cm) each way (minimum) Rows: (10cm) with (10cm) row gap (minimum)",
+ "notes" : "Primarily grown to increase organic matter, break up dense subsoil and crowd out weeds. Makes a beautiful show in spring.",
+ "harvesting" : "Mow down plants in spring, before they develop seeds. Or, gather the immature seed tops and dry them for arrangements, and then pull up the plants. They can be used as mulch or composted."
+ },
+ 
+ ]

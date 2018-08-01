@@ -27,6 +27,8 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     override func viewDidLoad() {
         postCells.separatorColor = UIColor.green
         let postRef = ref.child("Posts")
+        
+        //Scan and retrieve post data based on post refs
         for chd in posts{
             postRef.observe(.value) { (snapshot) in
                 if snapshot.hasChild(chd.getId()){
@@ -40,36 +42,22 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
                     self.postCells.reloadData()
                 }
             }
-            /*
-            //print(chd.getId())
-            group.enter();
-            postRef.child(chd.getId()).child("Title").observe(.value) { (snapshot) in
-                //print(snapshot)
-                let val = snapshot.value as! String
-                chd.setPostName(postName: val)
-                self.group.leave()
-            }
-            group.enter();
-            postRef.child(chd.getId()).child("GardenId").observe(.value) { (snapshot) in
-                let val = snapshot.value as! String
-                //print(val)
-                chd.setGardId(gardId: val)
-                self.group.leave()
-            }
-            */
         }
 
         super.viewDidLoad()
     }
     
+    //sections #
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    //number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
+    //Determine what's displayed on Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for : indexPath )
         if indexPath.row < posts.count{
@@ -82,6 +70,8 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Determine what to past on to Next VC
         postId = posts[indexPath.row].getId()
         usrPost = posts[indexPath.row]
         postIndex = indexPath.row
@@ -90,10 +80,12 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         
     }
     
+    //Set cell size
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
+    //Segue prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "acceptSegue"{
             let receiverVC = segue.destination as! acceptVC
@@ -105,13 +97,15 @@ class YourPostsVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
             receiverVC.tableView.reloadData()
         }
     }
-
+    
+    //Way to get back to this VC from anywhere
     @IBAction func unwindToYP(segue : UIStoryboardSegue){
         postCells.reloadData()
         viewDidLoad()
         DispatchQueue.main.asyncAfter(deadline: .now(), execute:{self.performSegue(withIdentifier: "unwindBack", sender: self)})
     }
     
+    //Get UICOLOR based on Hex parameter
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

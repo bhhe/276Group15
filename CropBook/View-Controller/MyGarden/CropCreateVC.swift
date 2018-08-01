@@ -9,6 +9,9 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var width: UITextField!
     @IBOutlet weak var length: UITextField!
     @IBOutlet weak var createCrop: UIButton!
+    @IBOutlet weak var warning: UILabel!
+    @IBOutlet weak var addBtn: UIButton!
+    
     
     let ref=Database.database().reference()
     var isTableVisible = false
@@ -20,6 +23,9 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var Online:Bool?
     
     override func viewDidLoad() {
+        btnNumberOfRooms.layer.cornerRadius = 5
+        addBtn.layer.cornerRadius = 5
+        warning.isHidden = true
         super.viewDidLoad()
         cropSelected = false
         width.delegate = self
@@ -87,39 +93,45 @@ class CropCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBAction func AddCrop(_ sender: Any) {
-        print("ADDING CROP");
-        //convert XY entry into double
-        let plotX = (length.text as! NSString).doubleValue
-        let plotY = (width.text as! NSString).doubleValue
         
-        let newCropProf = CropProfile(cropInfo : mainLib[libIndex], profName : self.profName)
-        newCropProf.surfaceArea = plotX*plotY
-        
-        if(Online)!{
-            //add Crop into Firebase Database
-            let gardenID=SHARED_GARDEN_LIST[gardenIndex]?.gardenID
-            let cropname=newCropProf.GetCropName()
-            let gardenRef=ref.child("Gardens/\(gardenID!)/CropList").childByAutoId()
-            gardenRef.child("CropName").setValue(cropname)
-            gardenRef.child("ProfName").setValue(profName)
-            gardenRef.child("SurfaceArea").setValue(newCropProf.surfaceArea)
+        //make sure length and width entered
+        if length.text != "" && width.text != ""{
+            print("ADDING CROP");
+            //convert XY entry into double
+            let plotX = (length.text as! NSString).doubleValue
+            let plotY = (width.text as! NSString).doubleValue
             
-            print("Crop added")
+            let newCropProf = CropProfile(cropInfo : mainLib[libIndex], profName : self.profName)
+            newCropProf.surfaceArea = plotX*plotY
+            
+            if(Online)!{
+                //add Crop into Firebase Database
+                let gardenID=SHARED_GARDEN_LIST[gardenIndex]?.gardenID
+                let cropname=newCropProf.GetCropName()
+                let gardenRef=ref.child("Gardens/\(gardenID!)/CropList").childByAutoId()
+                gardenRef.child("CropName").setValue(cropname)
+                gardenRef.child("ProfName").setValue(profName)
+                gardenRef.child("SurfaceArea").setValue(newCropProf.surfaceArea)
+                
+                print("Crop added")
+            }else{
+            
+                //Save Core Data for crop
+                let cropCore = CropProfileCore(context: PersistenceService.context)
+                cropCore.cropName = newCropProf.GetCropName()
+                cropCore.profName = profName
+                cropCore.plotLength = Double(length.text!)!
+                cropCore.plotWidth = Double(width.text!)!
+                PersistenceService.saveContext()
+                newCropProf.coreData = cropCore
+                print(newCropProf.coreData?.cropName as! String)
+                MY_GARDEN.cropProfile.append(newCropProf)
+            }
+            
+            self.navigationController?.popViewController(animated: true)
         }else{
-        
-            //Save Core Data for crop
-            let cropCore = CropProfileCore(context: PersistenceService.context)
-            cropCore.cropName = newCropProf.GetCropName()
-            cropCore.profName = profName
-            cropCore.plotLength = Double(length.text!)!
-            cropCore.plotWidth = Double(width.text!)!
-            PersistenceService.saveContext()
-            newCropProf.coreData = cropCore
-            print(newCropProf.coreData?.cropName as! String)
-            MY_GARDEN.cropProfile.append(newCropProf)
+            warning.isHidden = false
         }
-        
-        self.navigationController?.popViewController(animated: true)
     }
     
 }

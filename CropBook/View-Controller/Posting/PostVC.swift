@@ -29,6 +29,7 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         let cropRef = ref.child("Gardens/\(post.gardenRef)/CropList")
         let userRef = ref.child("Users/\(uid!)/Gardens")
         
+        //Checks to see if user has garden in post
         userRef.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children{
                 let snap = child as! DataSnapshot
@@ -40,6 +41,7 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
             }
         }
         
+        //Retrieve all crops from a garden in firebase
         cropRef.observe(.value) { (snapshot) in
             for snap in snapshot.children{
                 let cropSnap = snap as! DataSnapshot
@@ -49,6 +51,9 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
             }
             self.cropsView.reloadData()
         }
+        
+        //Checks to see if Apply button is disabled
+        //Users can't apply to gardens they are part of
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
             if(self.vApply == false){
                 self.applyBtn.alpha = 0.5
@@ -60,6 +65,9 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
                 self.errorText.isHidden = true
             }
         })
+        
+        //Set Text fields and ensure
+        //cropviews working properly
         cropsView.delegate = self
         cropsView.dataSource = self
         descriptionField.text = post.getDescription()
@@ -79,6 +87,7 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         return crops.count
     }
     
+    //Display all crops from Garden in the Post
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cropCell", for : indexPath )
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{
@@ -86,6 +95,8 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         return cell
     }
     
+    //Determines if user can apply for post
+    //No if they are already part of garden
     func isValidApply(){
         let uRef = ref.child("Users/\(uid)")
         let gRef = uRef.child("Gardens")
@@ -107,10 +118,12 @@ class PostVC: UIViewController,UITableViewDataSource,UITableViewDelegate  {
         }
     }
     
+    //Proceed to fill out information for Application
     @IBAction func applyPressed(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute:{self.performSegue(withIdentifier: "applySegue", sender: self)})
     }
     
+    //Segue prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let receiverVC = segue.destination as! ApplyVC
         receiverVC.validApply = self.vApply
