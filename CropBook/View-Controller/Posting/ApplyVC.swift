@@ -21,12 +21,14 @@ class ApplyVC: UIViewController {
     var validApply = true
     var postRef : DatabaseReference?
     var uid = Auth.auth().currentUser?.uid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         submitBtn.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
+    //Send Application data to Firebase
     @IBAction func submitPressed(_ sender: Any) {
         let email = Auth.auth().currentUser?.email as! String
         let uRef = postRef?.child("Requests").child(uid!)

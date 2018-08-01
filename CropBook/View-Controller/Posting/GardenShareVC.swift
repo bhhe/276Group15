@@ -78,11 +78,12 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    //sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    //returns number of rows in data
+    //num of rows in tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(postings.count)
         return postings.count
@@ -91,6 +92,8 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
     //return cell for display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "PostCell")
+        
+        //change cell text
         if(indexPath.row <= postings.count){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
             cell.textLabel?.text = self.postings[indexPath.row].getTitle()
@@ -102,8 +105,7 @@ class GardenShareController: UIViewController, UITableViewDelegate, UITableViewD
         cell.detailTextLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!
                                             , size : 15)
         
-        //
-        //CAE1C8
+        //alternate color depending on row
         if indexPath.row % 2 == 0{
             cell.backgroundColor = UIColorFromRGB(rgbValue: 0xF6FED9)
         }else{
