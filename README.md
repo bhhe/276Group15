@@ -4,8 +4,9 @@
 
 Video: https://www.youtube.com/watch?v=GbgbS9BZ9V0
 
-### Gardening Made Easy
-CropBook is a gardener’s multi-purpose tool. The application provides a number of different features geared towards garden resource management. 
+
+## Gardening Made Easy
+CropBook is a gardener’s multi-purpose tool. The iOS application provides a number of different features geared towards garden resource management. 
 
 <ul>
 <li>Daily watering recommendations based on monitored weather activity </li>
@@ -17,6 +18,7 @@ CropBook is a gardener’s multi-purpose tool. The application provides a number
 
 <li>Knowledge base for plant requirements and soil information</li>
 </ul>
+
 
 ### Cocoapods Setup Guide
 
