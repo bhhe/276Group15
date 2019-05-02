@@ -43,6 +43,6 @@ pod install
 ```
 
 ### Credits
-Bowen He
-Jonathan Antepyan
+Bowen He,
+Jonathan Antepyan,
 Jason Wu
