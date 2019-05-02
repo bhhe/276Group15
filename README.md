@@ -41,3 +41,8 @@ pod install
 
 //Open .workspace file and you’re done kid
 ```
+
+### Credits
+Bowen He
+Jonathan Antepyan
+Jason Wu
