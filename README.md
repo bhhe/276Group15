@@ -3,6 +3,7 @@
 [![CropBook](https://img.youtube.com/vi/GbgbS9BZ9V0/0.jpg)](https://www.youtube.com/watch?v=GbgbS9BZ9V0 "CropBook")
 
 Video: https://www.youtube.com/watch?v=GbgbS9BZ9V0
+Note: Video UI is outdated
 
 
 ## Gardening Made Easy
